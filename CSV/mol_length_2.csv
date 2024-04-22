@@ -1,0 +1,5 @@
+CycPeptMPDB_ID,Source,Year,Original_Name_in_Source_Literature,Structurally_Unique_ID,SMILES,Monomer_Length,Molecule_Shape,PAMPA,Caco2,MDCK,RRCK,MolLogP
+7384,2022_Saunders,2022,Cyclo-(PThzLOxzF) odz/Et (8),7384,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)c2coc(n2)[C@H](CC(C)C)NC(=O)c2csc(n2)[C@@H]2CCCN21,2,Circle,-5.72,,,,5.3467
+7385,2022_Saunders,2022,Cyclo-(PThzLOxzY) odz/Et (9),7385,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccc(O)cc2)NC(=O)c2coc(n2)[C@H](CC(C)C)NC(=O)c2csc(n2)[C@@H]2CCCN21,2,Circle,-6.07,,,,5.0523
+7386,2022_Saunders,2022,Cyclo-(PThzFOxzF) odz/Et (10),7386,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)c2coc(n2)[C@H](Cc2ccccc2)NC(=O)c2csc(n2)[C@@H]2CCCN21,2,Circle,-5.85,,,,5.5433
+7387,2022_Saunders,2022,Cyclo-(VThzLOxzF) odz/Et (11),7387,CC[C@H]1N[C@@H](C(C)C)c2nc(cs2)C(=O)N[C@@H](CC(C)C)c2nc(co2)C(=O)N[C@@H](Cc2ccccc2)c2nnc1o2,2,Circle,-6.25,,,,5.4965
