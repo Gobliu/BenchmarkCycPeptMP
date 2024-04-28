@@ -3,7 +3,6 @@ CycPeptMPDB_ID,Source,Year,Original_Name_in_Source_Literature,Structurally_Uniqu
 19,2006_Rezai_2,2006,compd.218,19,COc1ccc(C[C@@H]2NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@@H]3CCCN3C(=O)[C@@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@H]3CCCN3C2=O)cc1,7,Circle,-6.95,,,,2.8417
 20,2006_Rezai_2,2006,compd.225,20,COc1ccc(C[C@@H]2NC(=O)[C@H](CC(C)C)NC(=O)[C@@H](CC(C)C)NC(=O)[C@@H](CC(C)C)NC(=O)[C@H]3CCCN3C(=O)[C@H](CC(C)C)NC(=O)[C@H]3CCCN3C2=O)cc1,7,Circle,-7.12,,,,2.8417
 21,2006_Rezai_2,2006,compd.294,21,COc1ccc(C[C@@H]2NC(=O)[C@@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@H]3CCCN3C2=O)cc1,7,Circle,-6.41,,,,3.3816
-928,2014_Nielsen,2014,Danamide A (1),928,CC[C@H](C)[C@@H]1NC(=O)[C@@H]2CCCN2C(=O)[C@H]([C@@H](C)CC)NC(=O)[C@@H]2CCCN2C(=O)[C@H](Cc2ccccc2)NC(=O)[C@H](C)NC(=O)[C@H](C)NC1=O,7,Circle,,,,-6.22,0.7807
 951,2015_Ahlbach,2015,Scytalidamide B,951,CC(C)C[C@@H]1NC(=O)[C@H](Cc2ccccc2)NC(=O)[C@H](Cc2ccccc2)N(C)C(=O)[C@H](Cc2ccccc2)NC(=O)C(C)(C)NC(=O)[C@H](CC(C)C)N(C)C(=O)[C@@H]2[C@@H](C)CCN2C1=O,7,Circle,-4.08,,,,4.0605
 952,2015_Ahlbach,2015,Scytalidamide A,952,CC(C)C[C@@H]1NC(=O)[C@H](Cc2ccccc2)NC(=O)[C@H](Cc2ccccc2)N(C)C(=O)[C@H](Cc2ccccc2)NC(=O)C(C)(C)NC(=O)[C@H](CC(C)C)N(C)C(=O)[C@@H]2CCCN2C1=O,7,Circle,-4.19,,,,3.8145
 964,2015_Ahlbach,2015,Didemnin A,964,CC[C@H](C)[C@H]1NC(=O)[C@@H](NC(=O)[C@@H](CC(C)C)NC)[C@@H](C)OC(=O)[C@H](Cc2ccc(OC)cc2)N(C)C(=O)[C@@H]2CCCN2C(=O)[C@H](CC(C)C)NC(=O)[C@@H](C)C(=O)[C@H](C(C)C)OC(=O)C[C@@H]1O,7,Lariat,-5.89,,,,2.7057
