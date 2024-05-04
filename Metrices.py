@@ -107,12 +107,17 @@ def ensemble_pred(csv_files):
     print('auc', np.mean(auc_list), np.std(auc_list))
     print('f1', np.mean(f1_list), np.std(f1_list))
 
+    mean_pred = df[seed_columns].mean(axis=1)
+    # print(mean_pred)
+    mae, rmse, r2, pearson_r = regression_matrices(true, mean_pred)
+    print(mae, rmse, r2, pearson_r)
+
 
 if __name__ == '__main__':
     # csv_file = [f'GCN_block{i}.csv' for i in range(10)]
-    # csv_file = [f'./CSV/DMPNN_block{i}.csv' for i in range(10)]
+    csv_file = [f'./CSV/DMPNN_block{i}.csv' for i in range(10)]
     # csv_file = ['3seeds_F64_G2_M2_BDTrue_R512-1024-32_E3_end2end.csv']
-    csv_file = ['./CSV/DMPNN.csv']
+    # csv_file = ['./CSV/TVT_Split/Trained_on_6&7&10/DMPNN.csv']
     ensemble_pred(csv_file)
     # print(true_pm)
     # print(pred_pm)
