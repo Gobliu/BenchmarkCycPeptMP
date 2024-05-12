@@ -117,7 +117,7 @@ if __name__ == '__main__':
     # csv_file = [f'GCN_block{i}.csv' for i in range(10)]
     csv_file = [f'./CSV/DMPNN_block{i}.csv' for i in range(10)]
     # csv_file = ['3seeds_F64_G2_M2_BDTrue_R512-1024-32_E3_end2end.csv']
-    # csv_file = ['./CSV/TVT_Split/Trained_on_6&7&10/DMPNN.csv']
+    # csv_file = ['./CSV/TVT_Split_Result/Trained_on_6&7&10/DMPNN.csv']
     ensemble_pred(csv_file)
     # print(true_pm)
     # print(pred_pm)

@@ -57,6 +57,15 @@ def compare_diff_experiments(csv_path, exp_list):
             print(exp1, exp2, mean, std, len(clone_df))
 
 
+def three_repeats(csv_path):
+    df = pd.read_csv(csv_path)
+    print(df)
+    # df = df[~(df == 0).any(axis=1)]
+    # print(df)
+    print(df.columns)
+    print(np.abs(np.log10(df.Papp1)))
+
+
 if __name__ == '__main__':
     path = '../CSV/CycPeptMPDB_Peptide_All.csv'
     col_list = ['CycPeptMPDB_ID', 'Source', 'Year', 'Original_Name_in_Source_Literature', 'Structurally_Unique_ID',
@@ -64,5 +73,6 @@ if __name__ == '__main__':
     clean_df = pd.read_csv(path, usecols=col_list)
     # clean_df.dropna(subset=['PAMPA'], inplace=True)
     # duplicate_checker(clean_df)
-    duplicate_error_calculator('Duplicated_PAMPA_inter.csv')
+    # duplicate_error_calculator('Duplicated_PAMPA_inter.csv')
     # compare_diff_experiments(path, exp_list=['PAMPA', 'Caco2', 'MDCK', 'RRCK'])
+    three_repeats('./Furukawa_3repeats.csv')
