@@ -11,7 +11,7 @@ import torch.nn as nn
 
 from Utils import manual_seed
 from ModelFeatureGenerator import generate_model_feature
-from MoleculeNet_Main import data_loader, trainer
+from Main_MultipleCSV import data_loader, trainer
 
 
 def split_csv(csv_path):

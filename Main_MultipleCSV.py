@@ -11,6 +11,7 @@ import torch.nn as nn
 
 from Utils import manual_seed
 from ModelFeatureGenerator import generate_model_feature
+from Trainer import trainer
 
 
 def data_loader(train_list, valid_list, test_list, loader):
@@ -25,27 +26,6 @@ def data_loader(train_list, valid_list, test_list, loader):
     test = transformer.transform(test)
     print(f'Got {len(train.y)} samples for train, {len(valid.y)} for valid, and {len(test.y)} for test')
     return {'train': train, 'valid': valid, 'test': test, 'mean': mean, 'std': std, 'transformer': transformer}
-
-
-def trainer(model, n_epoch, patience, train_data, valid_data, metrics, transformers, text):
-    current_loss = float('inf')
-    current_patient = 0
-    best_model = deepcopy(model)
-    for i in range(n_epoch):
-        loss = model.fit(train_data, nb_epoch=1, checkpoint_interval=0)
-        valid_loss = model.evaluate(valid_data, metrics, transformers)['rms_score']
-        print(text, 'epoch', i, 'loss', loss, 'valid loss', valid_loss)
-        if valid_loss < current_loss:
-            current_loss = valid_loss
-            current_patient = 0
-            best_model = deepcopy(model)
-        else:
-            current_patient += 1
-
-        if current_patient > patience:
-            print(f"val_loss {current_loss} did not decrease for {current_patient} epochs consequently.")
-            break
-    return best_model
 
 
 def main(m_name_list, op_dir, seed_list):

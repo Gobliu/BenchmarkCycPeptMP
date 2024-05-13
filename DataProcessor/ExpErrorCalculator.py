@@ -60,10 +60,16 @@ def compare_diff_experiments(csv_path, exp_list):
 def three_repeats(csv_path):
     df = pd.read_csv(csv_path)
     print(df)
-    # df = df[~(df == 0).any(axis=1)]
-    # print(df)
+    df = df[~(df == 0).any(axis=1)]
+    print(df)
     print(df.columns)
-    print(np.abs(np.log10(df.Papp1)))
+    pair_wize_error = np.abs(np.log10(df.Papp1) - np.log10(df.Papp2)).tolist()
+    pair_wize_error += np.abs(np.log10(df.Papp2) - np.log10(df.Papp3)).tolist()
+    pair_wize_error += np.abs(np.log10(df.Papp1) - np.log10(df.Papp3)).tolist()
+    print(np.mean(pair_wize_error), np.std(pair_wize_error))
+    print(np.sum(pair_wize_error), len(pair_wize_error), len(df))
+    print(sorted(pair_wize_error, reverse=True))
+    print(sorted(pair_wize_error, reverse=True)[500:535])
 
 
 if __name__ == '__main__':
