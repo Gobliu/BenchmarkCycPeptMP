@@ -18,14 +18,8 @@ def data_loader(train_list, valid_list, test_list, loader):
     train = loader.create_dataset(train_list)
     valid = loader.create_dataset(valid_list)
     test = loader.create_dataset(test_list)
-    mean = np.mean(train.y)
-    std = np.std(train.y)
-    transformer = dc.trans.NormalizationTransformer(transform_y=True, dataset=train)
-    train = transformer.transform(train)
-    valid = transformer.transform(valid)
-    test = transformer.transform(test)
     print(f'Got {len(train.y)} samples for train, {len(valid.y)} for valid, and {len(test.y)} for test')
-    return {'train': train, 'valid': valid, 'test': test, 'mean': mean, 'std': std, 'transformer': transformer}
+    return {'train': train, 'valid': valid, 'test': test}
 
 
 def main(m_name_list, op_dir, seed_list):
@@ -55,33 +49,32 @@ def main(m_name_list, op_dir, seed_list):
 
             model = trainer(model, n_epoch=n_epoch, patience=patience, train_data=train_sol,
                             valid_data=valid_sol, metrics=[rms], transformers=transformers_sol,
-                            text=f'Training solubility with seed {actual_seed}')
+                            text=f'Training solubility with seed {123 * seed ** 2}')
 
             # ======= train
             print('==== train cyclic peptide data')
-            transformer_cp = data['transformer']
             model = trainer(model, n_epoch=n_epoch, patience=patience, train_data=train_cp,
-                            valid_data=valid_cp, metrics=[rms], transformers=[transformer_cp],
-                            text=f'Training permeability with seed {actual_seed}')
+                            valid_data=valid_cp, metrics=[rms], transformers=[],
+                            text=f'Training permeability with seed {123 * seed ** 2}')
 
-            print('Confirm valid loss', model.evaluate(valid_cp, [rms], transformers=[transformer_cp])['rms_score'])
-            test_pred = model.predict(test_cp, transformers=[transformer_cp])
-            print('RMSE for test data', mean_squared_error(model.predict(test_cp, transformers=[transformer_cp]),
-                                                           transformer_cp.untransform(test_cp.y), squared=False))
-            print('MAE for test data', mean_absolute_error(test_pred,
-                                                           transformer_cp.untransform(test_cp.y)))
-            print('test pred rmse:', np.mean((model.predict(test_cp) - test_cp.y)**2)**0.5)
+            print('Confirm valid loss', model.evaluate(valid_cp, [rms])['rms_score'])
+            test_pred = model.predict(test_cp)
+            print('RMSE for test data', mean_squared_error(model.predict(test_cp), test_cp.y), squared=False)
+            print('MAE for test data', mean_absolute_error(test_pred, test_cp.y))
+            # print('test pred rmse:', np.mean((model.predict(test_cp) - test_cp.y)**2)**0.5)
             df[f'Pred_{actual_seed}'] = test_pred
-            df[f'True_{actual_seed}'] = transformer_cp.untransform(test_cp.y)
+            df[f'True_{actual_seed}'] = test_cp.y
             model.save_checkpoint()
 
-        df.to_csv(f'./CSV/{m_name}.csv', index=False)
+        df.to_csv(f'./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/{m_name}.csv', index=False)
 
 
 if __name__ == '__main__':
     n_epoch = 20000
     batch_size = 64
     patience = 200
+    task = "Normalized_PAMPA"
+    mode = "regression"
 
     # train_list = [f'./CSV/mol_length_6_blk{i}.csv' for i in range(1, 9)]
     train_list = [f'./CSV/mol_length_{i}_train.csv' for i in [6, 7, 10]]
@@ -92,7 +85,7 @@ if __name__ == '__main__':
     print(valid_list)
     print(test_list)
 
-    seed_list_ = [123*3**i for i in range(10)]
+    seed_list_ = [123 * i ** 2 for i in range(10)]
     model_dir = "../SavedModel/DeepChemPermeability/TVT_split/"
 
     model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP']
