@@ -102,11 +102,11 @@ def train_valid_test_spliter(csv_list, frac_train=0.6, frac_valid=0.2, frac_test
         # print(sorted(test_idx))
 
         train_df = df.iloc[train_idx]
-        train_df.to_csv(f"../CSV/Data/{csv[:-4]}_train.csv", index=False)
+        train_df.to_csv(f"{csv[:-4]}_train.csv", index=False)
         valid_df = df.iloc[valid_idx]
-        valid_df.to_csv(f"../CSV/Data/{csv[:-4]}_valid.csv", index=False)
+        valid_df.to_csv(f"{csv[:-4]}_valid.csv", index=False)
         test_df = df.iloc[test_idx]
-        test_df.to_csv(f"../CSV/Data/{csv[:-4]}_test.csv", index=False)
+        test_df.to_csv(f"{csv[:-4]}_test.csv", index=False)
 
 
 if __name__ == '__main__':
@@ -116,6 +116,6 @@ if __name__ == '__main__':
     clean_df = column_clean(path, col_list)
     mol_length_split(clean_df)
     len_list = [6, 7, 10]
-    csv_list_ = [f"../CSV/mol_length_{i}.csv" for i in len_list]
+    csv_list_ = [f"../CSV/Data/mol_length_{i}.csv" for i in len_list]
     # block_spliter(csv_list_, n_blk=10)
     train_valid_test_spliter(csv_list_, frac_train=0.8, frac_valid=0.1, frac_test=0.1)
