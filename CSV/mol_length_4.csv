@@ -1,0 +1,56 @@
+CycPeptMPDB_ID,Source,Year,Original_Name_in_Source_Literature,Structurally_Unique_ID,SMILES,Monomer_Length,Molecule_Shape,PAMPA,Caco2,MDCK,RRCK,MolLogP
+957,2015_Ahlbach,2015,Patellamide C,957,CC[C@H](C)[C@@H]1NC(=O)c2csc(n2)[C@@H](C)NC(=O)[C@H]2N=C(O[C@@H]2C)[C@H](C(C)C)NC(=O)c2csc(n2)[C@@H](Cc2ccccc2)NC(=O)[C@H]2N=C1O[C@@H]2C,4,Circle,-4.73,,,,4.1611
+958,2015_Ahlbach,2015,Sclerotiotide F,958,CC(C)[C@H]1C(=O)N(C)[C@@H](C)C(=O)NCCC[C@H](NC(=O)/C=C/C=C/C=O)C(=O)N1C,4,Lariat,-10.0,,,,0.0224
+960,2015_Ahlbach,2015,pc1026,960,CC[C@H](C)[C@@H]1NC(=O)[C@H]([C@@H](C)O)NC(=O)[C@H](Cc2ccc(OC)cc2)NC(=O)[C@@H]2CCCN2C1=O,4,Circle,-7.24,,,,0.1236
+961,2015_Ahlbach,2015,Tentoxin,961,CC(C)C[C@@H]1NC(=O)[C@H](C)N(C)C(=O)CNC(=O)/C(=C/c2ccccc2)N(C)C1=O,4,Circle,-5.61,,,,0.9935
+1122,2016_Frost,2016,Compound.1,1122,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)CNC(=O)[C@@H]2CCCN21,4,Circle,-5.81,,,,1.162
+1123,2016_Frost,2016,Compound.8,1123,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)[C@H](C)NC(=O)[C@H](CC(C)C)NC(=O)CNC(=O)[C@@H]2CCCN21,4,Circle,-5.96,,,,1.5505
+1124,2016_Frost,2016,Compound.9,1124,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@H](C)NC(=O)[C@@H]2CCCN21,4,Circle,-5.42,,,,1.5505
+1125,2016_Frost,2016,Compound.10,1125,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)[C@H](C)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](C)NC(=O)[C@@H]2CCCN21,4,Circle,-5.47,,,,1.939
+1126,2016_Frost,2016,Compound.11,1126,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](Cc2ccccc2)NC(=O)[C@@H]2CCCN21,4,Circle,-4.89,,,,4.188
+1127,2016_Frost,2016,Compound.23,1127,CC(C)C[C@@H]1NC(=O)CNC(=O)[C@@H]2CCCN2[C@H](Cc2ccccc2)c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)CNC1=O,4,Circle,-5.27,,,,1.9947
+1128,2016_Frost,2016,Compound.27,1128,CC(C)C[C@@H]1NC(=O)CNC(=O)[C@@H]2CCCN2[C@H](CC(C)C)c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)CNC1=O,4,Circle,-5.27,,,,1.7981
+5600,2021_Comeau,2021,cmpd.32,5600,CC(C)CN1CC(=O)N[C@@H](C)C(=O)N[C@@H](Cc2ccccc2)C(=O)NCCCCC1=O,4,Circle,-7.21,,,,1.0033
+5601,2021_Comeau,2021,cmpd.33,5601,CC(C)C[C@@H]1NC(=O)CCCCNC(=O)[C@H](Cc2ccccc2)NC(=O)CN(C)C1=O,4,Circle,-6.33,,,,1.0033
+5602,2021_Comeau,2021,cmpd.phi-phi,5602,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CCCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.0,-5.45,,,1.0496
+5603,2021_Comeau,2021,cmpd.Nphe-phi,5603,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CCCCNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-7.18,-4.74,,,1.3509
+5604,2021_Comeau,2021,cmpd.Nleu-phi,5604,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NCCCCC(=O)N[C@@H](C)C1=O,4,Circle,-6.38,-5.54,,,1.0033
+5605,2021_Comeau,2021,cmpd.Nala-phi,5605,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)CCCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.43,-5.32,,,1.0033
+5606,2021_Comeau,2021,cmpd.phi-2R,5606,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)[C@H](C)CCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.64,-4.71,,,1.2956
+5607,2021_Comeau,2021,cmpd.phi-2S,5607,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)[C@@H](C)CCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.64,-5.12,,,1.2956
+5608,2021_Comeau,2021,cmpd.Nphe-2R,5608,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)[C@H](C)CCCNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-7.16,-5.05,,,1.5969
+5609,2021_Comeau,2021,cmpd.Nphe-2S,5609,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)[C@@H](C)CCCNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-6.31,-4.75,,,1.5969
+5610,2021_Comeau,2021,cmpd.Nleu-2R,5610,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NCCC[C@@H](C)C(=O)N[C@@H](C)C1=O,4,Circle,-6.14,-4.94,,,1.2493
+5611,2021_Comeau,2021,cmpd.Nleu-2S,5611,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NCCC[C@H](C)C(=O)N[C@@H](C)C1=O,4,Circle,-5.8,-4.48,,,1.2493
+5612,2021_Comeau,2021,cmpd.Nala-2R,5612,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)[C@H](C)CCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.69,-4.86,,,1.2493
+5613,2021_Comeau,2021,cmpd.Nala-2S,5613,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)[C@@H](C)CCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-8.34,-5.59,,,1.2493
+5614,2021_Comeau,2021,cmpd.phi-3R,5614,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)C[C@H](C)CCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.75,-4.94,,,1.2956
+5615,2021_Comeau,2021,cmpd.phi-3S,5615,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)C[C@@H](C)CCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.18,-4.84,,,1.2956
+5616,2021_Comeau,2021,cmpd.Nphe-3R,5616,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)C[C@H](C)CCNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-7.49,-5.0,,,1.5969
+5617,2021_Comeau,2021,cmpd.Nphe-3S,5617,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)C[C@@H](C)CCNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-6.49,-5.0,,,1.5969
+5618,2021_Comeau,2021,cmpd.Nleu-3R,5618,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NCC[C@@H](C)CC(=O)N[C@@H](C)C1=O,4,Circle,-5.84,-4.45,,,1.2493
+5619,2021_Comeau,2021,cmpd.Nleu-3S,5619,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NCC[C@H](C)CC(=O)N[C@@H](C)C1=O,4,Circle,-5.97,-4.57,,,1.2493
+5620,2021_Comeau,2021,cmpd.Nala-3R,5620,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)C[C@H](C)CCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.68,-5.55,,,1.2493
+5621,2021_Comeau,2021,cmpd.Nala-3S,5621,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)C[C@@H](C)CCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.92,-5.15,,,1.2493
+5622,2021_Comeau,2021,cmpd.phi-4R,5622,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CC[C@@H](C)CNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.27,-5.03,,,1.2956
+5623,2021_Comeau,2021,cmpd.phi-4S,5623,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CC[C@H](C)CNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.91,-4.92,,,1.2956
+5624,2021_Comeau,2021,cmpd.Nphe-4R,5624,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CC[C@@H](C)CNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-6.68,-4.67,,,1.5969
+5625,2021_Comeau,2021,cmpd.Nphe-4S,5625,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CC[C@H](C)CNC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-6.98,-4.81,,,1.5969
+5626,2021_Comeau,2021,cmpd.Nleu-4R,5626,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NC[C@H](C)CCC(=O)N[C@@H](C)C1=O,4,Circle,-5.92,-4.8,,,1.2493
+5627,2021_Comeau,2021,cmpd.Nleu-4S,5627,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)NC[C@@H](C)CCC(=O)N[C@@H](C)C1=O,4,Circle,-5.66,-4.69,,,1.2493
+5628,2021_Comeau,2021,cmpd.Nala-4R,5628,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)CC[C@@H](C)CNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.63,-5.46,,,1.2493
+5629,2021_Comeau,2021,cmpd.Nala-4S,5629,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)CC[C@H](C)CNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.63,-4.95,,,1.2493
+5630,2021_Comeau,2021,cmpd.phi-5R,5630,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CCC[C@@H](C)NC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.05,-5.04,,,1.4381
+5631,2021_Comeau,2021,cmpd.phi-5S,5631,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CCC[C@H](C)NC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.49,-5.51,,,1.4381
+5632,2021_Comeau,2021,cmpd.Nphe-5R,5632,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CCC[C@@H](C)NC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-6.81,-4.99,,,1.7394
+5633,2021_Comeau,2021,cmpd.Nphe-5S,5633,CC(C)C[C@@H]1NC(=O)[C@H](C)NC(=O)CCC[C@H](C)NC(=O)CN(Cc2ccccc2)C1=O,4,Circle,-6.65,-5.24,,,1.7394
+5634,2021_Comeau,2021,cmpd.Nleu-5R,5634,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)N[C@H](C)CCCC(=O)N[C@@H](C)C1=O,4,Circle,-5.39,-4.53,,,1.3918
+5635,2021_Comeau,2021,cmpd.Nleu-5S,5635,CC(C)CN1CC(=O)N[C@@H](Cc2ccccc2)C(=O)N[C@@H](C)CCCC(=O)N[C@@H](C)C1=O,4,Circle,-7.21,-5.22,,,1.3918
+5636,2021_Comeau,2021,cmpd.Nala-5R,5636,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)CCC[C@@H](C)NC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.18,-5.23,,,1.3918
+5637,2021_Comeau,2021,cmpd.Nala-5S,5637,CC(C)C[C@@H]1NC(=O)CN(C)C(=O)CCC[C@H](C)NC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.86,-5.25,,,1.3918
+5638,2021_Comeau,2021,cmpd.NMeLeu-2S,5638,CC(C)C[C@H]1C(=O)N[C@@H](Cc2ccccc2)C(=O)NCCC[C@H](C)C(=O)N[C@@H](C)C(=O)N1C,4,Circle,-6.01,,,,1.6378
+5639,2021_Comeau,2021,cmpd.(D)Leu-2S,5639,CC(C)C[C@H]1NC(=O)[C@H](C)NC(=O)[C@@H](C)CCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-7.41,,,,1.2956
+5640,2021_Comeau,2021,cmpd.aMe-Leu-2S,5640,CC(C)C[C@]1(C)NC(=O)[C@H](C)NC(=O)[C@@H](C)CCCNC(=O)[C@H](Cc2ccccc2)NC1=O,4,Circle,-6.52,,,,1.6857
+5641,2021_Comeau,2021,cmpd.(D)NMeLeu-2S,5641,CC(C)C[C@@H]1C(=O)N[C@@H](Cc2ccccc2)C(=O)NCCC[C@H](C)C(=O)N[C@@H](C)C(=O)N1C,4,Circle,-5.75,,,,1.6378
+7378,2022_Saunders,2022,Cyclo-(PGLGF) Odz/(S)-Ethyl (2),1122,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)CNC(=O)[C@@H]2CCCN21,4,Circle,-7.75,,,,1.162
+7381,2022_Saunders,2022,Cyclo-(PThzLOxzFA) (5),7381,CC(C)C[C@@H]1NC(=O)c2csc(n2)[C@@H]2CCCN2C(=O)[C@H](C)NC(=O)[C@H](Cc2ccccc2)NC(=O)c2coc1n2,4,Circle,-5.84,,,,3.1712

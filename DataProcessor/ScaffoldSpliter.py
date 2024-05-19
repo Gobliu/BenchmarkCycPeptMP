@@ -70,6 +70,15 @@ def block_spliter(csv_list, n_blk):
 def train_valid_test_spliter(csv_list, frac_train=0.6, frac_valid=0.2, frac_test=0.2):
     for csv in csv_list:
         df, all_scaffold_sets = scaffold_cluster(csv)
+
+        # ===============
+        df['Normalized_PAMPA'] = df['PAMPA'].clip(lower=-8)
+        df['Normalized_PAMPA'] = (df['Normalized_PAMPA'] + 6) / 2
+        df['Binary'] = df['Normalized_PAMPA'].apply(lambda x: 1 if x > 0 else 0)
+        df['Soft_Label'] = (df['Normalized_PAMPA'] + 1) / 2
+        df['Soft_Label'] = df['Soft_Label'].apply(lambda x: 1 if x > 0.625 else 0 if x < 0.375 else x)
+        # ===============
+
         # get train, valid test indices
         np.testing.assert_almost_equal(frac_train + frac_valid + frac_test, 1.0)
         train_cutoff = frac_train * len(df)
@@ -93,11 +102,11 @@ def train_valid_test_spliter(csv_list, frac_train=0.6, frac_valid=0.2, frac_test
         # print(sorted(test_idx))
 
         train_df = df.iloc[train_idx]
-        train_df.to_csv(f"../CSV/{csv[:-4]}_train.csv", index=False)
+        train_df.to_csv(f"../CSV/Data/{csv[:-4]}_train.csv", index=False)
         valid_df = df.iloc[valid_idx]
-        valid_df.to_csv(f"../CSV/{csv[:-4]}_valid.csv", index=False)
+        valid_df.to_csv(f"../CSV/Data/{csv[:-4]}_valid.csv", index=False)
         test_df = df.iloc[test_idx]
-        test_df.to_csv(f"../CSV/{csv[:-4]}_test.csv", index=False)
+        test_df.to_csv(f"../CSV/Data/{csv[:-4]}_test.csv", index=False)
 
 
 if __name__ == '__main__':
