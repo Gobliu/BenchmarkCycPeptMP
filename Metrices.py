@@ -72,10 +72,12 @@ def ensemble_pred(csv_files):
     # Concatenate columns based on their names
     concatenated_data = {name: pd.concat(columns, axis=0, ignore_index=True) for name, columns in columns_dict.items()}
     df = pd.DataFrame(concatenated_data)
-    df.to_csv('./DMPNN_10Blocks.csv', index=False)
+    # df.to_csv('./DMPNN_10Blocks.csv', index=False)
     rows_with_nan = df[df.isnull().any(axis=1)]
     print('rows with nan value', rows_with_nan)
     # true = df.PAMPA
+    # print(df.keys())
+    # print(true)
     true = df.Normalized_PAMPA
     # print(true * 2 - 6)
 
@@ -123,8 +125,8 @@ if __name__ == '__main__':
     # csv_file = [f'GCN_block{i}.csv' for i in range(10)]
     # csv_file = [f'./CSV/DMPNN_block{i}.csv' for i in range(10)]
     # csv_file = ['3seeds_F64_G2_M2_BDTrue_R512-1024-32_E3_end2end.csv']
-    # csv_file = ['./CSV/Predictions/TVT_Split_Result/Trained_on_6&7&10/DMPNN.csv']
-    csv_file = ['./CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed9.csv']
+    csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/DMPNN.csv']
+    # csv_file = ['./CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed9.csv']
     ensemble_pred(csv_file)
     # print(true_pm)
     # print(pred_pm)

@@ -1,7 +1,7 @@
 import deepchem as dc
 
 
-def generate_model_feature(m_name, op_dir, batch_size, mode='regression'):
+def generate_model_feature(m_name, op_dir, batch_size, mode):
     if m_name == 'GCN':
         feat = dc.feat.MolGraphConvFeaturizer()
         net = dc.models.GCNModel(n_tasks=1, mode=mode, model_dir=f"{op_dir}{m_name}", batch_size=batch_size)
