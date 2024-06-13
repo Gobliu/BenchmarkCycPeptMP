@@ -5,22 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e8a7a4-aa06-4a95-924f-3be0515118ef" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/DeepChemPermeability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeepChemPermeability.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/.~lock.DMPNN.csv#" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/AttentiveFP.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/AttentiveFP.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/DMPNN.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/DMPNN.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/GAT.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/GAT.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/GCN.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/GCN.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/MPNN.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/MPNN.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/PAGTN.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&amp;7&amp;10/PAGTN.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DMPNN_10Blocks.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DMPNN_10Blocks.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Main_MultipleCSV.py" beforeDir="false" afterPath="$PROJECT_DIR$/Main_MultipleCSV.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Metrices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Metrices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ModelFeatureGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/ModelFeatureGenerator.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Main_RandomSplit_Binary.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed0.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed0.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Trainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/Trainer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp_train.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp_valid.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,10 +41,16 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main"
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/liuwei/GitHub/DeepChemPermeability"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.Metrices">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.Main_RandomSplit_Binary">
     <configuration name="Main_MultipleCSV" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DeepChemPermeability" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -59,6 +64,27 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main_MultipleCSV.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Main_RandomSplit_Binary" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DeepChemPermeability" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main_RandomSplit_Binary.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -90,8 +116,9 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Metrices" />
+        <item itemvalue="Python.Main_RandomSplit_Binary" />
         <item itemvalue="Python.Main_MultipleCSV" />
+        <item itemvalue="Python.Metrices" />
       </list>
     </recent_temporary>
   </component>
