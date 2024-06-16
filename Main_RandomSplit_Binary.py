@@ -29,7 +29,7 @@ def main(ip_path, op_dir, m_name):
     bce = dc.metrics.Metric(dc.metrics.score_function.prc_auc_score)
     ip_df = pd.read_csv(ip_path)
 
-    for split_seed in range(10):
+    for split_seed in range(1, 10):
         manual_seed(123 * split_seed ** 2)
         feat, model = generate_model_feature(m_name, op_dir, batch_size=batch_size, mode=mode)
 
@@ -42,7 +42,7 @@ def main(ip_path, op_dir, m_name):
         model = trainer_classification(model, n_epoch=n_epoch // 5, patience=patience, train_data=train_pre_train,
                                        valid_data=valid_pre_train, metrics=[bce], transformers=transformers_pre_train,
                                        text=f'Training solubility with split seed {split_seed}')
-
+        # print('pred train', model.predict(valid_pre_train).shape, model.predict(valid_pre_train))
         print('Confirm valid loss for pre train',
               model.evaluate(valid_pre_train, [bce], transformers_pre_train)['prc_auc_score'])
 
@@ -84,7 +84,7 @@ def main(ip_path, op_dir, m_name):
 
 
 if __name__ == '__main__':
-    n_epoch = 2
+    n_epoch = 20000
     batch_size = 64
     patience = 200
     task = "Binary"
@@ -93,4 +93,4 @@ if __name__ == '__main__':
 
     # model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP']
     csv_path = "./CSV/Data/Random_Split.csv"
-    main(csv_path, model_dir, m_name="AttentiveFP")
+    main(csv_path, model_dir, m_name="PAGTN")
