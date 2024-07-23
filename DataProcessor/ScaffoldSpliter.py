@@ -87,35 +87,37 @@ def train_valid_test_spliter(csv_list, frac_train=0.6, frac_valid=0.2, frac_test
         for scaffold_set in all_scaffold_sets:
             if len(train_idx) < train_cutoff:
                 train_idx.extend(scaffold_set)
-                print('go to train', len(scaffold_set))
+                # print('go to train', len(scaffold_set))
             elif len(train_idx) + len(valid_idx) < valid_cutoff:
                 valid_idx.extend(scaffold_set)
-                print('go to valid', len(scaffold_set))
+                # print('go to valid', len(scaffold_set))
             else:
                 test_idx.extend(scaffold_set)
-                print('go to test', len(scaffold_set))
+                # print('go to test', len(scaffold_set))
 
         assert len(set(train_idx).intersection(set(valid_idx))) == 0
         assert len(set(test_idx).intersection(set(valid_idx))) == 0
         assert len(set(test_idx).intersection(set(train_idx))) == 0
         assert len(df) == len(set(train_idx)) + len(set(valid_idx)) + len(set(test_idx))
         # print(sorted(test_idx))
+        print(len(df), len(set(train_idx)), len(set(valid_idx)), len(set(test_idx)))
 
-        train_df = df.iloc[train_idx]
-        train_df.to_csv(f"{csv[:-4]}_train.csv", index=False)
-        valid_df = df.iloc[valid_idx]
-        valid_df.to_csv(f"{csv[:-4]}_valid.csv", index=False)
-        test_df = df.iloc[test_idx]
-        test_df.to_csv(f"{csv[:-4]}_test.csv", index=False)
+        # train_df = df.iloc[train_idx]
+        # train_df.to_csv(f"{csv[:-4]}_train.csv", index=False)
+        # valid_df = df.iloc[valid_idx]
+        # valid_df.to_csv(f"{csv[:-4]}_valid.csv", index=False)
+        # test_df = df.iloc[test_idx]
+        # test_df.to_csv(f"{csv[:-4]}_test.csv", index=False)
 
 
 if __name__ == '__main__':
-    path = '../CSV/4in1.csv'
+    path = '../CSV/Data/4in1.csv'
     col_list = ['CycPeptMPDB_ID', 'Source', 'Year', 'Original_Name_in_Source_Literature', 'Structurally_Unique_ID',
                 'SMILES', 'Molecule_Shape', 'Monomer_Length', 'PAMPA', 'Caco2', 'MDCK', 'RRCK', 'MolLogP']
     clean_df = column_clean(path, col_list)
     mol_length_split(clean_df)
     len_list = [6, 7, 10]
+    # len_list = [2, 3, 4, 5, 8, 9, 11, 12, 13, 14, 15]
     csv_list_ = [f"../CSV/Data/mol_length_{i}.csv" for i in len_list]
     # block_spliter(csv_list_, n_blk=10)
-    train_valid_test_spliter(csv_list_, frac_train=0.8, frac_valid=0.1, frac_test=0.1)
+    train_valid_test_spliter(csv_list_, frac_train=1.0, frac_valid=0.0, frac_test=0.0)

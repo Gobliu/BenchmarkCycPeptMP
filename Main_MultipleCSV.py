@@ -2,7 +2,7 @@ import os
 import sys
 import numpy as np
 from copy import deepcopy
-from sklearn.metrics import mean_squared_error, mean_absolute_error, log_loss, precision_recall_curve, auc
+from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 import deepchem as dc
 import deepchem.models.losses as losses
@@ -11,7 +11,7 @@ import torch.nn as nn
 
 from Utils import manual_seed
 from ModelFeatureGenerator import generate_model_feature
-from Trainer import trainer
+from Trainer import trainer_regression
 
 
 def data_loader(train_list, valid_list, test_list, loader):
@@ -22,56 +22,58 @@ def data_loader(train_list, valid_list, test_list, loader):
     return {'train': train, 'valid': valid, 'test': test}
 
 
-def main(ip_path, op_dir, m_name):
-    print(f'==== training {m_name} model')
-    bce = dc.metrics.Metric(dc.metrics.score_function.prc_auc_score)
-    df_list = []
-    for f in test_list:
-        df_list.append(pd.read_csv(f))
-    df = pd.concat(df_list, ignore_index=True)
+def main(m_name_list, op_dir, seed_list):
+    for m_name in m_name_list:
+        print(f'==== training {m_name} model')
+        df_list = []
+        for f in test_list:
+            df_list.append(pd.read_csv(f))
+        df = pd.concat(df_list, ignore_index=True)
+        # print(df.keys())
+        rms = dc.metrics.Metric(dc.metrics.score_function.rms_score)
+        for actual_seed in seed_list:
+            manual_seed(actual_seed)
+            feat, model = generate_model_feature(m_name, op_dir, batch_size=batch_size, mode=mode)
+            tasks_sol, datasets_sol, transformers_sol = dc.molnet.load_delaney(featurizer=feat, splitter='random')
+            print(tasks_sol)
+            train_sol, valid_sol, test_sol = datasets_sol
+            print(valid_sol.y)
+            # quit()
+            loader = dc.data.CSVLoader(
+                tasks=[task],
+                feature_field="SMILES",
+                id_field="Original_Name_in_Source_Literature",
+                featurizer=feat)
 
-    for s_seed in range(1, 10):
-        actual_seed = 123 * s_seed ** 2
-        manual_seed(actual_seed)
-        feat, model = generate_model_feature(m_name, op_dir, batch_size=batch_size, mode=mode)
+            data = data_loader(train_list, valid_list, test_list, loader)
+            train_cp, valid_cp, test_cp = data['train'], data['valid'], data['test']
+            # print(train_cp.y)
+            # quit()
 
-        # ======= pre train
-        tasks, datasets_pre_train, transformers_pre_train = dc.molnet.load_bbbp(featurizer=feat, splitter='random')
-        train_pre_train, valid_pre_train, test_pre_train = datasets_pre_train
+            # ======= pre train
+            print('==== train solubility data')
 
-        # ======= pre train
-        print('==== train solubility data')
+            model = trainer_regression(model, n_epoch=n_epoch // 5, patience=patience, train_data=train_sol,
+                            valid_data=valid_sol, metrics=[rms], transformers=transformers_sol,
+                            text=f'Training solubility with seed {actual_seed}')
 
-        model = trainer(model, n_epoch=n_epoch // 5, patience=patience, train_data=train_pre_train,
-                        valid_data=valid_pre_train, metrics=[bce], transformers=transformers_pre_train,
-                        text=f'Training solubility with seed {s_seed}')
+            # ======= train
+            print('==== train cyclic peptide data')
+            # classification_rms = dc.metrics.Metric(dc.metrics.roc_auc_score, mode=mode)
+            model = trainer_regression(model, n_epoch=n_epoch, patience=patience, train_data=train_cp,
+                            valid_data=valid_cp, metrics=[rms], transformers=[],
+                            text=f'Training permeability with seed {actual_seed}')
 
-        # ======= train
-
-        loader = dc.data.CSVLoader(tasks=[task],
-                                   feature_field="SMILES",
-                                   id_field="Original_Name_in_Source_Literature",
-                                   featurizer=feat)
-
-        data = data_loader(train_list, valid_list, test_list, loader)
-        train_cp, valid_cp, test_cp = data['train'], data['valid'], data['test']
-        print('==== train cyclic peptide data')
-        # classification_rms = dc.metrics.Metric(dc.metrics.roc_auc_score, mode=mode)
-        model = trainer(model, n_epoch=n_epoch, patience=patience, train_data=train_cp,
-                        valid_data=valid_cp, metrics=[bce], transformers=[],
-                        text=f'Training permeability with seed {s_seed}')
-
-        print('Confirm train loss', model.evaluate(train_cp, [bce])['prc_auc_score'])
-        print('Confirm valid loss', model.evaluate(valid_cp, [bce])['prc_auc_score'])
-        print('BCE for Train', log_loss(train_cp.y, model.predict(train_cp)[:, 1]))
-        precision, recall, _ = precision_recall_curve(train_cp.y, model.predict(train_cp)[:, 1])
-        print('ROC AUC for Train', auc(recall, precision))
-        df[f'Pred_{s_seed}'] = model.predict(test_cp)[:, 1]
-        df[f'True_{s_seed}'] = test_cp.y
-        precision, recall, _ = precision_recall_curve(test_cp.y, model.predict(test_cp)[:, 1])
-        print('ROC AUC for Train', auc(recall, precision))
-        model.save_checkpoint()
-        df.to_csv(f'./CSV/Predictions/TVT_Random_Split/Binary/{m_name}_ModelSeed{actual_seed}.csv', index=False)
+            print('Confirm valid loss', model.evaluate(valid_cp, [rms])['rms_score'])
+            test_pred = model.predict(test_cp)
+            print('RMSE for test data', mean_squared_error(model.predict(test_cp), test_cp.y, squared=False))
+            print('MAE for test data', mean_absolute_error(test_pred, test_cp.y))
+            # print('test pred rmse:', np.mean((model.predict(test_cp) - test_cp.y)**2)**0.5)
+            df[f'Pred_{actual_seed}'] = test_pred
+            df[f'True_{actual_seed}'] = test_cp.y
+            model.save_checkpoint()
+        # print(df.keys())
+        df.to_csv(f'./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/{m_name}.csv', index=False)
 
 
 if __name__ == '__main__':
@@ -92,9 +94,8 @@ if __name__ == '__main__':
     print(valid_list)
     print(test_list)
 
-    seed_list_ = [123 * i ** 2 for i in range(2)]
+    seed_list_ = [123 * i ** 2 for i in range(10)]
     model_dir = "../SavedModel/DeepChemPermeability/TVT_split/"
 
     model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP']
-    for m in model_list:
-        main(model_dir, seed_list_)
+    main(model_list[:1] + model_list[2:3], model_dir, seed_list_)

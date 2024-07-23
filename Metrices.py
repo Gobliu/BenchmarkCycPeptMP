@@ -6,8 +6,9 @@ import matplotlib.pyplot as plt
 
 
 def regression_matrices(true, pred):
-    print(f'ground truth: mean {true.mean():.3f}, std {true.std():.3f}')
-
+    print('Converting to original value')
+    print(f'ground truth: max {true.max():.3f}, min {true.min():.3f}')
+    print(f'prediction: mean {pred.max():.3f}, min {pred.min():.3f}')
     mae = mean_absolute_error(true, pred)
     rmse = mean_squared_error(true, pred, squared=False)
     r2 = r2_score(true, pred)
@@ -16,12 +17,10 @@ def regression_matrices(true, pred):
     return mae, rmse, r2, pearson_r
 
 
-def classification_matrices(true_float, pred_float):
-    true = (true_float.values + 1)/2
-    pred = (pred_float.values + 1)/2
-    # true = (true_float.values + 12) / 12
-    # pred = (pred_float.values + 12) / 12
-    # print(df.true_pm)
+def classification_matrices(true, pred):
+    print('Converting to binary')
+    print(f'ground truth: max {true.max():.3f}, min {true.min():.3f}')
+    print(f'prediction: max {pred.max():.3f}, min {pred.min():.3f}')
     true[true < 0.5] = 0
     true[true >= 0.5] = 1
     true = true.astype(int)
@@ -42,76 +41,88 @@ def classification_matrices(true_float, pred_float):
     # Calculate the AUC
     roc_auc = auc(fpr, tpr)
 
+    # for t, p in zip(true, pred):
+    #     print(t, p)
+    pred = pred.copy()
     pred[pred < 0.5] = 0
     pred[pred >= 0.5] = 1
 
     f1 = f1_score(true, pred)
     print(f"auc: {roc_auc}, f1: {f1:.2f}")
+    acc = accuracy_score(true, pred)
+    precision = precision_score(true, pred)
+    recall = recall_score(true, pred)
 
-    conf_matrix = confusion_matrix(true, pred)
-    print("Confusion Matrix:")
-    print(conf_matrix)
-    print(np.sum(true > 0.5))
-    return roc_auc, f1
+    # conf_matrix = confusion_matrix(true, pred)
+    # print("Confusion Matrix:")
+    # print(conf_matrix)
+    # print(np.sum(true > 0.5))
+    # print(acc, precision)
+    return roc_auc, f1, acc, precision, recall
 
 
-def ensemble_pred(csv_files):
-    columns_dict = {}
-
-    # Iterate over each CSV file and group columns by name
-    for csv in csv_files:
-        current_data = pd.read_csv(csv)
-
-        # Group columns by name in the dictionary
-        for column_name in current_data.columns:
-            if column_name not in columns_dict:
-                columns_dict[column_name] = []
-
-            columns_dict[column_name].append(current_data[column_name])
-
-    # Concatenate columns based on their names
-    concatenated_data = {name: pd.concat(columns, axis=0, ignore_index=True) for name, columns in columns_dict.items()}
-    df = pd.DataFrame(concatenated_data)
-    # df.to_csv('./DMPNN_10Blocks.csv', index=False)
-    rows_with_nan = df[df.isnull().any(axis=1)]
-    print('rows with nan value', rows_with_nan)
-    # true = df.PAMPA
-    # print(df.keys())
-    # print(true)
-    true = df.Normalized_PAMPA
-    # print(true * 2 - 6)
-
-    # Calculate the average for each row in the selected columns
-    seed_columns = [col for col in df.columns if 'pred' in col.lower()]
-    print('Column names of predictions', seed_columns)
+def ensemble_pred_regression(csv_files):
     mae_list = []
     rmse_list = []
     r2_list = []
     pearson_r_list = []
     auc_list = []
     f1_list = []
-    for col in seed_columns:
-        print('column name', col)
-        # assert min(df[col]) > -13, f'{min(df[col])}'
-        # mae, rmse, r2, pearson_r = regression_matrices(true, df[col])
-        mae, rmse, r2, pearson_r = regression_matrices(true * 2 - 6, df[col] * 2 - 6)
-        auc_score, f1 = classification_matrices(true, df[col])
+    acc_list = []
+    precision_list = []
+    recall_list = []
+    for csv in csv_files:
+        df = pd.read_csv(csv)
+        # print(csv, len(df))
+        # rows_with_nan = df[df.isnull().any(axis=1)]
+        # print('rows with nan value', len(rows_with_nan))
+        true = df.Normalized_PAMPA
+        # print(true * 2 - 6)
 
-        mae_list.append(mae)
-        rmse_list.append(rmse)
-        r2_list.append(r2)
-        pearson_r_list.append(pearson_r)
-        auc_list.append(auc_score)
-        f1_list.append(f1)
+        # Calculate the average for each row in the selected columns
+        seed_columns = [col for col in df.columns if 'pred' in col.lower()]
+        print('Column names of predictions', seed_columns)
+
+        for col in seed_columns:
+            print('column name', col)
+            # assert min(df[col]) > -13, f'{min(df[col])}'
+            # mae, rmse, r2, pearson_r = regression_matrices(true, df[col])
+            mae, rmse, r2, pearson_r = regression_matrices(true * 2 - 6, df[col] * 2 - 6)
+            # the line below is for regression
+            auc_score, f1, acc, precision, recall = classification_matrices(true / 2 + 0.5, df[col] / 2 + 0.5)
+            # the line below is for binary classification
+            # auc_score, f1, acc, precision, recall = classification_matrices(true / 2 + 0.5, df[col])
+            print(acc, precision)
+
+            mae_list.append(mae)
+            rmse_list.append(rmse)
+            r2_list.append(r2)
+            pearson_r_list.append(pearson_r)
+
+            auc_list.append(auc_score)
+
+            f1_list.append(f1)
+            acc_list.append(acc)
+            precision_list.append(precision)
+            recall_list.append(recall)
 
     print('~~~~~~~~ metric statistics ~~~~~~~')
     print(mae_list)
     print('mae', np.mean(mae_list), np.std(mae_list))
     print('rmse', np.mean(rmse_list), np.std(rmse_list))
+    print(r2_list)
     print('r2', np.mean(r2_list), np.std(r2_list))
     print('pearson_r', np.mean(pearson_r_list), np.std(pearson_r_list))
+
+    # print('acc', np.mean(acc_list), np.std(acc_list))
+    # print('precision', np.mean(precision_list), np.std(precision_list))
+    # print(len(recall_list), recall_list)
+    # print('recall', np.mean(recall_list), np.std(recall_list))
+    # print('f1', np.mean(f1_list), np.std(f1_list))
+
     print('auc', np.mean(auc_list), np.std(auc_list))
-    print('f1', np.mean(f1_list), np.std(f1_list))
+    # print(f1_list)
+
 
     # TODO check!! true and pred become 0/1
     # mean_pred = df[seed_columns].mean(axis=1)
@@ -122,12 +133,11 @@ def ensemble_pred(csv_files):
 
 
 if __name__ == '__main__':
-    # csv_file = [f'GCN_block{i}.csv' for i in range(10)]
-    # csv_file = [f'./CSV/DMPNN_block{i}.csv' for i in range(10)]
-    # csv_file = ['3seeds_F64_G2_M2_BDTrue_R512-1024-32_E3_end2end.csv']
-    csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/DMPNN.csv']
-    # csv_file = ['./CSV/Predictions/TVT_Random_Split/MPNN_SplitSeed9.csv']
-    ensemble_pred(csv_file)
+    seed_list_ = [123 * i ** 2 for i in range(9, 10)]
+    # csv_file = [f'./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/Binary/PAGTN_ModelSeed{i}.csv' for i in seed_list_]
+    # csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/Regression/DMPNN.csv']
+    csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/GAT.csv']
+    ensemble_pred_regression(csv_file)
     # print(true_pm)
     # print(pred_pm)
     # regression_matrices(true_pm, pred_pm)

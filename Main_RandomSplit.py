@@ -11,7 +11,7 @@ import torch.nn as nn
 
 from Utils import manual_seed
 from ModelFeatureGenerator import generate_model_feature
-from Trainer import trainer
+from Trainer import trainer_regression
 
 
 def data_loader(ip_df, split_seed, loader):
@@ -45,16 +45,18 @@ def main(ip_path, op_dir, m_name):
         # ======= pre train
         print('==== train solubility data')
 
-        model = trainer(model, n_epoch=n_epoch // 5, patience=patience, train_data=train_sol,
-                        valid_data=valid_sol, metrics=[rms], transformers=transformers_sol,
-                        text=f'Training solubility with split seed {split_seed}')
+        model = trainer_regression(
+            model, n_epoch=n_epoch // 5, patience=patience, train_data=train_sol,
+            valid_data=valid_sol, metrics=[rms], transformers=transformers_sol,
+            text=f'Training solubility with split seed {split_seed}')
 
         df = pd.read_csv('temp_test.csv')
         # ======= train
         print('==== train cyclic peptide data')
-        model = trainer(model, n_epoch=n_epoch, patience=patience, train_data=train_cp,
-                        valid_data=valid_cp, metrics=[rms], transformers=[],
-                        text=f'Training permeability with split seed {split_seed}')
+        model = trainer_regression(
+            model, n_epoch=n_epoch, patience=patience, train_data=train_cp,
+            valid_data=valid_cp, metrics=[rms], transformers=[],
+            text=f'Training permeability with split seed {split_seed}')
 
         print('Confirm valid loss', model.evaluate(valid_cp, [rms])['rms_score'])
         test_pred = model.predict(test_cp)
@@ -65,11 +67,11 @@ def main(ip_path, op_dir, m_name):
         df[f'True_{split_seed}'] = test_cp.y
         model.save_checkpoint()
 
-        df.to_csv(f'./CSV/Predictions/TVT_Random_Split/{m_name}_SplitSeed{split_seed}.csv', index=False)
+        df.to_csv(f'./CSV/Predictions/TVT_Random_Split/Regression/{m_name}_SplitSeed{split_seed}.csv', index=False)
 
 
 if __name__ == '__main__':
-    n_epoch = 20000
+    n_epoch = 2
     batch_size = 64
     patience = 200
     task = "Normalized_PAMPA"
