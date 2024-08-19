@@ -9,9 +9,9 @@ import deepchem.models.losses as losses
 import pandas as pd
 import torch.nn as nn
 
-from Utils import manual_seed
+from Utils import set_seed
 from ModelFeatureGenerator import generate_model_feature
-from Trainer import trainer_classification
+from ModelTrainer import trainer_classification
 
 
 def data_loader(train_list, valid_list, test_list, loader):
@@ -32,12 +32,15 @@ def main(op_dir, m_name):
 
     for s_seed in range(10):
         actual_seed = 123 * s_seed ** 2
-        manual_seed(actual_seed)
+        set_seed(actual_seed)
         feat, model = generate_model_feature(m_name, op_dir, batch_size=batch_size, mode=mode)
+        print(model.loss, model.model)
 
         # ======= pre train
-        tasks, datasets_pre_train, transformers_pre_train = dc.molnet.load_bbbp(featurizer=feat, splitter='random')
+        _, datasets_pre_train, transformers_pre_train = dc.molnet.load_bbbp(featurizer=feat, splitter='random')
         train_pre_train, valid_pre_train, test_pre_train = datasets_pre_train
+        print(test_pre_train.y.shape, train_pre_train.w.shape)
+        # quit()
 
         # ======= pre train
         print('==== train solubility data')

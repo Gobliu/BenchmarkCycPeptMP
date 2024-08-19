@@ -1,7 +1,10 @@
 import os
 import sys
 import numpy as np
+# import random
 from copy import deepcopy
+
+import torch
 from sklearn.metrics import mean_squared_error, mean_absolute_error
 
 import deepchem as dc
@@ -9,9 +12,9 @@ import deepchem.models.losses as losses
 import pandas as pd
 import torch.nn as nn
 
-from Utils import manual_seed
+from Utils import set_seed
 from ModelFeatureGenerator import generate_model_feature
-from Trainer import trainer_regression
+from ModelTrainer import trainer_regression
 
 
 def data_loader(train_list, valid_list, test_list, loader):
@@ -30,12 +33,13 @@ def main(m_name_list, op_dir, seed_list):
             df_list.append(pd.read_csv(f))
         df = pd.concat(df_list, ignore_index=True)
         # print(df.keys())
-        rms = dc.metrics.Metric(dc.metrics.score_function.rms_score)
+        # rms = dc.metrics.Metric(dc.metrics.score_function.rms_score)
+        rms = None
         for actual_seed in seed_list:
-            manual_seed(actual_seed)
+            set_seed(actual_seed)
             feat, model = generate_model_feature(m_name, op_dir, batch_size=batch_size, mode=mode)
             tasks_sol, datasets_sol, transformers_sol = dc.molnet.load_delaney(featurizer=feat, splitter='random')
-            print(tasks_sol)
+            # print(tasks_sol)
             train_sol, valid_sol, test_sol = datasets_sol
             print(valid_sol.y)
             # quit()

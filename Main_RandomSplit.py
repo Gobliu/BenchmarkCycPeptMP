@@ -11,7 +11,7 @@ import torch.nn as nn
 
 from Utils import manual_seed
 from ModelFeatureGenerator import generate_model_feature
-from Trainer import trainer_regression
+from ModelTrainer import trainer_regression
 
 
 def data_loader(ip_df, split_seed, loader):

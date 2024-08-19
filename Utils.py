@@ -1,56 +1,42 @@
-import torch
+import random
 import numpy as np
 
 
-def manual_seed(seed):
-    torch.manual_seed(seed)
-    torch.backends.cudnn.deterministic = True
-    torch.backends.cudnn.benchmark = False
-    # print(torch.backends.cudnn.deterministic)
-    # print(torch.backends.cudnn.benchmark)
-    np.random.seed(seed)        # checked, still work
+def set_seed(seed, tensorflow=True, pytorch=True):
+    """
+    Sets the random seed for various libraries (NumPy, TensorFlow, PyTorch, and Python's random module).
 
+    Parameters:
+    - seed (int): The random seed value to set for the libraries.
+    - tensorflow (bool, optional): Set the seed for TensorFlow if True. Defaults to True.
+    - pytorch (bool, optional): Set the seed for PyTorch if True. Defaults to True.
 
-# def net2gpu(net, device):
-#     net.atom_embed.to(device)
-#     if net.gnn is not None:
-#         net.gnn.to(device)
-#     if net.attn is not None:
-#         net.attn.to(device)
-#     net.readout.to(device)
-#     net.mlp.to(device)
-#     if net.head_embed is not None:
-#         net.head_embed.to(device)
-#     if net.encoder is not None:
-#         net.encoder.to(device)
+    Note: Assumes libraries are already imported when setting their respective seeds.
+    """
 
-def net2gpu(net, device):
-    net.atom_embed.to(device)
-    net.bond_embed.to(device)
-    net.backbone.to(device)
-    net.readout.to(device)
-    net.pred.to(device)
-    # if net.gnn is not None:
-    #     net.gnn.to(device)
-    # if net.attn is not None:
-    #     net.attn.to(device)
-    # net.readout.to(device)
-    # net.mlp.to(device)
-    # if net.head_embed is not None:
-    #     net.head_embed.to(device)
-    # if net.encoder is not None:
-    #     net.encoder.to(device)
+    # Set seed for TensorFlow
+    try:
+        if tensorflow:
+            import tensorflow as tf
+            tf.random.set_seed(seed)
+    except:
+        print("Please import Tensorflow as tf to set its seed.")
 
+    # Set seed for PyTorch
+    try:
+        if pytorch:
+            import torch
+            torch.manual_seed(seed)
 
-def normalize_bond_mat(bond_mat, mask):
-    bond_mat *= torch.matmul(mask[..., None], mask[:, None])
-    # print(bond_mat[0, 0, :])
-    # print(bond_mat[0, -1, :])
-    bond_sum = torch.sum(bond_mat, dim=1)[:, None]
-    bond_sum[bond_sum == 0] = 1
-    bond_mat /= bond_sum
-    # bond_mat /= torch.sum(bond_sum) / torch.sum(mask)
-    # print(torch.sum(bond_mat, dim=1)[0, ...])
-    # print(torch.sum(bond_mat, dim=2)[0, ...])
-    # quit()
-    return bond_mat
+            # Set seed for PyTorch's CUDA and enforce deterministic behavior
+            if torch.cuda.is_available():
+                torch.cuda.manual_seed_all(seed)
+                torch.backends.cudnn.deterministic = True
+                torch.backends.cudnn.benchmark = False
+    except:
+        print("Please import PyTorch to set its seed.")
+
+    # Set seed for NumPy and Python's random module
+
+    np.random.seed(seed)
+    random.seed(seed)

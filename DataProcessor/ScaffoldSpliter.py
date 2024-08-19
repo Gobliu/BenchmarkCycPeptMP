@@ -3,20 +3,7 @@ import pandas as pd
 from pathlib import Path
 from rdkit.Chem.Scaffolds import MurckoScaffold
 
-
-def column_clean(csv_path, column_list):
-    df = pd.read_csv(csv_path, usecols=column_list)
-    df.dropna(subset=['PAMPA'], inplace=True)
-    return df
-
-
-def mol_length_split(df):
-    grouped = df.groupby('Monomer_Length')
-    # Iterate over the groups and save each one to a separate CSV file
-    for name, group in grouped:
-        filename = f"../CSV/mol_length_{name}.csv"  # Generate a filename based on the group name
-        group.to_csv(filename, index=False)  # Save the group to a CSV file without including the index
-        print(f"Group {name} has {len(group)} samples, saved to '{filename}'")
+from AddingLabel import adding_label
 
 
 def scaffold_cluster(csv_path):
@@ -67,16 +54,17 @@ def block_spliter(csv_list, n_blk):
             blk_df.to_csv(f"../CSV/{csv[:-4]}_blk{i}.csv", index=False)
 
 
-def train_valid_test_spliter(csv_list, frac_train=0.6, frac_valid=0.2, frac_test=0.2):
+def train_valid_test_spliter(csv_list, frac_train, frac_valid, frac_test):
     for csv in csv_list:
         df, all_scaffold_sets = scaffold_cluster(csv)
 
         # ===============
-        df['Normalized_PAMPA'] = df['PAMPA'].clip(lower=-8)
-        df['Normalized_PAMPA'] = (df['Normalized_PAMPA'] + 6) / 2
-        df['Binary'] = df['Normalized_PAMPA'].apply(lambda x: 1 if x > 0 else 0)
-        df['Soft_Label'] = (df['Normalized_PAMPA'] + 1) / 2
-        df['Soft_Label'] = df['Soft_Label'].apply(lambda x: 1 if x > 0.625 else 0 if x < 0.375 else x)
+        # df['Normalized_PAMPA'] = df['PAMPA'].clip(lower=-8)
+        # df['Normalized_PAMPA'] = (df['Normalized_PAMPA'] + 6) / 2
+        # df['Binary'] = df['Normalized_PAMPA'].apply(lambda x: 1 if x > 0 else 0)
+        # df['Soft_Label'] = (df['Normalized_PAMPA'] + 1) / 2
+        # df['Soft_Label'] = df['Soft_Label'].apply(lambda x: 1 if x > 0.625 else 0 if x < 0.375 else x)
+        df = adding_label(df)
         # ===============
 
         # get train, valid test indices
@@ -111,13 +99,8 @@ def train_valid_test_spliter(csv_list, frac_train=0.6, frac_valid=0.2, frac_test
 
 
 if __name__ == '__main__':
-    path = '../CSV/Data/4in1.csv'
-    col_list = ['CycPeptMPDB_ID', 'Source', 'Year', 'Original_Name_in_Source_Literature', 'Structurally_Unique_ID',
-                'SMILES', 'Molecule_Shape', 'Monomer_Length', 'PAMPA', 'Caco2', 'MDCK', 'RRCK', 'MolLogP']
-    clean_df = column_clean(path, col_list)
-    mol_length_split(clean_df)
     len_list = [6, 7, 10]
     # len_list = [2, 3, 4, 5, 8, 9, 11, 12, 13, 14, 15]
     csv_list_ = [f"../CSV/Data/mol_length_{i}.csv" for i in len_list]
     # block_spliter(csv_list_, n_blk=10)
-    train_valid_test_spliter(csv_list_, frac_train=1.0, frac_valid=0.0, frac_test=0.0)
+    train_valid_test_spliter(csv_list_, frac_train=0.8, frac_valid=0.1, frac_test=0.1)
