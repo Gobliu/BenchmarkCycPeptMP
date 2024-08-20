@@ -30,6 +30,7 @@ def main(m_names):
             feat, model = generate_model_feature(model_name, len(tasks), args)
             # model.loss = dc.models.losses.SoftmaxCrossEntropy
             # print(model.loss)
+            # quit()
             print('==== pre train ====')
             if args['mode'] == 'regression':
                 _, datasets_pre_train, transformers_pre_train = dc.molnet.load_delaney(

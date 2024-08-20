@@ -17,7 +17,7 @@ def regression_matrices(true, pred):
     return mae, rmse, r2, pearson_r
 
 
-def classification_matrices(true, pred):
+def classification_matrices(true, pred, cutoff=0.5):
     print('Converting to binary')
     print(f'ground truth: max {true.max():.3f}, min {true.min():.3f}')
     print(f'prediction: max {pred.max():.3f}, min {pred.min():.3f}')
@@ -44,8 +44,8 @@ def classification_matrices(true, pred):
     # for t, p in zip(true, pred):
     #     print(t, p)
     pred = pred.copy()
-    pred[pred < 0.5] = 0
-    pred[pred >= 0.5] = 1
+    pred[pred < cutoff] = 0
+    pred[pred >= cutoff] = 1
 
     f1 = f1_score(true, pred)
     print(f"auc: {roc_auc}, f1: {f1:.2f}")
@@ -121,7 +121,7 @@ def ensemble_pred_classification(csv_files):
         for col in seed_columns:
             print('column name', col)
 
-            auc_score, f1, acc, precision, recall = classification_matrices(true, df[col])
+            auc_score, f1, acc, precision, recall = classification_matrices(true, df[col], cutoff=0.16)
             print(acc, precision)
 
             auc_list.append(auc_score)
@@ -143,7 +143,7 @@ def ensemble_pred_classification(csv_files):
 if __name__ == '__main__':
     seed_list_ = list(range(1, 2))
     split = 'scaffold'
-    mode = 'classification'
+    mode = 'soft'
     csv_file = [f'./CSV/Predictions/{split}/{mode}/AttentiveFP_seed{i}.csv' for i in seed_list_]
     # csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/Regression/DMPNN.csv']
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/GAT_mol_length_8.csv']

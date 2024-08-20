@@ -1,0 +1,2 @@
+CycPeptMPDB_ID,Source,Year,Original_Name_in_Source_Literature,Structurally_Unique_ID,SMILES,Monomer_Length,Molecule_Shape,PAMPA,Caco2,MDCK,RRCK,MolLogP,Normalized_PAMPA,Binary,Soft_Label
+7384,2022_Saunders,2022,Cyclo-(PThzLOxzF) odz/Et (8),7384,CC[C@@H]1c2nnc(o2)[C@H](Cc2ccccc2)NC(=O)c2coc(n2)[C@H](CC(C)C)NC(=O)c2csc(n2)[C@@H]2CCCN21,2,Circle,-5.72,,,,5.3467,0.14,0,0.57

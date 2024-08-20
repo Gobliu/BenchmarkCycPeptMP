@@ -43,15 +43,22 @@ def main(m_names):
                 # train_cp, valid_cp, test_cp, test_df = data['train'], data['valid'], data['test'], data['test_df']
                 wp = f"{args['model_dir']}/{args['split']}/{args['mode']}/{model_name}/checkpoint_seed{split_seed}.pt"
                 model.restore(wp)
+                print(model.loss)
                 if args['mode'] == 'regression':
                     test_df[f'Pred_{split_seed}'] = model.predict(test_cp)
-                elif args['mode'] == 'classification':
+                elif args['mode'] == 'classification' or args['mode'] == 'soft':
                     test_df[f'Pred_{split_seed}'] = model.predict(test_cp)[:, 1]
+                    loss = model.evaluate(test_cp, [rms], [])[rms_score]
+                    # print(loss)
+                    # print(model.predict(test_cp), test_cp.y)
+                    # torch_ce_loss = nn.CrossEntropyLoss()
+                    # print(torch_ce_loss(torch.from_numpy(model.predict(test_cp)), torch.tensor([[1, 0]]).float()))
+                    # quit()
                 test_df[f'True_{split_seed}'] = test_cp.y
 
                 test_csv_path = f"{args['csv_dir']}/{args['split']}/{args['mode']}/{model_name}_{csv_name}"
             print('Saving csv of test data to', test_csv_path)
-            test_df.to_csv(test_csv_path, index=False)
+            # test_df.to_csv(test_csv_path, index=False)
 
 
 if __name__ == '__main__':
@@ -60,14 +67,16 @@ if __name__ == '__main__':
         args = yaml.load(f, Loader=yaml.Loader)
 
     rms_dict = {'classification': [dc.metrics.Metric(dc.metrics.prc_auc_score), 'prc_auc_score'],
-                'regression': [dc.metrics.Metric(dc.metrics.score_function.rms_score), 'rms_score']}
+                'regression': [dc.metrics.Metric(dc.metrics.score_function.rms_score), 'rms_score'],
+                'soft': [dc.metrics.Metric(dc.metrics.prc_auc_score), 'prc_auc_score']}
 
     task_dict = {'classification': ['Binary'],
-                 'regression': ['Normalized_PAMPA']}
+                 'regression': ['Normalized_PAMPA'],
+                 'soft': ['Soft_Label']}
 
     csv_list = [f'./CSV/Data/mol_length_{i}.csv' for i in [8, 9]]
     # csv_list = ["./CSV/Data/Random_Split.csv"]
 
     print('Working on csv list:', csv_list)
     model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP']
-    main(model_list)
+    main(model_list[:1])
