@@ -144,7 +144,7 @@ if __name__ == '__main__':
     seed_list_ = list(range(1, 11))
     split = 'scaffold'
     mode = 'classification'
-    model = 'DMPNN'
+    model = 'GCN'
     csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
     # csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/Regression/DMPNN.csv']
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
