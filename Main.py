@@ -73,10 +73,10 @@ def main(m_names):
                 train_cp, valid_cp, test_cp = adjust_label_weights(train_cp, valid_cp, test_cp, [1.])
 
             if args['mode'] == 'soft':
+                train_cp = p2distribution(train_cp)
                 valid_cp = soft_label2hard(valid_cp)
                 test_cp = soft_label2hard(test_cp)
 
-            # classification_rms = dc.metrics.Metric(dc.metrics.roc_auc_score, mode=mode)
             model = model_trainer(
                 model, f"{args['model_dir']}/{args['split']}/{args['mode']}/{model_name}", train_cp, valid_cp,
                 metrics=[rms], score_name=rms_score, transformers=[],
@@ -105,9 +105,9 @@ if __name__ == '__main__':
     with open(yaml_config_path, "r") as f:
         args = yaml.load(f, Loader=yaml.Loader)
 
-    rms_dict = {'classification': [dc.metrics.Metric(dc.metrics.prc_auc_score), 'prc_auc_score'],
+    rms_dict = {'classification': [dc.metrics.Metric(dc.metrics.f1_score), 'f1_score'],
                 'regression': [dc.metrics.Metric(dc.metrics.score_function.rms_score), 'rms_score'],
-                'soft': [dc.metrics.Metric(dc.metrics.prc_auc_score), 'prc_auc_score']}
+                'soft': [dc.metrics.Metric(dc.metrics.f1_score), 'f1_score']}
 
     task_dict = {'classification': ['Binary'],
                  'regression': ['Normalized_PAMPA'],
@@ -123,4 +123,4 @@ if __name__ == '__main__':
 
     print('Working on csv list:', csv_list)
     model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP']
-    main(model_list)
+    main(model_list[1:])

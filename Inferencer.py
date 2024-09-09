@@ -38,27 +38,19 @@ def main(m_names):
             test_df = pd.read_csv(csv)
             csv_name = csv.split('/')[-1]
             print(csv_name)
+            test_cp = p2distribution(test_cp)
             for split_seed in range(1, 11):
-                # data = data_loader_all_in_one(csv_list, split_seed, loader)
-                # train_cp, valid_cp, test_cp, test_df = data['train'], data['valid'], data['test'], data['test_df']
                 wp = f"{args['model_dir']}/{args['split']}/{args['mode']}/{model_name}/checkpoint_seed{split_seed}.pt"
+                print('Loading', wp)
                 model.restore(wp)
-                print(model.loss)
                 if args['mode'] == 'regression':
                     test_df[f'Pred_{split_seed}'] = model.predict(test_cp)
                 elif args['mode'] == 'classification' or args['mode'] == 'soft':
                     test_df[f'Pred_{split_seed}'] = model.predict(test_cp)[:, 1]
-                    loss = model.evaluate(test_cp, [rms], [])[rms_score]
-                    # print(loss)
-                    # print(model.predict(test_cp), test_cp.y)
-                    # torch_ce_loss = nn.CrossEntropyLoss()
-                    # print(torch_ce_loss(torch.from_numpy(model.predict(test_cp)), torch.tensor([[1, 0]]).float()))
-                    # quit()
-                test_df[f'True_{split_seed}'] = test_cp.y
-
-                test_csv_path = f"{args['csv_dir']}/{args['split']}/{args['mode']}/{model_name}_{csv_name}"
+            test_csv_path = f"{args['csv_dir']}/{args['split']}/{args['mode']}/{model_name}_{csv_name}"
+            # print(test_csv_path)
             print('Saving csv of test data to', test_csv_path)
-            # test_df.to_csv(test_csv_path, index=False)
+            test_df.to_csv(test_csv_path, index=False)
 
 
 if __name__ == '__main__':
@@ -79,4 +71,4 @@ if __name__ == '__main__':
 
     print('Working on csv list:', csv_list)
     model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP']
-    main(model_list[:1])
+    main(model_list)

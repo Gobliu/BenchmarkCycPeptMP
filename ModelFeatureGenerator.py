@@ -31,7 +31,8 @@ def generate_model_feature(m_name, n_tasks, args):
             net = dc.models.DMPNNModel(n_tasks=n_tasks, n_classes=2, mode=mode,
                                        model_dir=f"{op_dir}/{m_name}", batch_size=batch_size)
         else:
-            net = dc.models.DMPNNModel(n_tasks=n_tasks, mode=mode, model_dir=f"{op_dir}/{m_name}", batch_size=batch_size)
+            net = dc.models.DMPNNModel(n_tasks=n_tasks, mode=mode, model_dir=f"{op_dir}/{m_name}",
+                                       batch_size=batch_size)
     else:
         quit(f'Unknown model name: {m_name}')
     return feat, net

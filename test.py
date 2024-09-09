@@ -34,9 +34,25 @@ from deepchem.models import DMPNNModel
 # print("Train scores: ", train_scores)
 # print("Validation scores: ", valid_scores)
 
-loss_function = dc.models.losses.SparseSoftmaxCrossEntropy()
-pytorch_loss = loss_function._create_pytorch_loss()
+# loss_function = dc.models.losses.SparseSoftmaxCrossEntropy()
+# pytorch_loss = loss_function._create_pytorch_loss()
+#
+# true = torch.ones((2, 3)).float()
+# pred = torch.ones((2, 3)).float()
+# print(pytorch_loss(true, pred))
 
-true = torch.ones((2, 3)).float()
-pred = torch.ones((2, 3)).float()
-print(pytorch_loss(true, pred))
+inputs = torch.tensor([[2.3, 2.1]])
+
+target = torch.tensor([[0.9, 0.1]]).float()
+# one_hot_target = torch.tensor([[0,1,0], [0,0,1]]).float()
+
+# weights = torch.tensor([25., 25., 100.])
+
+ce_loss = torch.nn.CrossEntropyLoss(reduction='mean')
+print(ce_loss(inputs, target))
+
+softmax = torch.exp(inputs) / torch.sum(torch.exp(inputs))
+print(softmax)
+print(-torch.sum(torch.log(softmax) * target))
+nll_loss = torch.nn.NLLLoss(reduction='mean')
+print(nll_loss(torch.log(softmax), target))

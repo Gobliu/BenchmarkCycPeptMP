@@ -41,10 +41,11 @@ def model_trainer(
 
     for epoch in range(args['n_epoch']):
         loss = model.fit(train_data, nb_epoch=1, checkpoint_interval=0)
-
+        # print(model.predict(train_data)[:5, :])
+        # print(train_data.y[:5, :])
         valid_metrics = model.evaluate(valid_data, metrics, transformers)
         valid_loss = valid_metrics[score_name]
-        print(f"{text} - Epoch {epoch}: Train loss: {loss}, Validation loss: {valid_loss}")
+        print(f"{text} - Epoch {epoch}: Train loss: {loss}, Validation metric: {score_name} {valid_loss}")
 
         if (args['mode'] == 'regression' and valid_loss < current_loss) or \
            ((args['mode'] == 'classification' or args['mode'] == 'soft') and valid_loss > current_loss):

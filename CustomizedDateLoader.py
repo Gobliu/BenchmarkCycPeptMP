@@ -57,6 +57,22 @@ def convert_multitask(dataset, task_number):
     return new_dataset
 
 
+def p2distribution(dataset):
+    print("Running p2distribution")
+    y = np.copy(dataset.y)
+    print("Before y shape", y.shape)
+    # y = y[:, None]
+    y = np.concatenate((1-y, y), axis=-1)
+    print("After y shape", y.shape)
+    new_dataset = dc.data.NumpyDataset(
+        X=dataset.X,
+        y=y,
+        w=dataset.w,
+        ids=dataset.ids
+    )
+    return new_dataset
+
+
 def adjust_label_weights(train_data, valid_data, test_data, weight_list):
     assert train_data.w.shape[-1] == len(weight_list), 'Number of task does match with weight list length...'
     train_w = np.copy(train_data.w)

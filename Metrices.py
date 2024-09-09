@@ -141,12 +141,14 @@ def ensemble_pred_classification(csv_files):
 
 
 if __name__ == '__main__':
-    seed_list_ = list(range(1, 2))
+    seed_list_ = list(range(1, 11))
     split = 'scaffold'
-    mode = 'soft'
-    csv_file = [f'./CSV/Predictions/{split}/{mode}/AttentiveFP_seed{i}.csv' for i in seed_list_]
+    mode = 'classification'
+    model = 'DMPNN'
+    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
     # csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/Regression/DMPNN.csv']
-    # csv_file = [f'./CSV/Predictions/{split}/{mode}/GAT_mol_length_8.csv']
+    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
+    #             f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
     if mode == 'regression':
         ensemble_pred_regression(csv_file)
     elif mode == 'classification' or mode == 'soft':
