@@ -1,22 +1,8 @@
-import os
-import sys
-import numpy as np
 # import random
-from copy import deepcopy
 import yaml
 
-import torch
-from sklearn.metrics import mean_squared_error, mean_absolute_error
-
-import deepchem as dc
-import deepchem.models.losses as losses
-import pandas as pd
-import torch.nn as nn
-
-from CustomizedDateLoader import *
-from ModelFeatureGenerator import generate_model_feature
-from ModelTrainer import model_trainer
-from Utils import set_seed
+from DeepChemModels.CustomizedDateLoader import *
+from DeepChemModels.ModelFeatureGenerator import generate_model_feature
 
 
 def main(m_names):

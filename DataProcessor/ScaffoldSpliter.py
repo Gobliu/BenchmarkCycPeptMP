@@ -22,7 +22,7 @@ def scaffold_cluster(csv_path):
         else:
             all_scaffolds[scaffold].append(i)
 
-    print(len(all_scaffolds))
+    print('scaffold length', len(all_scaffolds))
     print(all_scaffolds)
     # sort from largest to smallest sets
     all_scaffold_sets = [

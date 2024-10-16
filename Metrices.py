@@ -24,7 +24,12 @@ def classification_matrices(true, pred, cutoff=0.5):
     true[true < 0.5] = 0
     true[true >= 0.5] = 1
     true = true.astype(int)
+    # print(true)
+    # print(pred)
     fpr, tpr, thresholds = roc_curve(true, pred)
+    # print(fpr)
+    # print(tpr)
+    # print(thresholds)
 
     # Plot the ROC curve
     # plt.figure()
@@ -121,7 +126,7 @@ def ensemble_pred_classification(csv_files):
         for col in seed_columns:
             print('column name', col)
 
-            auc_score, f1, acc, precision, recall = classification_matrices(true, df[col], cutoff=0.16)
+            auc_score, f1, acc, precision, recall = classification_matrices(true, df[col])
             print(acc, precision)
 
             auc_list.append(auc_score)
@@ -140,19 +145,33 @@ def ensemble_pred_classification(csv_files):
     print(auc_list)
 
 
+def combine_csv(csv_list):
+    dfs = [pd.read_csv(file) for file in csv_list]
+    dfs = pd.concat(dfs, ignore_index=True)
+    dfs.to_csv('temp.csv', index=False)
+    if mode == 'regression':
+        ensemble_pred_regression(['temp.csv'])
+    elif mode == 'classification' or mode == 'soft':
+        ensemble_pred_classification(['temp.csv'])
+
+
 if __name__ == '__main__':
     seed_list_ = list(range(1, 11))
     split = 'scaffold'
-    mode = 'classification'
-    model = 'GCN'
-    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
-    # csv_file = ['./CSV/Predictions/TVT_Scaffold_Split/Trained_on_6&7&10/Regression/DMPNN.csv']
-    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
-    #             f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
-    if mode == 'regression':
-        ensemble_pred_regression(csv_file)
-    elif mode == 'classification' or mode == 'soft':
-        ensemble_pred_classification(csv_file)
+    mode = 'regression'
+    model = 'PAGTN'
+
+    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
+    # # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}.csv']
+    # if mode == 'regression':
+    #     ensemble_pred_regression(csv_file)
+    # elif mode == 'classification' or mode == 'soft':
+    #     ensemble_pred_classification(csv_file)
+
+    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
+                f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
+    combine_csv(csv_file)
+
     # print(true_pm)
     # print(pred_pm)
     # regression_matrices(true_pm, pred_pm)

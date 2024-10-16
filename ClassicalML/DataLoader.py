@@ -12,15 +12,16 @@ def loader_random_split_scaled(split_seed):
 
     train = pd.read_csv("temp_train.csv", low_memory=False)
     x_train = train.drop(train.columns[0:34], axis=1)
-    y_train = train['Permeability']
+    y_train = train['Permeability'].clip(lower=-8, upper=-4)
 
     test = pd.read_csv("temp_test.csv", low_memory=False)
     x_test = test.drop(train.columns[0:34], axis=1)
-    y_test = test['Permeability']
+    y_test = test['Permeability'].clip(lower=-8, upper=-4)
 
     scaler = StandardScaler()
     x_train = scaler.fit_transform(x_train)
     x_test = scaler.transform(x_test)
+
     return {'train': [x_train, y_train], 'test': [x_test, y_test], 'test_df': test}
 
 
@@ -31,13 +32,13 @@ def loader_scaffold_split_scaled(train_list, test_list):
     dfs = pd.concat(dfs, ignore_index=True)
     train = df_all[df_all['CycPeptMPDB_ID'].isin(dfs['CycPeptMPDB_ID'])]
     x_train = train.drop(train.columns[0:34], axis=1)
-    y_train = train['Permeability']
+    y_train = train['Permeability'].clip(lower=-8, upper=-4)
 
     dfs = [pd.read_csv(file) for file in test_list]
     dfs = pd.concat(dfs, ignore_index=True)
     test = df_all[df_all['CycPeptMPDB_ID'].isin(dfs['CycPeptMPDB_ID'])]
     x_test = test.drop(train.columns[0:34], axis=1)
-    y_test = test['Permeability']
+    y_test = test['Permeability'].clip(lower=-8, upper=-4)
 
     scaler = StandardScaler()
     x_train = scaler.fit_transform(x_train)
