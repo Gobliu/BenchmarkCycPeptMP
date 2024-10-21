@@ -168,8 +168,9 @@ if __name__ == '__main__':
     # elif mode == 'classification' or mode == 'soft':
     #     ensemble_pred_classification(csv_file)
 
-    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
-                f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
+    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
+    #             f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
+    csv_file = [f'./PytorchModels/test_1.csv']
     combine_csv(csv_file)
 
     # print(true_pm)

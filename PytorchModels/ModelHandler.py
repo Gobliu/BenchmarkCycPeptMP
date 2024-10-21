@@ -1,15 +1,17 @@
 import torch
 from tqdm import tqdm
 
+from DecayCosineAnnealingWarmRestarts import DecayCosineAnnealingWarmRestarts
 
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 
 class ModelHandler:
-    def __init__(self, model, lr, loss):
+    def __init__(self, model, lr, loss, sch_step):
         self.model = model
         self.opt = torch.optim.Adam(self.model.parameters(), lr=lr)
         self.loss = loss
+        self.sch = DecayCosineAnnealingWarmRestarts(self.opt, sch_step, [0.9], 0.001*lr)
 
     def train(self, data_loader):
         loss_list = []

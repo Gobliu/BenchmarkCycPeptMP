@@ -1,0 +1,9 @@
+Skipped loading modules with pytorch-lightning dependency, missing a dependency. No module named 'pytorch_lightning'
+Skipped loading some Jax models, missing a dependency. No module named 'jax'
+csv list [['../CSV/Data/mol_length_6_train.csv', '../CSV/Data/mol_length_7_train.csv', '../CSV/Data/mol_length_10_train.csv'], ['../CSV/Data/mol_length_6_valid.csv', '../CSV/Data/mol_length_7_valid.csv', '../CSV/Data/mol_length_10_valid.csv'], ['../CSV/Data/mol_length_6_test.csv', '../CSV/Data/mol_length_7_test.csv', '../CSV/Data/mol_length_10_test.csv']]
+Traceback (most recent call last):
+  File "/home/liuwei/GitHub/DeepChemPermeability/PytorchModels/PytorchModelsMain.py", line 142, in <module>
+    main(csv_list_)
+  File "/home/liuwei/GitHub/DeepChemPermeability/PytorchModels/PytorchModelsMain.py", line 35, in main
+    train_data = DataSetSMILES(splited_csv_list[0], dict_path, x_column=x_column, y_column=y_column)
+UnboundLocalError: local variable 'splited_csv_list' referenced before assignment

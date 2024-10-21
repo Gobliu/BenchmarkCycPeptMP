@@ -1,6 +1,9 @@
 import os
+import sys
 # import random
 import yaml
+
+sys.path.append('../')
 
 from CustomizedDateLoader import *
 from DeepChemModels.ModelFeatureGenerator import generate_model_feature

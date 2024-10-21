@@ -34,4 +34,4 @@ class DataSetSMILES(Dataset):
             quit('Token length larger than 64')
         # print('id', id_, 'x', x, len(x), 'y', y)
         x = torch.tensor(x, dtype=torch.int)
-        return id_, x, y, self.df.loc[idx]
+        return id_, x, y, self.df.loc[idx].to_dict()

@@ -64,8 +64,8 @@ from deepchem.feat.smiles_tokenizer import SmilesTokenizer, get_default_tokenize
 #
 # # from deepchem.feat.molecule_featurizers.smiles_to_seq import SmilesToSeq
 # # print(vocab_path)
-tokenizer = SmilesTokenizer('./vocab.txt')
-print(tokenizer.encode("CC(=O)OC1=CC=CC=C1C(=O)O"))
+# tokenizer = SmilesTokenizer('./vocab-large.txt')
+# print(tokenizer.encode("CC(=O)OC1=CC=CC=C1C(=O)O"))
 
 # from transformers import BertTokenizerFast, BertModel
 #
@@ -78,33 +78,46 @@ print(tokenizer.encode("CC(=O)OC1=CC=CC=C1C(=O)O"))
 # tokens = tokenizer(example, return_tensors="pt")  # Tokenize the SMILES string
 # predictions = model(**tokens)  # Generate predictions
 
+#
+# import torch
+# import torch.nn as nn
+#
+# # Set random seed for reproducibility
+# torch.manual_seed(0)
+#
+# # Define the input dimensions
+# input_size = 5    # Number of features in the input
+# hidden_size = 10  # Number of features in the hidden state
+# num_layers = 1    # Number of recurrent layers
+#
+# # Create an RNN model
+# rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
+#
+# # Generate a sample input (batch size of 3, sequence length of 4, and input size of 5)
+# # The shape is (batch_size, sequence_length, input_size)
+# sample_input = torch.randn(3, 4, input_size)
+#
+# # Initialize the hidden state (num_layers, batch_size, hidden_size)
+# hidden_state = torch.zeros(num_layers, 3, hidden_size)
+#
+# # Run the RNN model
+# output, hn = rnn(sample_input, hidden_state)
+#
+# # Print the output and the final hidden state
+# print("Output shape:", output.shape)
+# print("Output:", output)
+# print("Hidden state shape:", hn.shape)
+# print("Hidden state:", hn)
 
-import torch
-import torch.nn as nn
+import pandas as pd
 
-# Set random seed for reproducibility
-torch.manual_seed(0)
+# Example dictionary
+data = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
 
-# Define the input dimensions
-input_size = 5    # Number of features in the input
-hidden_size = 10  # Number of features in the hidden state
-num_layers = 1    # Number of recurrent layers
+# Convert dictionary to Series
+s = pd.Series(data)
 
-# Create an RNN model
-rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
+# Create DataFrame from the Series
+df = s.to_frame(name=data.keys())
 
-# Generate a sample input (batch size of 3, sequence length of 4, and input size of 5)
-# The shape is (batch_size, sequence_length, input_size)
-sample_input = torch.randn(3, 4, input_size)
-
-# Initialize the hidden state (num_layers, batch_size, hidden_size)
-hidden_state = torch.zeros(num_layers, 3, hidden_size)
-
-# Run the RNN model
-output, hn = rnn(sample_input, hidden_state)
-
-# Print the output and the final hidden state
-print("Output shape:", output.shape)
-print("Output:", output)
-print("Hidden state shape:", hn.shape)
-print("Hidden state:", hn)
+print(df)
