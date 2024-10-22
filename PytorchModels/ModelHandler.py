@@ -17,7 +17,7 @@ class ModelHandler:
         loss_list = []
 
         self.model.train()
-        for _, (sample_id, x, y, _, _) in enumerate(tqdm(data_loader)):
+        for _, (sample_id, x, y, w, _) in enumerate(tqdm(data_loader)):
             self.opt.zero_grad()
             # print(x)
             x = x.to(device)
@@ -25,9 +25,10 @@ class ModelHandler:
             pred = self.model(x)
             # print('pred', pred, pred.shape, 'y', y, y.shape)
             loss = self.loss(pred, y)
-            loss_list.append(loss.item())
+            loss = torch.mean(loss * w)
             loss.backward()
             self.opt.step()
+            loss_list.append(loss.item())
 
         mean_loss = torch.mean(torch.tensor(loss_list))
         return mean_loss
@@ -37,11 +38,12 @@ class ModelHandler:
 
         self.model.eval()
         with torch.no_grad():
-            for _, (sample_id, x, y, _) in enumerate(tqdm(data_loader)):
+            for _, (sample_id, x, y, w, _) in enumerate(tqdm(data_loader)):
                 x = x.to(device)
                 y = y.to(device)
                 pred = self.model(x)
                 loss = self.loss(pred, y)
+                loss = torch.mean(loss * w)
                 loss_list.append(loss.item())
 
         mean_loss = torch.mean(torch.tensor(loss_list))

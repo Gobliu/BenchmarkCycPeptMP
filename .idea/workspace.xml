@@ -6,10 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="36e8a7a4-aa06-4a95-924f-3be0515118ef" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Metrices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Metrices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/DataSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/DataSet.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PytorchModels/ModelHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/ModelHandler.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PytorchModels/test.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/PytorchModels/test_1.csv" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

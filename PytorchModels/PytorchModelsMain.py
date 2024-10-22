@@ -35,11 +35,15 @@ def main(csv_list):
 
         print('csv list', csv_list)
         train_data = DataSetSMILES(split_csv_list[0], dict_path, x_column=x_column, y_column=y_column)
-        pw, nw = train_data.get_weight()
-        train_loader = torch.utils.data.DataLoader(train_data, batch_size, shuffle=True, **kwargs)
         valid_data = DataSetSMILES(split_csv_list[1], dict_path, x_column=x_column, y_column=y_column)
-        valid_loader = torch.utils.data.DataLoader(valid_data, batch_size, shuffle=False, **kwargs)
         test_data = DataSetSMILES(split_csv_list[2], dict_path, x_column=x_column, y_column=y_column)
+        if args['mode'] == 'classification' or args['mode'] == 'soft':
+            pw, nw = train_data.get_weight()
+            train_data.set_weight(pw, nw)
+            valid_data.set_weight(pw, nw)
+            test_data.set_weight(pw, nw)
+        train_loader = torch.utils.data.DataLoader(train_data, batch_size, shuffle=True, **kwargs)
+        valid_loader = torch.utils.data.DataLoader(valid_data, batch_size, shuffle=False, **kwargs)
         test_loader = torch.utils.data.DataLoader(test_data, 1, shuffle=False, **kwargs)
         # print(train_data[0])
         # quit()
