@@ -17,7 +17,7 @@ class ModelHandler:
         loss_list = []
 
         self.model.train()
-        for _, (sample_id, x, y, _) in enumerate(tqdm(data_loader)):
+        for _, (sample_id, x, y, _, _) in enumerate(tqdm(data_loader)):
             self.opt.zero_grad()
             # print(x)
             x = x.to(device)

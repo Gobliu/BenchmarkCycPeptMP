@@ -46,7 +46,10 @@ class DataSetSMILES(Dataset):
 
         # Verify that required columns exist in the DataFrame
         required_columns = [x_column, y_column, 'Binary', id_column]
+        print(required_columns)
+        print(self.df.columns)
         for col in required_columns:
+            print(col, self.df.columns)
             if col not in self.df.columns:
                 raise ValueError(f"Missing required column: {col}")
 
@@ -128,8 +131,10 @@ class DataSetSMILES(Dataset):
             raise ValueError(f'Index {idx} exceeds the length of the dataset: {self.__len__()}')
 
         try:
-            x = self.df.loc[idx, self.x_column].to_string(index=False, header=False)
+            x = self.df.loc[idx, self.x_column]
+            print(len(x), x)
             x = self.tokenizer.encode(x)
+            print(len(x), x)
         except Exception as e:
             raise ValueError(f"Tokenization error at index {idx}: {str(e)}")
 
@@ -137,10 +142,11 @@ class DataSetSMILES(Dataset):
         w = self.df.iloc[idx]['weight']  # Using .iloc to avoid SettingWithCopyWarning
         id_ = self.df.loc[idx, self.id_column]
 
-        if len(x) <= 64:
-            x += [0] * (64 - len(x))
+        if len(x) <= 160:
+            x += [0] * (160 - len(x))
         else:
-            raise ValueError('Token length is larger than 64.')
+            # print(len(x), x)
+            raise ValueError('Token length is larger than 128.')
 
         x = torch.tensor(x, dtype=torch.int)
         return id_, x, y, w, self.df.loc[idx].to_dict()  # Include weight in the return value

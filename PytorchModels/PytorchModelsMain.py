@@ -41,8 +41,8 @@ def main(csv_list):
         valid_loader = torch.utils.data.DataLoader(valid_data, batch_size, shuffle=False, **kwargs)
         test_data = DataSetSMILES(split_csv_list[2], dict_path, x_column=x_column, y_column=y_column)
         test_loader = torch.utils.data.DataLoader(test_data, 1, shuffle=False, **kwargs)
-        print(train_data[0])
-        quit()
+        # print(train_data[0])
+        # quit()
 
         if model_name == 'RNN':
             net = RNN(input_size, hidden_size, n_layers, len(y_column),
@@ -126,7 +126,7 @@ if __name__ == '__main__':
     with open(yaml_config_path, 'r') as f:
         args = yaml.load(f, Loader=yaml.Loader)
     dict_path = 'vocab-large.txt'
-    x_column = ['SMILES']
+    x_column = 'SMILES'
     batch_size = 16
     lr = 0.0001
     input_size = 64
@@ -136,15 +136,15 @@ if __name__ == '__main__':
     model_name = 'RNN'
     sch_step = 100
     if args['mode'] == 'regression':
-        y_column = ['Normalized_PAMPA']
+        y_column = 'Normalized_PAMPA'
         final_act_fun = torch.nn.Identity()
         loss_fun = torch.nn.L1Loss(reduction='none')
     elif args['mode'] == 'classification':
-        y_column = ['Binary']
+        y_column = 'Binary'
         final_act_fun = torch.nn.Sigmoid()
         loss_fun = torch.nn.BCELoss(reduction='none')
     elif args['mode'] == 'soft':
-        y_column = ['Soft_Label']
+        y_column = 'Soft_Label'
         final_act_fun = torch.nn.Sigmoid()
         loss_fun = torch.nn.BCELoss(reduction='none')
     else:
