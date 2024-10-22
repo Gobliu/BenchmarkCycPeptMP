@@ -157,9 +157,9 @@ def combine_csv(csv_list):
 
 if __name__ == '__main__':
     seed_list_ = list(range(1, 11))
-    split = 'scaffold'
+    split = 'random'
     mode = 'regression'
-    model = 'PAGTN'
+    model = 'RNN'
 
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
     # # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}.csv']
@@ -170,8 +170,11 @@ if __name__ == '__main__':
 
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
     #             f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
-    csv_file = [f'./PytorchModels/test_1.csv']
-    combine_csv(csv_file)
+    # csv_file = [f'./PytorchModels/test_1.csv']
+    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_ipsize64_hsize64_numlayer2_lr0.0001_{i}.csv' for i in seed_list_]
+    # print(seed_list_)
+    # print(csv_file)
+    combine_csv(csv_file[:1])
 
     # print(true_pm)
     # print(pred_pm)

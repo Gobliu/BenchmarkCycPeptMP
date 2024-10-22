@@ -1,5 +1,6 @@
 import sys
 
+import torch.nn
 import yaml
 from tqdm import tqdm
 import pandas as pd
@@ -20,7 +21,7 @@ def main(csv_list):
         set_seed(123 * split_seed ** 2)
         if args['split'] == 'scaffold':
             assert len(csv_list) == 3, 'Expect a list of [train_list, valid_list, test_list]'
-            splited_csv_list = csv_list
+            split_csv_list = csv_list
         elif args['split'] == 'random':
             df_list = []
             for csv in csv_list:
@@ -30,22 +31,25 @@ def main(csv_list):
             grouped = ip_df.groupby(f'split{split_seed}')
             for group_name, group_df in grouped:
                 group_df.to_csv(f'temp_{group_name}.csv', index=False)
-            splited_csv_list = [['temp_train.csv'], ['temp_valid.csv'], ['temp_test.csv']]
+            split_csv_list = [['temp_train.csv'], ['temp_valid.csv'], ['temp_test.csv']]
 
         print('csv list', csv_list)
-        train_data = DataSetSMILES(splited_csv_list[0], dict_path, x_column=x_column, y_column=y_column)
+        train_data = DataSetSMILES(split_csv_list[0], dict_path, x_column=x_column, y_column=y_column)
+        pw, nw = train_data.get_weight()
         train_loader = torch.utils.data.DataLoader(train_data, batch_size, shuffle=True, **kwargs)
-        valid_data = DataSetSMILES(splited_csv_list[1], dict_path, x_column=x_column, y_column=y_column)
+        valid_data = DataSetSMILES(split_csv_list[1], dict_path, x_column=x_column, y_column=y_column)
         valid_loader = torch.utils.data.DataLoader(valid_data, batch_size, shuffle=False, **kwargs)
-        test_data = DataSetSMILES(splited_csv_list[2], dict_path, x_column=x_column, y_column=y_column)
+        test_data = DataSetSMILES(split_csv_list[2], dict_path, x_column=x_column, y_column=y_column)
         test_loader = torch.utils.data.DataLoader(test_data, 1, shuffle=False, **kwargs)
+        print(train_data[0])
+        quit()
 
         if model_name == 'RNN':
             net = RNN(input_size, hidden_size, n_layers, len(y_column),
-                      num_embeddings=591, final_activation=torch.nn.Identity())
+                      num_embeddings=591, final_activation=final_act_fun)
         else:
             raise ValueError("Invalid model name...")
-        model_handler = ModelHandler(net, lr=lr, loss=torch.nn.L1Loss(), sch_step=sch_step//valid_gap)
+        model_handler = ModelHandler(net, lr=lr, loss=loss_fun, sch_step=sch_step//valid_gap)
 
         arch = f"{model_name}_ipsize{input_size}_hsize{hidden_size}_numlayer{n_layers}_lr{lr}"
         weight_path = f"../{args['model_dir']}/{args['split']}/{args['mode']}/{arch}_seed{split_seed}_weight"
@@ -123,7 +127,6 @@ if __name__ == '__main__':
         args = yaml.load(f, Loader=yaml.Loader)
     dict_path = 'vocab-large.txt'
     x_column = ['SMILES']
-    y_column = ['Normalized_PAMPA']
     batch_size = 16
     lr = 0.0001
     input_size = 64
@@ -132,12 +135,26 @@ if __name__ == '__main__':
     valid_gap = 5
     model_name = 'RNN'
     sch_step = 100
+    if args['mode'] == 'regression':
+        y_column = ['Normalized_PAMPA']
+        final_act_fun = torch.nn.Identity()
+        loss_fun = torch.nn.L1Loss(reduction='none')
+    elif args['mode'] == 'classification':
+        y_column = ['Binary']
+        final_act_fun = torch.nn.Sigmoid()
+        loss_fun = torch.nn.BCELoss(reduction='none')
+    elif args['mode'] == 'soft':
+        y_column = ['Soft_Label']
+        final_act_fun = torch.nn.Sigmoid()
+        loss_fun = torch.nn.BCELoss(reduction='none')
+    else:
+        quit(f"Unknown mode:{args['mode']}")
 
     if args['split'] == 'scaffold':
         mol_length_list = [6, 7, 10]
         csv_list_ = [[f'../CSV/Data/mol_length_{i}_train.csv' for i in mol_length_list],
-                    [f'../CSV/Data/mol_length_{i}_valid.csv' for i in mol_length_list],
-                    [f'../CSV/Data/mol_length_{i}_test.csv' for i in mol_length_list]]
+                     [f'../CSV/Data/mol_length_{i}_valid.csv' for i in mol_length_list],
+                     [f'../CSV/Data/mol_length_{i}_test.csv' for i in mol_length_list]]
     elif args['split'] == 'random':
         csv_list_ = ["../CSV/Data/Random_Split.csv"]
     main(csv_list_)
