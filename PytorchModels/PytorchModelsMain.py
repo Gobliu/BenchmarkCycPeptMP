@@ -20,6 +20,7 @@ def main(csv_list):
         set_seed(123 * split_seed ** 2)
         if args['split'] == 'scaffold':
             assert len(csv_list) == 3, 'Expect a list of [train_list, valid_list, test_list]'
+            splited_csv_list = csv_list
         elif args['split'] == 'random':
             df_list = []
             for csv in csv_list:
