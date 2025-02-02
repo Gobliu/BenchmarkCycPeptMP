@@ -5,504 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e8a7a4-aa06-4a95-924f-3be0515118ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DataProcessor/AddTPSA.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DataProcessor/Normalization.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Metrices2csv.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/PValue.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Plots/line_plots.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DeepChemPermeability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeepChemPermeability.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/Random_Split.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/Random_Split.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_10_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_10_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_10_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_10_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_10_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_10_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_6_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_6_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_6_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_6_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_6_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_6_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_7_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_7_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_7_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_7_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_7_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_7_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/AttentiveFP_block9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/DMPNN_block9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GAT_block9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/GCN_block9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/MPNN_block9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/10Blocks/PAGTN_block9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/AttentiveFP_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/DMPNN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GAT_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/GCN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/MPNN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Binary/PAGTN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/AttentiveFP_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/DMPNN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GAT_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/GCN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/MPNN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/MPNN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Regression/PAGTN_SplitSeed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Random_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/AttentiveFP_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/DMPNN_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GAT_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/GCN_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/MPNN_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/Binary/PAGTN_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/DMPNN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/GAT.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/AttentiveFP.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/DMPNN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/GAT.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/GCN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/MPNN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/PAGTN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/regression/AttentiveFP.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/regression/DMPNN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/regression/GAT.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/regression/GCN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/regression/MPNN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/bk/regression/PAGTN.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/AttentiveFP_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/AttentiveFP_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/AttentiveFP_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/AttentiveFP_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/AttentiveFP_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/DMPNN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/DMPNN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/DMPNN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/DMPNN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/DMPNN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GAT_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GAT_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GAT_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GAT_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GAT_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GCN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GCN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GCN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GCN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/GCN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/MPNN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/PAGTN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/PAGTN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/PAGTN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/PAGTN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_6&amp;7&amp;10/regression/PAGTN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/AttentiveFP_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed0.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed1107.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed123.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed1968.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed3075.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed4428.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed492.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed6027.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed7872.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/Scaffold_Split/Trained_on_all/Binary/PAGTN_ModelSeed9963.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed7.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed8.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed9.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed7.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed8.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed9.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/AttentiveFP_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/DMPNN_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GAT_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/MPNN_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/PAGTN_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RF_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer2_lr0.0001_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/RNN_ipsize64_hsize64_numlayer3_lr0.0001_7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/SVM_seed9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed7.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed8.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/RF_seed9.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed7.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed8.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/SVM_seed9.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed10.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed2.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed3.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed4.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed5.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed6.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed7.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed8.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/RF_seed9.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ClassicalML/SVM.py" beforeDir="false" afterPath="$PROJECT_DIR$/ClassicalML/MLMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/CustomizedDateLoader.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/CustomizedDateLoader.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/DeepChemMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/DeepChemMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/ModelFeatureGenerator.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/ModelFeatureGenerator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/ModelTrainer.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/ModelTrainer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Inferencer.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/Inferencer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Metrices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Metrices.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/DataSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/DataSet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/ModelHandler.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/ModelHandler.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/Models.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/Models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/RNN-hyper-test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/nohup.out" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/nohup.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/temp_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/temp_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/temp_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/temp_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/temp_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/temp_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/PytorchModels/vocab-small.txt" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/vocab-small.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/plots.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -545,7 +52,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.Metrices">
+  <component name="RunManager" selected="Python.line_plots">
     <configuration name="DeepChemMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DeepChemPermeability" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -559,48 +66,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepChemModels/DeepChemMain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DeepChemPermeability" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="Main_MultipleCSV" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DeepChemPermeability" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Main_MultipleCSV.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -651,13 +116,55 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="line_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DeepChemPermeability" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Plots" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Plots/line_plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DeepChemPermeability" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Plots" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Plots/plots.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.line_plots" />
+        <item itemvalue="Python.plots" />
         <item itemvalue="Python.Metrices" />
         <item itemvalue="Python.DeepChemMain" />
         <item itemvalue="Python.PytorchModelsMain" />
-        <item itemvalue="Python.Main" />
-        <item itemvalue="Python.Main_MultipleCSV" />
       </list>
     </recent_temporary>
   </component>

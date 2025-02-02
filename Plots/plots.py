@@ -100,6 +100,6 @@ if __name__ == '__main__':
         {'split': 'random', 'mode': 'soft', 'seed': 1},
         {'split': 'random', 'mode': 'classification', 'seed': 1},
         ]
-    # multi_auc(csv_dict)
+    multi_auc(csv_dict)
     # multi_scatter(csv_dict)
-    multi_hist(csv_dict)
+    # multi_hist(csv_dict)
