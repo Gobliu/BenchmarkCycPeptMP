@@ -110,14 +110,32 @@ from deepchem.feat.smiles_tokenizer import SmilesTokenizer, get_default_tokenize
 # print("Hidden state:", hn)
 
 import pandas as pd
+#
+# # Example dictionary
+# data = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+#
+# # Convert dictionary to Series
+# s = pd.Series(data)
+#
+# # Create DataFrame from the Series
+# df = s.to_frame(name=data.keys())
 
-# Example dictionary
-data = {'a': 1, 'b': 2, 'c': 3, 'd': 4}
+# print(df)
+labels = torch.zeros((3, 3))
+output = torch.ones((3, 3))
 
-# Convert dictionary to Series
-s = pd.Series(data)
+def ce_loss(x, y):
+    return x+y
 
-# Create DataFrame from the Series
-df = s.to_frame(name=data.keys())
 
-print(df)
+def test(labels, output):
+    if (len(labels.shape) == len(output.shape) and
+            labels.size(-1) == output.size(-1)):
+        print('1')
+        return ce_loss(output, labels)
+
+    else:
+        print('2')
+        return ce_loss(output, labels.long())
+
+print(test(labels, output))

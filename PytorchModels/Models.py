@@ -4,46 +4,77 @@ import torch.nn as nn
 device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 
-class LSTM(nn.Module):
-    def __init__(self, input_size, hidden_size, num_layers, output_size, final_activation):
-        super().__init__()
-        self.em = nn.Embedding(num_embeddings=27, embedding_dim=128)
-        self.hidden_size = hidden_size
-        self.num_layers = num_layers
-        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
-        # self.fc = nn.Linear(103, hidden_size)
-        # self.classifier = nn.Linear(hidden_size, output_size)
-        self.final_activation = final_activation
-        # self.norm = nn.BatchNorm1d(32)
-
-    def forward(self, x1, x2):
-
-        h0 = torch.zeros(self.num_layers, x1.size(0), self.hidden_size)
-        c0 = torch.zeros(self.num_layers, x1.size(0), self.hidden_size).to(device)
-        x1 = self.em(x1)
-        out, _ = self.lstm(x1, (h0, c0))
-        out_lstm = out[:, -1, :]
-        output = self.classifier(out_lstm)
-        output = self.sig(output)
-
-        return output
-
-
 class RNN(nn.Module):
     def __init__(self, input_size, hidden_size, num_layers, output_size, num_embeddings, final_activation):
         super().__init__()
-        self.em = nn.Embedding(num_embeddings=num_embeddings, embedding_dim=input_size)
+        # padding_idx is important, otherwise predictions tend to be the same
+        self.em = nn.Embedding(num_embeddings=num_embeddings, embedding_dim=input_size, padding_idx=0)
         self.hidden_size = hidden_size
         self.num_layers = num_layers
         self.rnn = nn.RNN(input_size, hidden_size, num_layers, batch_first=True)
         self.fc = nn.Linear(hidden_size, output_size)
         self.final_activation = final_activation
-
-        self.norm = nn.BatchNorm1d(32)
+        self.layer_norm = nn.LayerNorm(input_size)
 
     def forward(self, x):
-        h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(device)
+        # h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
         x = self.em(x)
-        out, _ = self.rnn(x, h0)
+        # x = self.layer_norm(x)
+        out, out_ = self.rnn(x)
+        # print(out.shape, out_.shape)
+        output = self.final_activation(self.fc(out[:, -1, :]))
+        # print('output', output.shape)
+        return output
+
+
+class LSTM(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, output_size, num_embeddings, final_activation):
+        super().__init__()
+        self.em = nn.Embedding(num_embeddings=num_embeddings, embedding_dim=input_size, padding_idx=0)
+        self.hidden_size = hidden_size
+        self.num_layers = num_layers
+        self.lstm = nn.LSTM(input_size, hidden_size, num_layers, batch_first=True)
+        self.fc = nn.Linear(hidden_size, output_size)
+        self.final_activation = final_activation
+        self.layer_norm = nn.LayerNorm(input_size)
+
+    def forward(self, x):
+        # h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+        # c0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+
+        # Embed and optionally normalize (consider removing LayerNorm if not necessary)
+        x = self.em(x)
+        # x = self.layer_norm(x)  # Consider disabling for testing purposes
+
+        # LSTM forward pass
+        out, _ = self.lstm(x)
+        # print(out.shape)  # Fixed typo
+
+        # Fully connected layer and activation
+        output = self.final_activation(self.fc(out[:, -1, :]))
+        # print('output', output.shape, output)
+
+        return output
+
+
+class GRU(nn.Module):
+    def __init__(self, input_size, hidden_size, num_layers, output_size, num_embeddings, final_activation):
+        super(GRU, self).__init__()
+        self.em = nn.Embedding(num_embeddings=num_embeddings, embedding_dim=input_size, padding_idx=0)
+        self.hidden_size = hidden_size
+        self.num_layers = num_layers
+        self.gru = nn.GRU(input_size, hidden_size, num_layers, batch_first=True)
+        self.fc = nn.Linear(hidden_size, output_size)
+        self.final_activation = final_activation
+
+    def forward(self, x):
+        # Initialize hidden state with zeros
+        # h0 = torch.zeros(self.num_layers, x.size(0), self.hidden_size).to(x.device)
+        x = self.em(x)
+
+        # Forward propagate through GRU
+        out, _ = self.gru(x)
+
+        # Pass the last hidden state through the fully connected layer
         output = self.final_activation(self.fc(out[:, -1, :]))
         return output

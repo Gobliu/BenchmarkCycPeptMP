@@ -11,7 +11,8 @@ class ModelHandler:
         self.model = model
         self.opt = torch.optim.Adam(self.model.parameters(), lr=lr)
         self.loss = loss
-        self.sch = DecayCosineAnnealingWarmRestarts(self.opt, sch_step, [0.9], 0.001*lr)
+        print('loss function', loss)
+        self.sch = DecayCosineAnnealingWarmRestarts(self.opt, sch_step, [0.8], 0.0001*lr)
 
     def train(self, data_loader):
         loss_list = []
@@ -19,12 +20,14 @@ class ModelHandler:
         self.model.train()
         for _, (sample_id, x, y, w, _) in enumerate(tqdm(data_loader)):
             self.opt.zero_grad()
-            # print(x)
+            # print(x[:2, :10]) 
             x = x.to(device)
             y = y.to(device)
             pred = self.model(x)
-            # print('pred', pred, pred.shape, 'y', y, y.shape)
-            loss = self.loss(pred, y)
+            # print('pred', pred.flatten())
+            # print('pred', pred.dtype, 'y', y.dtype)
+            loss = self.loss(pred, y.float())
+            # print('pred', pred.flatten(), 'loss', loss.flatten())
             loss = torch.mean(loss * w)
             loss.backward()
             self.opt.step()
@@ -37,12 +40,12 @@ class ModelHandler:
         loss_list = []
 
         self.model.eval()
-        with torch.no_grad():
+        with torch.inference_mode():
             for _, (sample_id, x, y, w, _) in enumerate(tqdm(data_loader)):
                 x = x.to(device)
                 y = y.to(device)
                 pred = self.model(x)
-                loss = self.loss(pred, y)
+                loss = self.loss(pred, y.float())
                 loss = torch.mean(loss * w)
                 loss_list.append(loss.item())
 
@@ -51,7 +54,7 @@ class ModelHandler:
 
     def inference(self, x):
         self.model.eval()
-        with torch.no_grad():
+        with torch.inference_mode():
             x = x.to(device)
             pred = self.model(x)
         return pred

@@ -33,6 +33,9 @@ def generate_model_feature(m_name, n_tasks, args):
         else:
             net = dc.models.DMPNNModel(n_tasks=n_tasks, mode=mode, model_dir=f"{op_dir}/{m_name}",
                                        batch_size=batch_size)
+    elif m_name == 'ChemCeption':
+        feat = dc.feat.SmilesToImage()
+        net = dc.models.ChemCeption(n_tasks=n_tasks, mode=mode, model_dir=f"{op_dir}/{m_name}", batch_size=batch_size)
     else:
         quit(f'Unknown model name: {m_name}')
     return feat, net

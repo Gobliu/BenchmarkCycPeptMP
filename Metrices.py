@@ -76,12 +76,14 @@ def ensemble_pred_regression(csv_files):
     pearson_r_list = []
     auc_list = []
     for csv in csv_files:
+        print("csv: ", csv)
         df = pd.read_csv(csv)
         true = df.Normalized_PAMPA
         # print(true * 2 - 6)
 
         # Calculate the average for each row in the selected columns
         seed_columns = [col for col in df.columns if 'pred' in col.lower()]
+        # seed_columns = [col for col in df.columns if 'pred_normalized_pampa' in col.lower()]
         print('Column names of predictions', seed_columns, 'Number of samples', len(df))
 
         for col in seed_columns:
@@ -100,13 +102,13 @@ def ensemble_pred_regression(csv_files):
             auc_list.append(auc_score)
 
     print('~~~~~~~~ metric statistics ~~~~~~~')
-    # print(mae_list)
-    print('mae', np.mean(mae_list), np.std(mae_list))
-    print('rmse', np.mean(rmse_list), np.std(rmse_list))
+    print('mae', np.mean(mae_list), np.std(mae_list, ddof=1), mae_list)
+    print('rmse', np.mean(rmse_list), np.std(rmse_list, ddof=1), rmse_list)
     # print(r2_list)
-    print('r2', np.mean(r2_list), np.std(r2_list))
-    print('pearson_r', np.mean(pearson_r_list), np.std(pearson_r_list))
-    print('auc', np.mean(auc_list), np.std(auc_list))
+    print('r2', np.mean(r2_list), np.std(r2_list, ddof=1), r2_list)
+    print('pearson_r', np.mean(pearson_r_list), np.std(pearson_r_list, ddof=1), pearson_r_list)
+    print('auc', np.mean(auc_list), np.std(auc_list, ddof=1), auc_list)
+    # print(len(auc_list), auc_list)
 
 
 def ensemble_pred_classification(csv_files):
@@ -116,6 +118,7 @@ def ensemble_pred_classification(csv_files):
     precision_list = []
     recall_list = []
     for csv in csv_files:
+        print("csv: ", csv)
         df = pd.read_csv(csv)
         true = np.copy(df.Soft_Label)
 
@@ -136,13 +139,11 @@ def ensemble_pred_classification(csv_files):
             recall_list.append(recall)
 
     print('~~~~~~~~ metric statistics ~~~~~~~')
-    print('acc', np.mean(acc_list), np.std(acc_list))
-    print('precision', np.mean(precision_list), np.std(precision_list))
-    # print(len(recall_list), recall_list)
-    print('recall', np.mean(recall_list), np.std(recall_list))
-    print('f1', np.mean(f1_list), np.std(f1_list))
-    print('auc', np.mean(auc_list), np.std(auc_list))
-    print(auc_list)
+    print('acc', np.mean(acc_list), np.std(acc_list, ddof=1), acc_list)
+    print('precision', np.mean(precision_list), np.std(precision_list, ddof=1), precision_list)
+    print('recall', np.mean(recall_list), np.std(recall_list, ddof=1), recall_list)
+    print('f1', np.mean(f1_list), np.std(f1_list, ddof=1), f1_list)
+    print('auc', np.mean(auc_list), np.std(auc_list, ddof=1), auc_list)
 
 
 def combine_csv(csv_list):
@@ -158,23 +159,28 @@ def combine_csv(csv_list):
 if __name__ == '__main__':
     seed_list_ = list(range(1, 11))
     split = 'random'
-    mode = 'regression'
-    model = 'RNN'
+    mode = 'soft'
 
-    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
-    # # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}.csv']
-    # if mode == 'regression':
-    #     ensemble_pred_regression(csv_file)
-    # elif mode == 'classification' or mode == 'soft':
-    #     ensemble_pred_classification(csv_file)
+    model = 'MPNN'
+    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
+    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}.csv']
+
+    # model = 'LSTM'
+    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_ipsize128_hsize128_numlayer2_lr0.001_{i}.csv' for i in
+    #            seed_list_]
+    if mode == 'regression':
+        ensemble_pred_regression(csv_file)
+    elif mode == 'classification' or mode == 'soft':
+        ensemble_pred_classification(csv_file)
 
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
     #             f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
     # csv_file = [f'./PytorchModels/test_1.csv']
-    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_ipsize64_hsize64_numlayer2_lr0.0001_{i}.csv' for i in seed_list_]
+
+    # ensemble_pred_regression(csv_file)
     # print(seed_list_)
     # print(csv_file)
-    combine_csv(csv_file[:1])
+    # combine_csv(csv_file)
 
     # print(true_pm)
     # print(pred_pm)

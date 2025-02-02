@@ -1,3 +1,4 @@
+import os.path
 from copy import deepcopy
 from typing import Any, Dict, List
 
@@ -37,7 +38,7 @@ def model_trainer(
         raise ValueError("Invalid mode. Mode should be 'regression' or 'classification'.")
 
     current_patient = 0
-    best_model = deepcopy(model)
+    # best_model = deepcopy(model)
 
     for epoch in range(args['n_epoch']):
         loss = model.fit(train_data, nb_epoch=1, checkpoint_interval=0)
@@ -51,7 +52,7 @@ def model_trainer(
            ((args['mode'] == 'classification' or args['mode'] == 'soft') and valid_loss > current_loss):
             current_loss = valid_loss
             current_patient = 0
-            best_model = deepcopy(model)  # Update best model
+            # best_model = deepcopy(model)  # Update best model
             model.save_checkpoint(model_dir=save_dir, max_checkpoints_to_keep=1)
             print(f"New best model saved with validation loss: {valid_loss}, save model: {save_dir}")
         else:
@@ -61,4 +62,8 @@ def model_trainer(
             print(f"Early stopping. Validation loss {current_loss} did not improve for {current_patient} epochs.")
             break
 
-    return best_model
+    if os.path.exists(f"{save_dir}/checkpoint1.pt"):    # for other models
+        model.restore(f"{save_dir}/checkpoint1.pt")
+    else:                                               # for ChemCeption
+        model.restore()
+    return model

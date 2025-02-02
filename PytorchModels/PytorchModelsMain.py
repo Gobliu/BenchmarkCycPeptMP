@@ -7,7 +7,7 @@ import pandas as pd
 
 sys.path.append('../')
 
-from Models import *
+from Models import RNN, LSTM, GRU
 from DataSet import DataSetSMILES
 from ModelHandler import ModelHandler
 from Utils import set_seed
@@ -34,9 +34,9 @@ def main(csv_list):
             split_csv_list = [['temp_train.csv'], ['temp_valid.csv'], ['temp_test.csv']]
 
         print('csv list', csv_list)
-        train_data = DataSetSMILES(split_csv_list[0], dict_path, x_column=x_column, y_column=y_column)
-        valid_data = DataSetSMILES(split_csv_list[1], dict_path, x_column=x_column, y_column=y_column)
-        test_data = DataSetSMILES(split_csv_list[2], dict_path, x_column=x_column, y_column=y_column)
+        train_data = DataSetSMILES(split_csv_list[0], dict_path, x_column=x_column, y_columns=y_columns)
+        valid_data = DataSetSMILES(split_csv_list[1], dict_path, x_column=x_column, y_columns=y_columns)
+        test_data = DataSetSMILES(split_csv_list[2], dict_path, x_column=x_column, y_columns=y_columns)
         if args['mode'] == 'classification' or args['mode'] == 'soft':
             pw, nw = train_data.get_weight()
             train_data.set_weight(pw, nw)
@@ -49,24 +49,28 @@ def main(csv_list):
         # quit()
 
         if model_name == 'RNN':
-            net = RNN(input_size, hidden_size, n_layers, len(y_column),
+            lr = 0.0001
+            net = RNN(input_size, hidden_size, n_layers, len(y_columns),
+                      num_embeddings=591, final_activation=final_act_fun)
+        elif model_name == 'LSTM':
+            lr = 0.001
+            net = LSTM(input_size, hidden_size, n_layers, len(y_columns),
+                       num_embeddings=591, final_activation=final_act_fun)
+        elif model_name == 'GRU':
+            lr = 0.001
+            net = GRU(input_size, hidden_size, n_layers, len(y_columns),
                       num_embeddings=591, final_activation=final_act_fun)
         else:
             raise ValueError("Invalid model name...")
         model_handler = ModelHandler(net, lr=lr, loss=loss_fun, sch_step=sch_step//valid_gap)
 
         arch = f"{model_name}_ipsize{input_size}_hsize{hidden_size}_numlayer{n_layers}_lr{lr}"
-        weight_path = f"../{args['model_dir']}/{args['split']}/{args['mode']}/{arch}_seed{split_seed}_weight"
-        log_path = f"../{args['model_dir']}/{args['split']}/{args['mode']}/{arch}_{split_seed}_log"
+        weight_path = f"{args['model_dir']}/{args['split']}/{args['mode']}/{arch}_seed{split_seed}_weight"
+        log_path = f"{args['model_dir']}/{args['split']}/{args['mode']}/{arch}_{split_seed}_log"
         print('weight_path', weight_path)
         print('log_path', log_path)
 
-        if args['mode'] == 'regression':
-            current_loss = float('inf')
-        elif args['mode'] == 'classification' or args['mode'] == 'soft':
-            current_loss = float('-inf')  # Use negative infinity for classification
-        else:
-            raise ValueError("Invalid mode. Mode should be 'regression' or 'classification'.")
+        current_loss = float('inf')
 
         print("======== start training ========")
         patience_count = 0
@@ -76,8 +80,7 @@ def main(csv_list):
             if i % valid_gap == 0:
                 # print('validating...')
                 valid_loss = model_handler.eval(valid_loader).item()
-                if (args['mode'] == 'regression' and valid_loss < current_loss) or \
-                        ((args['mode'] == 'classification' or args['mode'] == 'soft') and valid_loss > current_loss):
+                if valid_loss < current_loss:
                     current_loss = valid_loss
                     best_epoch = i
                     save_dic = {
@@ -90,7 +93,7 @@ def main(csv_list):
                     patience_count = 0
                 else:
                     patience_count += valid_gap
-                message = f"epoch {i}, train {train_loss:.8f}, valid {valid_loss:.8f}"
+                message = f"epoch {i}, train {train_loss:.8f}, valid {valid_loss:.8f}, patience count {patience_count}"
                 print(message)
                 with open(log_path, "a") as log:
                     log.write(message + "\n")
@@ -106,7 +109,7 @@ def main(csv_list):
         net.load_state_dict(checkpoint['net_weight'])
         # loss = torch.nn.L1Loss()
         dict_list = []
-        for _, (id_, x, y, row) in enumerate(tqdm(test_loader)):
+        for _, (id_, x, y, w, row) in enumerate(tqdm(test_loader)):
             assert x.size(0) == 1, 'batch size should be 1'
             pred = model_handler.inference(x)
             # print('id', id_, 'y', y, 'pred', pred, 'loss', loss(pred, y))
@@ -122,7 +125,9 @@ def main(csv_list):
             #     df = s.to_frame(name='Column_Name')
 
         df = pd.DataFrame(dict_list)
-        df.to_csv(f"../{args['csv_dir']}/{args['split']}/{args['mode']}/{arch}_{split_seed}.csv", index=False)
+        df.to_csv(f"{args['csv_dir']}/{args['split']}/{args['mode']}/{arch}_{split_seed}.csv", index=False)
+        # df.to_csv(f"{arch}_{split_seed}.csv", index=False)
+        # quit()
 
 
 if __name__ == '__main__':
@@ -130,35 +135,35 @@ if __name__ == '__main__':
     with open(yaml_config_path, 'r') as f:
         args = yaml.load(f, Loader=yaml.Loader)
     dict_path = 'vocab-large.txt'
-    x_column = 'SMILES'
+    x_column = 'SMILES'         # DO NOT convert it into a list
     batch_size = 16
-    lr = 0.0001
-    input_size = 64
-    hidden_size = 64
+    input_size = 128
+    hidden_size = 128
     n_layers = 2
-    valid_gap = 5
-    model_name = 'RNN'
+    valid_gap = 2
     sch_step = 100
-    if args['mode'] == 'regression':
-        y_column = 'Normalized_PAMPA'
-        final_act_fun = torch.nn.Identity()
-        loss_fun = torch.nn.L1Loss(reduction='none')
-    elif args['mode'] == 'classification':
-        y_column = 'Binary'
-        final_act_fun = torch.nn.Sigmoid()
-        loss_fun = torch.nn.BCELoss(reduction='none')
-    elif args['mode'] == 'soft':
-        y_column = 'Soft_Label'
-        final_act_fun = torch.nn.Sigmoid()
-        loss_fun = torch.nn.BCELoss(reduction='none')
-    else:
-        quit(f"Unknown mode:{args['mode']}")
-
-    if args['split'] == 'scaffold':
-        mol_length_list = [6, 7, 10]
-        csv_list_ = [[f'../CSV/Data/mol_length_{i}_train.csv' for i in mol_length_list],
-                     [f'../CSV/Data/mol_length_{i}_valid.csv' for i in mol_length_list],
-                     [f'../CSV/Data/mol_length_{i}_test.csv' for i in mol_length_list]]
-    elif args['split'] == 'random':
-        csv_list_ = ["../CSV/Data/Random_Split.csv"]
-    main(csv_list_)
+    for model_name in ['GRU', 'RNN', 'LSTM']:
+    # model_name = 'GRU'
+        if args['mode'] == 'regression':
+            y_columns = ['Normalized_PAMPA']
+            final_act_fun = torch.nn.Identity()
+            loss_fun = torch.nn.L1Loss(reduction='none')
+        elif args['mode'] == 'classification':
+            y_columns = ['Binary']
+            final_act_fun = torch.nn.Sigmoid()
+            loss_fun = torch.nn.BCELoss(reduction='none')
+        elif args['mode'] == 'soft':
+            y_columns = ['Soft_Label']
+            final_act_fun = torch.nn.Sigmoid()
+            loss_fun = torch.nn.BCELoss(reduction='none')
+        else:
+            quit(f"Unknown mode:{args['mode']}")
+    
+        if args['split'] == 'scaffold':
+            mol_length_list = [6, 7, 10]
+            csv_list_ = [[f'../CSV/Data/mol_length_{i}_train.csv' for i in mol_length_list],
+                         [f'../CSV/Data/mol_length_{i}_valid.csv' for i in mol_length_list],
+                         [f'../CSV/Data/mol_length_{i}_test.csv' for i in mol_length_list]]
+        elif args['split'] == 'random':
+            csv_list_ = ["../CSV/Data/Random_Split.csv"]
+        main(csv_list_)

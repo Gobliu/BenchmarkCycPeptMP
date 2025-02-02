@@ -28,7 +28,7 @@ def data_loader_all_in_one(csv_list, split_seed, loader):
     valid = loader.create_dataset('temp_valid.csv')
     test = loader.create_dataset('temp_test.csv')
     print(f'Got {len(train.y)} samples for train, {len(valid.y)} for valid, and {len(test.y)} for test')
-    df = pd.read_csv('../temp_test.csv')
+    df = pd.read_csv('temp_test.csv')
     return {'train': train, 'valid': valid, 'test': test, 'test_df': df}
 
 
@@ -53,7 +53,17 @@ def convert_multitask(dataset, task_number):
         w=np.repeat(dataset.w, task_number, axis=1),
         ids=dataset.ids
     )
+    return new_dataset
 
+
+def adjust_task_weight(dataset, weights):
+    # Assuming features, labels, and weights
+    new_dataset = dc.data.NumpyDataset(
+        X=dataset.X,
+        y=dataset.y,
+        w=np.repeat(np.asarray(weights)[None], len(dataset.X), axis=0),
+        ids=dataset.ids
+    )
     return new_dataset
 
 
@@ -73,7 +83,7 @@ def p2distribution(dataset):
     return new_dataset
 
 
-def adjust_label_weights(train_data, valid_data, test_data, weight_list):
+def adjust_class_weights(train_data, valid_data, test_data, weight_list):
     assert train_data.w.shape[-1] == len(weight_list), 'Number of task does match with weight list length...'
     train_w = np.copy(train_data.w)
     valid_w = np.copy(valid_data.w)

@@ -1,28 +1,39 @@
 import matplotlib.pyplot as plt
-import seaborn
+import seaborn as sns
 import pandas as pd
 import numpy as np
 
 
-df = pd.read_csv('../CSV/Data/CycPeptMPDB_Peptide_All.csv')
-# print(df.Monomer_Length)
-# for i in df.Monomer_Length:
-#     print(i, float(i))
+df = pd.read_csv('../CSV/Data/CycPeptMPDB_Peptide_All.csv', low_memory=False)
+sns.set(font_scale=1.4)
+# Define bins and labels
+bins = [1, 5, 6, 7, 9, 10, 15]
+labels = ['2-5', '6', '7', '8-9', '10', '11-15']
+# explode = (0, 0.05, 0.05, 0, 0.05, 0)
 
-color = seaborn.color_palette('bright')
-count_data = df.Monomer_Length.value_counts()  # Replace 'cut' with your integer column
-print(count_data)
+# Categorize 'monomer_length' into bins
+df['length_group'] = pd.cut(df['Monomer_Length'], bins=bins, labels=labels, right=True)
 
-# Plot a pie chart using matplotlib
-# plt.figure(figsize=(8, 8))
-# plt.pie(count_data, labels=count_data.index, autopct='%1.1f%%', startangle=90,
-#         pctdistance=0.85, labeldistance=1.1)
-# plt.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
-# plt.title('Pie Chart of Cut Distribution')  # Replace with your title
+# Calculate the frequency of each group
+group_counts = df['length_group'].value_counts().sort_index()
+
+# Plot the pie chart
+plt.figure(figsize=(8, 8))
+plt.pie(group_counts, labels=labels, autopct='%1.1f%%', textprops={'fontsize': 14},
+        startangle=90, counterclock=False,
+        colors=sns.color_palette('Set2'))
+plt.title('Distribution of Peptide Lengths')
+plt.ylabel('')  # Hide the y-label
+plt.savefig('pie_length.png', dpi=300, bbox_inches='tight')
 # plt.show()
 
-light_blue = np.array([[0.3, 0.7, 1]])
-plt.scatter(df.MolLogP, df.Permeability, s=50, c=light_blue, marker='^')
-plt.axhline(y=-6, color='magenta', linestyle='--')
-
+labels = ['PAMPA',  'MDCK', 'Caco2', 'RRCK']
+group_counts = [6655, 79, 689, 496]
+plt.figure(figsize=(8, 8))
+plt.pie(group_counts, labels=labels, autopct='%1.1f%%', textprops={'fontsize': 14},
+        startangle=90, counterclock=False,
+        colors=sns.color_palette('Set3'))
+plt.title('Distribution of Permeability Assays')
+plt.ylabel('')  # Hide the y-label
+plt.savefig('pie_assay.png', dpi=300, bbox_inches='tight')
 plt.show()
