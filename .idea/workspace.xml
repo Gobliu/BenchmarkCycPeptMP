@@ -5,11 +5,79 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="36e8a7a4-aa06-4a95-924f-3be0515118ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Plots/line_plots.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/PytorchModels/PytorchModelsInferencer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/DeepChemPermeability.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/DeepChemPermeability.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/classification/ChemCeption_seed9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/ChemCeption_seed9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/ChemCeption_seed9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/classification/LSTM_ipsize128_hsize128_numlayer2_lr0.001_9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed1.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed10.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed10.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed3.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed3.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed4.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed4.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed5.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed5.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed6.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed6.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed7.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed7.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed8.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed8.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed9.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/scaffold/regression/ChemCeption_seed9.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Config.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/Caco2_MDCK.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/Caco2_MDCK.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/Caco2_RRCK.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/Caco2_RRCK.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/ExpErrorCalculator.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/ExpErrorCalculator.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/MDCK_RRCK.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/MDCK_RRCK.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/PAMPA_Caco2.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/PAMPA_Caco2.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/PAMPA_MDCK.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/PAMPA_MDCK.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DataProcessor/PAMPA_RRCK.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/PAMPA_RRCK.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepChemModels/DeepChemMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/DeepChemMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepChemModels/Inferencer.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/Inferencer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepChemModels/temp_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/temp_test.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepChemModels/temp_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/temp_train.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DeepChemModels/temp_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/temp_valid.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Metrices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Metrices.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PValue.py" beforeDir="false" afterPath="$PROJECT_DIR$/PValue.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/line_plots.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/line_plots.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/PytorchModels/nohup.out" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/temp.csv" beforeDir="false" afterPath="$PROJECT_DIR$/temp.csv" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +120,7 @@
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.line_plots">
+  <component name="RunManager" selected="Python.ExpErrorCalculator">
     <configuration name="DeepChemMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DeepChemPermeability" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -66,6 +134,48 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepChemModels/DeepChemMain.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="ExpErrorCalculator" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DeepChemPermeability" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataProcessor" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataProcessor/ExpErrorCalculator.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Inferencer" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="DeepChemPermeability" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DeepChemModels" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepChemModels/Inferencer.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -95,27 +205,6 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="PytorchModelsMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DeepChemPermeability" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/PytorchModels" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/PytorchModels/PytorchModelsMain.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="line_plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="DeepChemPermeability" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -137,34 +226,13 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="plots" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="DeepChemPermeability" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Plots" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Plots/plots.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.line_plots" />
-        <item itemvalue="Python.plots" />
-        <item itemvalue="Python.Metrices" />
+        <item itemvalue="Python.ExpErrorCalculator" />
         <item itemvalue="Python.DeepChemMain" />
-        <item itemvalue="Python.PytorchModelsMain" />
+        <item itemvalue="Python.Metrices" />
+        <item itemvalue="Python.Inferencer" />
+        <item itemvalue="Python.line_plots" />
       </list>
     </recent_temporary>
   </component>

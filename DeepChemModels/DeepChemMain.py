@@ -3,6 +3,7 @@ import shutil
 import sys
 
 import numpy as np
+import pandas as pd
 # import random
 import yaml
 
@@ -28,13 +29,15 @@ def main(m_names):
         for split_seed in range(1, 11):
             set_seed(123 * split_seed ** 2)
             feat, model = generate_model_feature(model_name, len(tasks), args)
-            # model.loss = dc.models.losses.SoftmaxCrossEntropy
-            # print(model.loss)
+            print(model.loss, model.optimizer, model.optimizer.learning_rate)
+            if hasattr(model.optimizer, 'scheduler'):
+                print("The model is using a learning rate schedule.")
+            else:
+                print("The model is using a fixed learning rate.")
             weight_dir = f"{args['model_dir']}/{args['split']}/{args['mode']}/{model_name}"
             os.makedirs(weight_dir, exist_ok=True)
             csv_dir = f"{args['csv_dir']}/{args['split']}/{args['mode']}"
             os.makedirs(csv_dir, exist_ok=True)
-            # quit()
             print('==== pre train ====')
             if args['mode'] == 'regression':
                 _, datasets_pre_train, transformers_pre_train = dc.molnet.load_delaney(
@@ -134,6 +137,19 @@ def main(m_names):
             test_df.to_csv(test_csv_path, index=False)
             # quit()
 
+            # ====== for ChemCeption, check inference on peptide length 8/9 =======
+            if model_name == 'ChemCeption':
+                infer_df = pd.read_csv('../CSV/Data/mol_length_8and9.csv')
+                infer_cp = loader.create_dataset('../CSV/Data/mol_length_8and9.csv')
+                print('Infer loss', model.evaluate(infer_cp, [m_score])[score_name])
+                if args['mode'] == 'regression':
+                    infer_df[f'Pred_{split_seed}'] = model.predict(infer_cp).squeeze()
+                elif args['mode'] == 'classification':
+                    infer_df[f'Pred_{split_seed}'] = model.predict(infer_cp).squeeze()[:, 1]
+                infer_csv_path = f"{csv_dir}/89_{model_name}_seed{split_seed}.csv"
+                print('Saving csv of test data to', infer_csv_path)
+                infer_df.to_csv(infer_csv_path, index=False)
+
 
 if __name__ == '__main__':
     yaml_config_path = "../Config.yaml"
@@ -149,11 +165,10 @@ if __name__ == '__main__':
                  'regression': ['Normalized_PAMPA'],
                  'soft': ['Soft_Label']}
 
+    # for split in ['random', 'scaffold']:
     for split in ['scaffold']:
-        # for mode in ['soft', 'classification', 'regression']:
-        for mode in ['soft']:
-            if split == 'random' and mode == 'regression':
-                continue
+        # for mode in ['classification', 'regression', 'soft']:
+        for mode in ['classification']:       # ChemCeption cannot work on soft label
             args['split'] = split
             args['mode'] = mode
             if args['split'] == 'scaffold':
@@ -166,4 +181,4 @@ if __name__ == '__main__':
 
             print('Working on csv list:', csv_list)
             model_list = ['DMPNN', 'GCN', 'GAT', 'AttentiveFP', 'MPNN', 'PAGTN', 'ChemCeption']
-            main(model_list[-1:])
+            main(model_list)

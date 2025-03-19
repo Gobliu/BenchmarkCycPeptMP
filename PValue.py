@@ -52,7 +52,7 @@ if __name__ == '__main__':
     split = 'random'
     mode = 'classification'
     metric_csv = f'./CSV/Predictions/metric_{mode}.csv'
-    model_1 = 'MPNN'
+    model_1 = 'AttentiveFP'
     model_2 = 'DMPNN'
     metric = 'auc'
     df = pd.read_csv(metric_csv)

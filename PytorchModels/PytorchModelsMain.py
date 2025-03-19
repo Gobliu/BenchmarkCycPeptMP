@@ -142,8 +142,8 @@ if __name__ == '__main__':
     n_layers = 2
     valid_gap = 2
     sch_step = 100
-    for model_name in ['GRU', 'RNN', 'LSTM']:
-    # model_name = 'GRU'
+    # for model_name in ['GRU', 'RNN', 'LSTM']:
+    for model_name in ['LSTM']:
         if args['mode'] == 'regression':
             y_columns = ['Normalized_PAMPA']
             final_act_fun = torch.nn.Identity()

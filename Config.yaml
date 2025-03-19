@@ -1,9 +1,9 @@
 ---
-n_epoch:          2
+n_epoch:          2000
 batch_size:       64
 patience:         200
 # === change together ===
-split:            'soft'        # random/scaffold
-mode:             'classification'    # regression/classification/soft
+split:            'scaffold'        # random/scaffold
+mode:             'regression'    # regression/classification/soft
 model_dir:        '../../SavedModel/DeepChemPermeability/'
 csv_dir:          '../CSV/Predictions/'

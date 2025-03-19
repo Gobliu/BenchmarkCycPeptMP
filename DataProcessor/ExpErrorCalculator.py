@@ -73,12 +73,12 @@ def three_repeats(csv_path):
 
 
 if __name__ == '__main__':
-    path = '../CSV/CycPeptMPDB_Peptide_All.csv'
+    path = '../CSV/Data/CycPeptMPDB_Peptide_All.csv'
     col_list = ['CycPeptMPDB_ID', 'Source', 'Year', 'Original_Name_in_Source_Literature', 'Structurally_Unique_ID',
                 'SMILES', 'Molecule_Shape', 'Monomer_Length', 'PAMPA', 'Caco2', 'MDCK', 'RRCK', 'MolLogP']
     clean_df = pd.read_csv(path, usecols=col_list)
     # clean_df.dropna(subset=['PAMPA'], inplace=True)
     # duplicate_checker(clean_df)
-    # duplicate_error_calculator('Duplicated_PAMPA_inter.csv')
+    duplicate_error_calculator('Duplicated_PAMPA_intra.csv')
     # compare_diff_experiments(path, exp_list=['PAMPA', 'Caco2', 'MDCK', 'RRCK'])
-    three_repeats('./Furukawa_3repeats.csv')
+    # three_repeats('./Furukawa_3repeats.csv')

@@ -62,8 +62,8 @@ def classification_matrices(true, pred, cutoff=0.5):
     print(np.sum(true), np.sum(pred))
     print("Confusion Matrix:")
     print(conf_matrix)
-    print('fpr', conf_matrix[0, 1] / np.sum(conf_matrix[0, :]))
-    print('tpr', conf_matrix[1, 1] / np.sum(conf_matrix[1, :]))
+    # print('fpr', conf_matrix[0, 1] / np.sum(conf_matrix[0, :]))
+    # print('tpr', conf_matrix[1, 1] / np.sum(conf_matrix[1, :]))
     # print(np.sum(true > 0.5))
     # print(acc, precision)
     return roc_auc, f1, acc, precision, recall
@@ -76,7 +76,7 @@ def ensemble_pred_regression(csv_files):
     pearson_r_list = []
     auc_list = []
     for csv in csv_files:
-        print("csv: ", csv)
+        print("~~~~~~~~~~~~~~~csv: ", csv)
         df = pd.read_csv(csv)
         true = df.Normalized_PAMPA
         # print(true * 2 - 6)
@@ -102,7 +102,7 @@ def ensemble_pred_regression(csv_files):
             auc_list.append(auc_score)
 
     print('~~~~~~~~ metric statistics ~~~~~~~')
-    print('mae', np.mean(mae_list), np.std(mae_list, ddof=1), mae_list)
+    print('mae', len(mae_list), np.mean(mae_list), np.std(mae_list, ddof=1), mae_list)
     print('rmse', np.mean(rmse_list), np.std(rmse_list, ddof=1), rmse_list)
     # print(r2_list)
     print('r2', np.mean(r2_list), np.std(r2_list, ddof=1), r2_list)
@@ -158,11 +158,11 @@ def combine_csv(csv_list):
 
 if __name__ == '__main__':
     seed_list_ = list(range(1, 11))
-    split = 'random'
-    mode = 'soft'
+    split = 'scaffold'
+    mode = 'classification'
 
-    model = 'MPNN'
-    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_seed{i}.csv' for i in seed_list_]
+    model = 'ChemCeption'
+    csv_file = [f'./CSV/Predictions/{split}/{mode}/89_{model}_seed{i}.csv' for i in seed_list_]
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}.csv']
 
     # model = 'LSTM'
@@ -175,15 +175,5 @@ if __name__ == '__main__':
 
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_8.csv',
     #             f'./CSV/Predictions/{split}/{mode}/{model}_mol_length_9.csv']
-    # csv_file = [f'./PytorchModels/test_1.csv']
-
-    # ensemble_pred_regression(csv_file)
-    # print(seed_list_)
     # print(csv_file)
     # combine_csv(csv_file)
-
-    # print(true_pm)
-    # print(pred_pm)
-    # regression_matrices(true_pm, pred_pm)
-    # classification_matrices(true_pm, pred_pm)
-
