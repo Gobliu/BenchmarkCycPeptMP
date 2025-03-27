@@ -68,7 +68,7 @@ def multi_scatter(csv_d):
         plt.scatter(true, df[f'Pred_{seed}'], label=f'{csv_path}')
     plt.grid(True, linestyle='--', alpha=0.7)
     plt.xlabel('True')
-    plt.ylabel('Prediction')
+    plt.ylabel('Predictions')
     plt.legend(loc='lower right')
     plt.show()
 
@@ -87,7 +87,7 @@ def multi_hist(csv_d):
     fig.set_xticks(np.linspace(0, 1, 11, endpoint=True))
     plt.xticks(fontsize=12)
     plt.yticks(fontsize=12)
-    fig.set_xlabel('Prediction Value', fontsize=14)
+    fig.set_xlabel('Predictions Value', fontsize=14)
     fig.set_ylabel('Counts', fontsize=14)
     sns.move_legend(fig, loc='upper right', frameon=False)
     # plt.legend(loc='upper right', fontsize=12)

@@ -25,11 +25,11 @@ print(df['model'])
 plt.figure(figsize=(9, 6))
 
 # Plot data from the second CSV (regression)
-plt.plot(df2['auc'], df2['model'], '^', markersize=8, markerfacecolor='none', markeredgecolor='k', label='Regression')
+plt.plot(df2['auc'], df2['model'], 'o', markersize=8, markerfacecolor='none', markeredgecolor='k', label='Regression')
 plt.errorbar(df2['auc'], df2['model'], xerr=df2['std'], fmt='none', color='k', capsize=5, capthick=1, elinewidth=1)
 
 # Plot data from the first CSV (classification)
-plt.plot(df['auc'], df['model'], 'o', markersize=8, markerfacecolor='none', markeredgecolor='b', label='Classification (Binary)')
+plt.plot(df['auc'], df['model'], '^', markersize=8, markerfacecolor='none', markeredgecolor='b', label='Classification (Binary)')
 plt.errorbar(df['auc'], df['model'], xerr=df['std'], fmt='none', color='b', capsize=5, capthick=1, elinewidth=1)
 
 # Plot data from the second CSV (regression)
@@ -44,13 +44,13 @@ plt.gca().invert_yaxis()
 plt.tick_params(axis='both', direction='in', labelsize=14)
 # plt.ylabel('Model', fontsize=18)
 plt.yticks(rotation=45)
-plt.xlabel('ROC-AUC', fontsize=18)
+plt.xlabel('ROC-AUC', fontsize=16)
 
 # plt.title('AUC with Standard Deviation for Classification and Regression Models')
 plt.grid(True, linestyle='--', linewidth=0.5, alpha=0.3)
-plt.legend(fontsize=16)
+plt.legend(fontsize=14)
 
 # Show the plot
 plt.tight_layout()
-plt.savefig('Figure2.pdf', dpi=300, bbox_inches='tight')
+plt.savefig('Figure3.pdf', dpi=300, bbox_inches='tight')
 plt.show()
