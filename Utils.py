@@ -2,41 +2,40 @@ import random
 import numpy as np
 
 
-def set_seed(seed, tensorflow=True, pytorch=True):
+def set_seed(seed: int, tensorflow: bool = True, pytorch: bool = True):
     """
-    Sets the random seed for various libraries (NumPy, TensorFlow, PyTorch, and Python's random module).
+    Set the random seed for reproducibility across NumPy, TensorFlow, PyTorch, and Python's random module.
 
     Parameters:
-    - seed (int): The random seed value to set for the libraries.
-    - tensorflow (bool, optional): Set the seed for TensorFlow if True. Defaults to True.
-    - pytorch (bool, optional): Set the seed for PyTorch if True. Defaults to True.
+    - seed (int): The random seed value.
+    - tensorflow (bool, optional): If True, set the seed for TensorFlow. Defaults to True.
+    - pytorch (bool, optional): If True, set the seed for PyTorch. Defaults to True.
 
-    Note: Assumes libraries are already imported when setting their respective seeds.
+    Raises:
+    - ImportError: If TensorFlow or PyTorch is requested but not installed.
     """
 
+    # Set seed for Python's random module and NumPy
+    random.seed(seed)
+    np.random.seed(seed)
+
     # Set seed for TensorFlow
-    try:
-        if tensorflow:
+    if tensorflow:
+        try:
             import tensorflow as tf
             tf.random.set_seed(seed)
-    except:
-        print("Please import Tensorflow as tf to set its seed.")
+        except ImportError:
+            print("Warning: TensorFlow is not installed. Skipping TensorFlow seed setting.")
 
     # Set seed for PyTorch
-    try:
-        if pytorch:
+    if pytorch:
+        try:
             import torch
             torch.manual_seed(seed)
 
-            # Set seed for PyTorch's CUDA and enforce deterministic behavior
             if torch.cuda.is_available():
                 torch.cuda.manual_seed_all(seed)
                 torch.backends.cudnn.deterministic = True
                 torch.backends.cudnn.benchmark = False
-    except:
-        print("Please import PyTorch to set its seed.")
-
-    # Set seed for NumPy and Python's random module
-
-    np.random.seed(seed)
-    random.seed(seed)
+        except ImportError:
+            print("Warning: PyTorch is not installed. Skipping PyTorch seed setting.")
