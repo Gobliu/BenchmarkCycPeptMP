@@ -15,6 +15,7 @@ designed to assess generalization, leads to significantly lower predictive perfo
 further improvement.
 
 # Requirements:
-* torch 2.1.0
-* torch_geometric 2.4.0
-* RDKit 2023.03.3
+* DeepChem  2.7.1
+* RDKit 2022.09.4
+* PyTorch  2.0.1
+
