@@ -3,19 +3,56 @@ PyTorch implementation for *__An extensive benchmark study on membrane permeabil
 
 Wei Liu, Jianguo Li, Chandra S. Verma and Hwee Kuan Lee*
 
-# Abstract
-Motivation: Cyclic peptides are promising drug candidates due to their ability to target protein-protein interactions; however, their limited membrane permeability hinders their effectiveness in intracellular applications. Accurate
-permeability prediction can facilitate the identification and optimization of cell-permeable cyclic peptides, accelerating drug development. Deep learning models have shown promise in predicting molecular properties, yet their effectiveness
-in permeability prediction remains underexplored. A systematic evaluation of these models is essential to assess current capabilities and guide future developments.
 
-Results: We present a comprehensive benchmark study evaluating 13 machine learning and deep learning models for cyclic peptide permeability prediction, spanning four molecular representations: fingerprints, strings, graphs, and images.
-Using the CycPeptMPDB dataset, we assess model performance across three tasks—regression, binary classification, and soft-label classification—under two data-splitting strategies: random split and scaffold split. Our results show that graph-
-based models, particularly the Directed Message Passing Neural Network (DMPNN), achieve the highest performance in most settings. Regression tasks generally outperform classification approaches, and scaffold split validation, although
-designed to assess generalization, leads to significantly lower predictive performance compared to random split validation. Comparison with experimental variability highlights the practical value of current models, while also indicating room for
-further improvement.
+## 🧠 Overview
 
-# Requirements:
-* DeepChem  2.7.1
-* RDKit 2022.09.4
-* PyTorch  2.0.1
+Cyclic peptides are promising drug candidates due to their ability to target protein–protein interactions. However, their limited membrane permeability remains a major hurdle for intracellular applications. 
+
+In this benchmark study, we systematically evaluate **13 machine learning and deep learning models** for cyclic peptide permeability prediction. These models span **four types of molecular representations**:  
+- Fingerprints  
+- Strings (e.g., SMILES)  
+- Graphs  
+- Images  
+
+We test these models across:
+- **Three tasks**: regression, binary classification, and soft-label classification  
+- **Two data-splitting strategies**: random split and scaffold split  
+
+Our results show that:
+- **Graph-based models**, particularly **Directed Message Passing Neural Network (DMPNN)**, consistently achieve top performance.  
+- **Regression tasks** generally outperform classification.  
+- **Scaffold split**, although better for generalization assessment, leads to lower predictive accuracy than random split.  
+- Current models approach the variability of experimental measurements, indicating strong practical value, while still leaving room for further improvement.
+
+---
+## 📦 Requirements
+
+This project has been tested with the following versions:
+
+- `DeepChem==2.7.1`  
+- `RDKit==2022.09.4`  
+- `PyTorch==2.0.1`
+
+---
+
+## 🧪 Models Evaluated
+
+### 📁 `ClassicalML/`
+- **RF** – Random Forest  
+- **SVM** – Support Vector Machine
+
+### 📁 `DeepChemModels/`
+- **AttentiveFP**   
+- **DMPNN** – Directed Message Passing Neural Network  
+- **GAT** – Graph Attention Network  
+- **GCN** – Graph Convolutional Network  
+- **MPNN** – Message Passing Neural Network  
+- **PAGTN** – Path-Augmented Graph Transformer Network  
+- **ChemCeption**
+### 📁 `PyTorchModels/`
+- **RNN** – Recurrent Neural Network  
+- **LSTM** – Long Short-Term Memory Network  
+- **GRU** – Gated Recurrent Unit
+
+---
 
