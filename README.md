@@ -4,7 +4,7 @@ PyTorch implementation for *__An extensive benchmark study on membrane permeabil
 Wei Liu, Jianguo Li, Chandra S. Verma and Hwee Kuan Lee*
 
 
-## 🧠 Overview
+## 🧬 Overview
 
 Cyclic peptides are promising drug candidates due to their ability to target protein–protein interactions. However, their limited membrane permeability remains a major hurdle for intracellular applications. 
 
@@ -53,6 +53,12 @@ This project has been tested with the following versions:
 - **RNN** – Recurrent Neural Network  
 - **LSTM** – Long Short-Term Memory Network  
 - **GRU** – Gated Recurrent Unit
+
+---
+
+## 📂 Dataset
+
+We use the **CycPeptMPDB** dataset consisting of over 7,000 curated cyclic peptides with experimentally measured membrane permeability under different assay conditions. For more details, see the [paper](#) and `CSV/` folder.
 
 ---
 
