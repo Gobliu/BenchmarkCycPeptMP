@@ -21,17 +21,16 @@ print(df['model'])
 plt.figure(figsize=(9, 6))
 
 # Plot data from the second CSV (regression)
-plt.plot(df['mae'], df['model'], 'o', markersize=8, markerfacecolor='none', markeredgecolor='b', label='Regression')
+plt.plot(df['mae'], df['model'], 'o', markersize=8, markerfacecolor='none', markeredgecolor='k', label='Regression')
 plt.errorbar(df['mae'], df['model'], xerr=df['std'], fmt='none', color='k', capsize=5, capthick=1, elinewidth=1)
 
 plt.axvline(x=0.098, color='#1f77b4', linestyle='--', linewidth=2, label='Intra-record (PAMPA)')     # blue
 plt.axvline(x=0.206, color='#ff7f0e', linestyle='--', linewidth=2, label='Intra-report (PAMPA)')     # orange
 plt.axvline(x=0.867, color='#2ca02c', linestyle='--', linewidth=2, label='Inter-report (PAMPA)')     # green
 
-#
-# plt.gca().set_yticks(df2['model'][::-1])
-# plt.gca().set_yticklabels(df2['model'][::-1])
-# plt.gca().invert_yaxis()
+plt.gca().set_yticks(df['model'][::-1])
+plt.gca().set_yticklabels(df['model'][::-1])
+plt.gca().invert_yaxis()
 
 # Adding labels and title
 plt.tick_params(axis='both', direction='in', labelsize=14)

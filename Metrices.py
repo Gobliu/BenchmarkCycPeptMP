@@ -158,16 +158,16 @@ def combine_csv(csv_list):
 
 if __name__ == '__main__':
     seed_list_ = list(range(1, 11))
-    split = 'scaffold'
-    mode = 'classification'
+    split = 'random'
+    mode = 'regression'
 
-    model = 'ChemCeption'
-    csv_file = [f'./CSV/Predictions/{split}/{mode}/89_{model}_seed{i}.csv' for i in seed_list_]
+    # model = 'ChemCeption'
+    # csv_file = [f'./CSV/Predictions/{split}/{mode}/89_{model}_seed{i}.csv' for i in seed_list_]
     # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}.csv']
 
-    # model = 'LSTM'
-    # csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_ipsize128_hsize128_numlayer2_lr0.001_{i}.csv' for i in
-    #            seed_list_]
+    model = 'LSTM'
+    csv_file = [f'./CSV/Predictions/{split}/{mode}/{model}_ipsize128_hsize128_numlayer2_lr0.001_{i}.csv' for i in
+               seed_list_]
     if mode == 'regression':
         ensemble_pred_regression(csv_file)
     elif mode == 'classification' or mode == 'soft':

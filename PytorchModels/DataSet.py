@@ -16,11 +16,11 @@ class DataSetSMILES(Dataset):
         df (pd.DataFrame): A DataFrame containing the dataset loaded from CSV files.
         tokenizer (SmilesTokenizer): The tokenizer used for encoding SMILES strings.
         x_column (str): The name of the column containing input features (SMILES strings).
-        y_column (str): The name of the column containing target labels.
+        y_columns (str): The name of the column containing target labels.
         id_column (str): The name of the column containing unique identifiers.
     """
 
-    def __init__(self, csv_path_list, dictionary_path, x_column, y_columns, id_column='CycPeptMPDB_ID'):
+    def __init__(self, csv_path_list, dictionary_path, x_column, y_columns, id_column='CycPeptMPDB_ID', max_token=180):
         """
         Initializes the dataset by loading data from the given list of CSV file paths and setting up the tokenizer.
 
@@ -45,9 +45,10 @@ class DataSetSMILES(Dataset):
         self.y_columns = y_columns
         self.id_column = id_column
         self.df['weight'] = np.ones(len(self.df))
+        self.max_token = max_token
 
         # Verify that required columns exist in the DataFrame
-        required_columns = [x_column, id_column, 'Binary'] + self.y_columns
+        required_columns = [x_column, id_column] + self.y_columns
         print(required_columns)
         # print(self.df.columns)
         for col in required_columns:
@@ -147,11 +148,11 @@ class DataSetSMILES(Dataset):
         w = self.df.iloc[idx]['weight']  # Using .iloc to avoid SettingWithCopyWarning
         id_ = self.df.loc[idx, self.id_column]
 
-        if len(x) <= 180:
-            x += [0] * (180 - len(x))
+        if len(x) <= self.max_token:
+            x += [0] * (self.max_token - len(x))
         else:
-            # print(len(x), x)
-            raise ValueError('Token length is larger than 180.')
+            print(id_, len(x), x)
+            raise ValueError(f'Token length is larger than {self.max_token}: {len(x)}')
 
         x = torch.tensor(x, dtype=torch.int)
         return id_, x, y, w, self.df.loc[idx].to_dict()  # Include weight in the return value
