@@ -58,7 +58,7 @@ This project has been tested with the following versions:
 
 ## 📂 Dataset
 
-We use the **CycPeptMPDB** dataset consisting of over 7,000 curated cyclic peptides with experimentally measured membrane permeability under different assay conditions. For more details, see the [paper](#) and `CSV/` folder.
+We use the **CycPeptMPDB** dataset consisting of over 7,000 curated cyclic peptides with experimentally measured membrane permeability under different assay conditions. For more details, see the [paper](#)(to be added) and `CSV/` folder.
 
 ---
 
