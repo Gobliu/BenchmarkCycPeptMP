@@ -1,3 +1,4 @@
+import os
 import sys
 import numpy as np
 import pandas as pd
@@ -5,10 +6,13 @@ from sklearn.svm import SVC, SVR
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import mean_absolute_error, f1_score
 
-from DataLoader import loader_random_split_scaled, loader_scaffold_split_scaled
+# Dynamically append project root to sys.path
+ROOT_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..'))
+if ROOT_DIR not in sys.path:
+    sys.path.insert(0, ROOT_DIR)
 
-sys.path.append('../')
-from Utils import set_seed
+from Utils import set_seed, get_combined_args, get_csv_list
+from ClassicalML.DataLoader import loader_random_split_scaled, loader_scaffold_split_scaled
 
 
 def initialize_model(mode, task):
@@ -103,10 +107,10 @@ def evaluate_model(model, data, split_seed, test_csv_path, is_classification=Fal
     test_df[f'Pred_{split_seed}'] = (pred_test + 6) / 2 if not is_classification else pred_test
 
     print(f"Saving CSV of test data to: {test_csv_path}")
-    # test_df.to_csv(test_csv_path, index=False)
+    test_df.to_csv(test_csv_path, index=False)
 
 
-def run_experiment(mode, task, split_type):
+def main():
     """
     Runs regression or classification experiments with random or scaffold splits.
 
@@ -115,47 +119,39 @@ def run_experiment(mode, task, split_type):
     - task (str): 'regression' or 'classification'
     - split_type (str): 'random' or 'scaffold'
     """
-    if mode not in ['SVM', 'RF']:
-        raise ValueError(f"Invalid mode: '{mode}'. Expected 'SVM' or 'RF'.")
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    args = get_combined_args()
+    assert args.model in ['SVM', 'RF'], f'MLMain.py does not handle model {args.model}...'
+    assert args.mode != 'soft', f'!!! SVM and RF has no classification with soft label'
 
-    if task not in ['regression', 'classification']:
-        raise ValueError(f"Invalid task: '{task}'. Expected 'regression' or 'classification'.")
+    is_classification = (args.mode == 'classification')
+    print(f"Running model: {args.model} mode: {args.mode} split: {args.split}")
 
-    if split_type not in ['random', 'scaffold']:
-        raise ValueError(f"Invalid split type: '{split_type}'. Expected 'random' or 'scaffold'.")
-
-    is_classification = (task == 'classification')
-    print(f"Running mode: {mode} task: {task} split: {split_type}")
-
-    for split_seed in range(1, 11):
+    for split_seed in range(1, args.repeat+1):
         set_seed(123 * split_seed ** 2)
 
-        if split_type == 'random':
+        if args.split == 'random':
             data = loader_random_split_scaled(split_seed)
         else:  # scaffold split
-            mol_length_list = [6, 7, 10]
-            train_list = [f'../CSV/Data/mol_length_{i}_train.csv' for i in mol_length_list]
-            test_list = [f'../CSV/Data/mol_length_{i}_test.csv' for i in mol_length_list]
-            data = loader_scaffold_split_scaled(train_list, test_list)
+            csv_list = get_csv_list(args)
+            data = loader_scaffold_split_scaled(csv_list[0], csv_list[2])
 
-        test_csv_path = f"../CSV/Predictions/random/{task}/{mode}_seed{split_seed}.csv"
+        test_csv_path = os.path.join(cur_dir,
+                                     f"../CSV/Predictions/{args.split}/{args.mode}/{args.model}_seed{split_seed}.csv")
 
         # Initialize and train model
-        model = initialize_model(mode, task)
+        model = initialize_model(args.model, args.mode)
         model = train_model(model, data['train'][0], data['train'][1], is_classification)
 
-        # Uncomment below to run inference on mol length 8 and 9 only
-        test_list = [f'../CSV/Data/mol_length_{i}.csv' for i in [8, 9]]
-        data = loader_scaffold_split_scaled(test_list, test_list)
-        test_csv_path = f"../CSV/Predictions/scaffold/{task}/{mode}_mol_length89_seed{split_seed}.csv"
+        # ==== Uncomment below to run inference on mol length 8 and 9 only
+        # test_list = [f'../CSV/Data/mol_length_{i}.csv' for i in [8, 9]]
+        # data = loader_scaffold_split_scaled(test_list, test_list)
+        # test_csv_path = f"../CSV/Predictions/scaffold/{args.mode}/{args.model}_mol_length89_seed{split_seed}.csv"
+        # ====
 
         # Evaluate model
         evaluate_model(model, data, split_seed, test_csv_path, is_classification)
 
 
 if __name__ == '__main__':
-    mode_ = 'SVM'  # Choose 'SVM' or 'RF'
-    task_ = 'regression'  # Choose 'regression' or 'classification'
-    split_type_ = 'scaffold'  # Choose 'random' or 'scaffold'
-
-    run_experiment(mode_, task_, split_type_)
+    main()

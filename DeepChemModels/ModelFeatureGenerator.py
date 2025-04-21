@@ -2,11 +2,11 @@ import deepchem as dc
 
 
 def generate_model_feature(m_name, n_tasks, args):
-    op_dir = f"{args['model_dir']}/{args['split']}/{args['mode']}"
-    mode = args['mode']
+    op_dir = f"{args.model_dir}/{args.split}/{args.mode}"
+    mode = args.mode
     if mode == 'soft':
         mode = 'classification'
-    batch_size = args['batch_size']
+    batch_size = args.batch_size
     if m_name == 'GCN':
         feat = dc.feat.MolGraphConvFeaturizer()
         net = dc.models.GCNModel(n_tasks=n_tasks, mode=mode, model_dir=f"{op_dir}/{m_name}", batch_size=batch_size)

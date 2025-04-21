@@ -1,5 +1,5 @@
 import os.path
-from copy import deepcopy
+import argparse
 from typing import Any, Dict, List
 
 
@@ -12,27 +12,31 @@ def model_trainer(
     score_name: str,
     transformers: List[Any],
     text: str,
-    args: Dict[str, Any]
+    args: argparse.Namespace
 ) -> Any:
     """
-    Trains a model and performs early stopping based on validation loss.
+    Trains a model and performs early stopping based on validation performance.
 
     Parameters:
-    model (Any): The model to be trained.
-    save_dir (str): Directory where the best model checkpoints will be saved.
-    train_data (Any): Training data.
-    valid_data (Any): Validation data.
-    metrics (List[Any]): List of metrics for evaluation.
-    transformers (List[Any]): List of data transformers.
-    text (str): Additional text for logging.
-    args (Dict[str, Any]): Dictionary of arguments including 'mode', 'n_epoch', and 'patience'.
+    model (Any): The model to be trained (e.g., a DeepChem model).
+    save_dir (str): Directory where the best model checkpoint will be saved.
+    train_data (Any): Dataset for training (must be compatible with model.fit()).
+    valid_data (Any): Dataset for validation (used to monitor performance).
+    metrics (List[Any]): List of evaluation metric objects.
+    score_name (str): Name of the metric to monitor for early stopping.
+    transformers (List[Any]): List of data transformers applied to datasets.
+    text (str): Label or description for logging output.
+    args (argparse.Namespace): Argument namespace. Must contain:
+        - mode (str): One of ['regression', 'classification', 'soft'].
+        - n_epoch (int): Number of training epochs.
+        - patience (int): Number of epochs without improvement before stopping.
 
     Returns:
-    Any: The best model found during training.
+    Any: The best model (with weights restored from checkpoint if applicable).
     """
-    if args['mode'] == 'regression':
+    if args.mode == 'regression':
         current_loss = float('inf')
-    elif args['mode'] == 'classification' or args['mode'] == 'soft':
+    elif args.mode == 'classification' or args.mode == 'soft':
         current_loss = float('-inf')  # Use negative infinity for classification
     else:
         raise ValueError("Invalid mode. Mode should be 'regression' or 'classification'.")
@@ -40,7 +44,7 @@ def model_trainer(
     current_patient = 0
     # best_model = deepcopy(model)
 
-    for epoch in range(args['n_epoch']):
+    for epoch in range(args.n_epoch):
         loss = model.fit(train_data, nb_epoch=1, checkpoint_interval=0)
         # print(model.predict(train_data)[:5, :])
         # print(train_data.y[:5, :])
@@ -48,8 +52,8 @@ def model_trainer(
         valid_loss = valid_metrics[score_name]
         print(f"{text} - Epoch {epoch}: Train loss: {loss}, Validation metric: {score_name} {valid_loss}")
 
-        if (args['mode'] == 'regression' and valid_loss < current_loss) or \
-           ((args['mode'] == 'classification' or args['mode'] == 'soft') and valid_loss > current_loss):
+        if (args.mode == 'regression' and valid_loss < current_loss) or \
+           ((args.mode == 'classification' or args.mode == 'soft') and valid_loss > current_loss):
             current_loss = valid_loss
             current_patient = 0
             # best_model = deepcopy(model)  # Update best model
@@ -58,7 +62,7 @@ def model_trainer(
         else:
             current_patient += 1
 
-        if current_patient > args['patience']:
+        if current_patient > args.patience:
             print(f"Early stopping. Validation loss {current_loss} did not improve for {current_patient} epochs.")
             break
 

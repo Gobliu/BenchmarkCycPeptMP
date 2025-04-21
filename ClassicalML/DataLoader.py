@@ -1,5 +1,9 @@
+import os
 import pandas as pd
 from sklearn.preprocessing import StandardScaler
+
+
+DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../CSV/Data')
 
 
 def preprocess_data(df, drop_cols_range, target_col='Permeability'):
@@ -36,8 +40,8 @@ def loader_random_split_scaled(split_seed):
     Returns:
     - dict: Processed train and test datasets with DataFrame.
     """
-    df_all = pd.read_csv("../CSV/Data/CycPeptMPDB_Peptide_All.csv", low_memory=False)
-    df_random_split = pd.read_csv("../CSV/Data/Random_Split.csv")
+    df_all = pd.read_csv(os.path.join(DATA_DIR, "CycPeptMPDB_Peptide_All.csv"), low_memory=False)
+    df_random_split = pd.read_csv(os.path.join(DATA_DIR, "Random_Split.csv"))
 
     grouped = df_random_split.groupby(f'split{split_seed}')
 
@@ -68,7 +72,7 @@ def loader_scaffold_split_scaled(train_list, test_list):
     Returns:
     - dict: Processed train and test datasets with DataFrame.
     """
-    df_all = pd.read_csv("../CSV/Data/CycPeptMPDB_Peptide_All.csv", low_memory=False)
+    df_all = pd.read_csv(os.path.join(DATA_DIR, "CycPeptMPDB_Peptide_All.csv"), low_memory=False)
 
     # Load and concatenate training datasets
     dfs = [pd.read_csv(file) for file in train_list]

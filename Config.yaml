@@ -1,9 +1,11 @@
 ---
-n_epoch:          2000
+n_epoch:          1
 batch_size:       64
 patience:         20
 # === change together ===
-split:            'random'        # random/scaffold
+split:            'scaffold'        # random/scaffold
 mode:             'classification'    # regression/classification/soft
-model_dir:        '../../SavedModel/BenchmarkCycPeptMP/'
-csv_dir:          '../CSV/Predictions/'
+model_dir:        '../SavedModel/BenchmarkCycPeptMP/'
+csv_dir:          './CSV/Predictions/'
+model:            'PAGTN'
+repeat:           1
