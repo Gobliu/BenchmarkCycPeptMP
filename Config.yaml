@@ -1,5 +1,5 @@
 ---
-n_epoch:          1
+n_epoch:          2000
 batch_size:       64
 patience:         20
 # === change together ===
@@ -8,4 +8,4 @@ mode:             'classification'    # regression/classification/soft
 model_dir:        '../SavedModel/BenchmarkCycPeptMP/'
 csv_dir:          './CSV/Predictions/'
 model:            'PAGTN'
-repeat:           1
+repeat:           10
