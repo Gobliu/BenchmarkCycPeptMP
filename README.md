@@ -107,5 +107,5 @@ python DispatcherMain.py --model GRU --mode regression --split scaffold --n_epoc
 Same idea as (3), but calls the main script explicitly:
 
 ```bash
-python DeepChemModels/DeepChemMain.py --model=DMPNN --split=random --mode=soft --batch_size=128
+python DeepChemModels/DeepChemModelsMain.py --model=DMPNN --split=random --mode=soft --batch_size=128
 ```
