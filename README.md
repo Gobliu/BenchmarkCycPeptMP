@@ -90,7 +90,7 @@ Automatically detects the model type and dispatches to the appropriate main scri
 Each main script will read `Config.yaml` as the default:
 
 ```bash
-python ClassicalModels/MLMain.py
+python ClassicalML/MLMain.py
 ```
 or
 ```bash
