@@ -90,6 +90,14 @@ Automatically detects the model type and dispatches to the appropriate main scri
 Each main script will read `Config.yaml` as the default:
 
 ```bash
+python ClassicalModels/MLMain.py
+```
+or
+```bash
+python DeepChemModels/DeepChemModelsMain.py
+```
+or
+```bash
 python PytorchModels/PytorchModelsMain.py
 ```
 Works the same as DispatcherMain but calls the script explicitly.
