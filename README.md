@@ -62,3 +62,50 @@ We use the **CycPeptMPDB** dataset consisting of over 7,000 curated cyclic pepti
 
 ---
 
+## 🚀 How to Train a Model
+
+There are **four ways** to train a model in this repository:
+
+---
+
+### 1. Use `DispatcherMain.py` with `Config.yaml` (**Recommended**)
+
+Edit `Config.yaml` to specify the training configuration, such as:
+
+```yaml
+model: RNN
+mode: classification
+split: random
+n_epoch: 1000
+```
+Them run:
+```
+python DispatcherMain.py
+```
+Automatically detects the model type and dispatches to the appropriate main script.
+
+
+### 2. Run a main script directly with `Config.yaml`
+
+Each main script will read `Config.yaml` as the default:
+
+```bash
+python PytorchModels/PytorchModelsMain.py
+```
+Works the same as DispatcherMain but calls the script explicitly.
+
+### 3. Use `DispatcherMain.py` and override `Config.yaml` via command-line
+
+You can override settings defined in `Config.yaml` by passing command-line arguments:
+
+```bash
+python DispatcherMain.py --model GRU --mode regression --split scaffold --n_epoch 2000
+```
+
+### 4. Run a main script and override `Config.yaml` via command-line
+
+Same idea as (3), but calls the main script explicitly:
+
+```bash
+python DeepChemModels/DeepChemMain.py --model=DMPNN --split=random --mode=soft --batch_size=128
+```
