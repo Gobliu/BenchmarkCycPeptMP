@@ -28,7 +28,7 @@ def random_splitter(df, repeat_split=10):
     unique_df = df[~df['Structurally_Unique_ID'].isin(repeated_values)]
     print(len(df), len(duplicated_df), len(unique_df))
     # quit()
-    for i in range(repeat_split):
+    for i in range(1, repeat_split+1):
         # Split data into train (80%) and temp (20%)
         train_df, temp_df = train_test_split(unique_df, test_size=0.2, random_state=i)
 
