@@ -33,6 +33,19 @@ This project has been tested with the following versions:
 - `RDKit==2022.09.4`  
 - `PyTorch==2.0.1`
 
+The current version of `DeepChem` does not support classification tasks with soft labels, we modified
+function `SparseSoftmaxCrossEntropy` in `/YOURPATH/deepchem/models/losses.py` (line 294) from:
+```
+return ce_loss(output, labels.long())
+```
+to
+
+```
+if len(labels.shape) == len(output.shape)  and labels.size(-1) == output.size(-1):
+    return ce_loss(output, labels)
+else:
+    return ce_loss(output, labels.long())
+```
 ---
 
 ## 🧪 Models Evaluated
