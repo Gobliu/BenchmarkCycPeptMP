@@ -7,49 +7,7 @@ from scipy.stats import pearsonr
 import matplotlib.pyplot as plt
 
 from Metrices import regression_matrices, classification_matrices
-# from Metrices import ensemble_pred_regression, ensemble_pred_classification
-
-# def regression_matrices(true, pred):
-#     print('Converting to original value')
-#     print(f'ground truth: max {true.max():.3f}, min {true.min():.3f}')
-#     print(f'prediction: mean {pred.max():.3f}, min {pred.min():.3f}')
-#     mae = mean_absolute_error(true, pred)
-#     rmse = mean_squared_error(true, pred, squared=False)
-#     r2 = r2_score(true, pred)
-#     pearson_r, _ = pearsonr(true, pred)
-#     print(f"mae {mae:.3f}, rmse {rmse:.3f}, r2 {r2:.3f}, pearson_r {pearson_r:.3f}")
-#     return mae, rmse, r2, pearson_r
-#
-#
-# def classification_matrices(true, pred, cutoff=0.5):
-#     print('Converting to binary')
-#     print(f'ground truth: max {true.max():.3f}, min {true.min():.3f}')
-#     print(f'prediction: max {pred.max():.3f}, min {pred.min():.3f}')
-#     true[true < 0.5] = 0
-#     true[true >= 0.5] = 1
-#     true = true.astype(int)
-#     fpr, tpr, thresholds = roc_curve(true, pred)
-#
-#     # Calculate the AUC
-#     roc_auc = auc(fpr, tpr)
-#
-#     pred = pred.copy()
-#     pred[pred < cutoff] = 0
-#     pred[pred >= cutoff] = 1
-#
-#     f1 = f1_score(true, pred)
-#     print(f"auc: {roc_auc}, f1: {f1:.2f}")
-#     acc = accuracy_score(true, pred)
-#     precision = precision_score(true, pred)
-#     recall = recall_score(true, pred)
-#
-#     conf_matrix = confusion_matrix(true, pred)
-#     print(np.sum(true), np.sum(pred))
-#     print("Confusion Matrix:")
-#     print(conf_matrix)
-#     print('fpr', conf_matrix[0, 1] / np.sum(conf_matrix[0, :]))
-#     print('tpr', conf_matrix[1, 1] / np.sum(conf_matrix[1, :]))
-#     return roc_auc, f1, acc, precision, recall
+from Metrices import ensemble_pred_regression, ensemble_pred_classification
 
 
 def ensemble_pred_regression(csv_files, metric_csv_path):
