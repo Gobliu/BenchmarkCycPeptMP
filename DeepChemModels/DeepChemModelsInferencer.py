@@ -15,7 +15,7 @@ from Utils import get_combined_args
 def deepchem_models_inferencer(m_names):
     args = get_combined_args()
     for model_name in m_names:
-        print(f'==== training {model_name} model ====')
+        print(f'==== inference {model_name} model ====')
 
         # rms, rms_score = rms_dict[args['mode']]
         tasks = task_dict[args.mode]
@@ -50,8 +50,9 @@ def deepchem_models_inferencer(m_names):
                 elif args.mode == 'classification' or args.mode == 'soft':
                     print(model.predict(test_cp).shape)
                     test_df[f'Pred_{split_seed}'] = model.predict(test_cp).squeeze()[:, 1]
-            test_csv_path = f"{args.csv_dir}/{args.split}/{args.mode}/{model_name}_{csv_name}"
-            # print(test_csv_path)
+            # test_csv_path = f"{args.csv_dir}/{args.split}/{args.mode}/{model_name}_{csv_name}"
+            test_csv_path = f"./{model_name}_{csv_name}"
+            print(test_csv_path)
             print('Saving csv of test data to', test_csv_path)
             test_df.to_csv(test_csv_path, index=False)
 
@@ -62,8 +63,9 @@ if __name__ == '__main__':
                 'regression': [dc.metrics.Metric(dc.metrics.score_function.rms_score), 'rms_score'],
                 'soft': [dc.metrics.Metric(dc.metrics.prc_auc_score), 'prc_auc_score']}
 
-    csv_list = [f'../CSV/Data/mol_length_{i}.csv' for i in [8, 9]]
+    # csv_list = [f'../CSV/Data/mol_length_{i}.csv' for i in [8, 9]]
+    csv_list = [f'../CSV/Data/Random_Split.csv']
 
     print('Working on csv list:', csv_list)
     model_list = ['DMPNN', 'GCN', 'GAT', 'MPNN', 'PAGTN', 'AttentiveFP', 'ChemCeption']
-    deepchem_models_inferencer(model_list[:])
+    deepchem_models_inferencer(model_list[:1])

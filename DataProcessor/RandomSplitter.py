@@ -24,8 +24,8 @@ def random_splitter(df, repeat_split=10):
     repeated_values = [value for value, count in value_counts.items() if count > 1]
 
     # Filter the DataFrame based on repeated values
-    duplicated_df = df[df['Structurally_Unique_ID'].isin(repeated_values)]
-    unique_df = df[~df['Structurally_Unique_ID'].isin(repeated_values)]
+    duplicated_df = df[df['Structurally_Unique_ID'].isin(repeated_values)].copy()
+    unique_df = df[~df['Structurally_Unique_ID'].isin(repeated_values)].copy()
     print(len(df), len(duplicated_df), len(unique_df))
     # quit()
     for i in range(1, repeat_split+1):
