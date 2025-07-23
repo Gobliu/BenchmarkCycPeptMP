@@ -72,7 +72,7 @@ axes[2].tick_params(axis='both', direction='in', labelsize=16)
 
 labels = ['A', 'B', 'C']
 for i, ax in enumerate(axes):
-    ax.text(-0.1, 0, labels[i], transform=ax.transAxes,
+    ax.text(-0.1, 1.1, labels[i], transform=ax.transAxes,
             fontsize=20, fontweight='bold', va='top', ha='right')
 
 plt.tight_layout()

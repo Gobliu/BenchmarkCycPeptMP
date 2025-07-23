@@ -5,97 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4632c7d2-86ee-4ac8-8e89-c7779d9397ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Temp/temp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive/PDBDownloader.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Archive/Scaffold_Split.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/4in1-10Blocks.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/4in1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/CycPeptMPDB_Peptide_All (copy).csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/Random_Split.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/Random_Split.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_10_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_10_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_10_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_10_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_10_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_10_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_6_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_6_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_6_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_6_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_6_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_6_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_7_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_7_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_7_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_7_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data/mol_length_7_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Data/mol_length_7_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/4in1-10Blocks.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/4in1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/CycPeptMPDB_Peptide_All (copy).csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/CycPeptMPDB_Peptide_All.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/Leave_One_Out/CycPeptMPDB_Peptide_All.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/Multp_cycGT.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/Random_Split.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/Random_Split.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_10_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_10_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_10_valid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_6_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_6_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_6_valid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_7_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_7_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/b4TPSA/mol_length_7_valid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_10_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_10_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_10_valid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_11.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_12.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_13.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_14.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_15.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_6_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_6_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_6_valid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_7_test.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_7_train.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_7_valid.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_89.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_8and9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Data_backup/mol_length_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RF_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/RNN_ipsize128_hsize128_numlayer2_lr0.0001_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/SVM_seed1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/with_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_1.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_10.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_2.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_3.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_4.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_5.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_6.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_7.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_8.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/classification/without_pre_train/GRU_ipsize128_hsize128_numlayer2_lr0.001_9.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed1.csv" beforeDir="false" afterPath="$PROJECT_DIR$/CSV/Predictions/random/regression/GCN_seed1.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Config.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/Config.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataProcessor/AddTPSA.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/AddTPSA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataProcessor/AddingLabel.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/AddingLabel.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DataProcessor/RandomSplitter.py" beforeDir="false" afterPath="$PROJECT_DIR$/DataProcessor/RandomSplitter.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/DeepChemModelsMain.py" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/DeepChemModelsMain.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/temp_test.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/temp_test.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/temp_train.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/temp_train.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DeepChemModels/temp_valid.csv" beforeDir="false" afterPath="$PROJECT_DIR$/DeepChemModels/temp_valid.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Metrices.py" beforeDir="false" afterPath="$PROJECT_DIR$/Metrices.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ResultAnalyzer/MoleculeDiversity_IntraSubset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ResultAnalyzer/MoleculeSimilarity_InterSubset.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ResultAnalyzer/Plot_FPR_TPR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/ScatterPlot3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/ScatterPlot3.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Plots/scatter_plot2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/scatter_plot2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/CompareROCAUC.py" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/CompareROCAUC.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_0.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_1.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/MoleculeDiversity.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictHistogram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictHistogram_0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictHistogram_1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictionHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/PredictionHistogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/ROC-AUC.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/ROC-AUC.pdf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/ROC-AUC.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,11 +51,19 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "/home/liuwei/GitHub/BenchmarkCycPeptMP/ResultAnalyzer",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
-  <component name="RunManager" selected="Python.Metrices">
-    <configuration name="CompareROCAUC" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/ResultAnalyzer" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.PredictionHistogram">
+    <configuration name="MoleculeDiversity_IntraSubset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BenchmarkCycPeptMP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -142,7 +75,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ResultAnalyzer/CompareROCAUC.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ResultAnalyzer/MoleculeDiversity_IntraSubset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -151,7 +84,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="DeepChemModelsMain" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="MoleculeSimilarity_InterSubset" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BenchmarkCycPeptMP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -159,11 +92,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DeepChemModels" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ResultAnalyzer" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DeepChemModels/DeepChemModelsMain.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ResultAnalyzer/MoleculeSimilarity_InterSubset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -172,7 +105,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="Metrices" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="Plot_FPR_TPR" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BenchmarkCycPeptMP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -180,11 +113,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ResultAnalyzer" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Metrices.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ResultAnalyzer/Plot_FPR_TPR.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -193,7 +126,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="RandomSplitter" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="PredictionHistogram" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BenchmarkCycPeptMP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -201,11 +134,11 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/DataProcessor" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ResultAnalyzer" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/DataProcessor/RandomSplitter.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ResultAnalyzer/PredictionHistogram.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -214,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="scatter_plot2" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="BenchmarkCycPeptMP" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -222,122 +155,26 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="BenchmarkCycPeptMP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Temp" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Plots" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Temp/temp.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Plots/scatter_plot2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="BenchmarkCycPeptMP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="BenchmarkCycPeptMP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="BenchmarkCycPeptMP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="BenchmarkCycPeptMP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="BenchmarkCycPeptMP" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Metrices" />
-        <item itemvalue="Python.CompareROCAUC" />
-        <item itemvalue="Python.RandomSplitter" />
-        <item itemvalue="Python.DeepChemModelsMain" />
-        <item itemvalue="Python.temp" />
+        <item itemvalue="Python.PredictionHistogram" />
+        <item itemvalue="Python.MoleculeDiversity_IntraSubset" />
+        <item itemvalue="Python.MoleculeSimilarity_InterSubset" />
+        <item itemvalue="Python.scatter_plot2" />
+        <item itemvalue="Python.Plot_FPR_TPR" />
       </list>
     </recent_temporary>
   </component>

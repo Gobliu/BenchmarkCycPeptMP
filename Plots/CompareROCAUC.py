@@ -61,7 +61,7 @@ def plot_roc_auc():
 
         # Plot with confidence interval
         plt.plot(mean_fpr, mean_tpr, color=color,
-                 label=f'{mode} (AUC = {mean_auc:.2f} ± {std_auc:.2f})',
+                 label=f'{mode} (AUC={mean_auc:.2f}±{std_auc:.2f})',
                  lw=2)
         plt.fill_between(mean_fpr,
                          mean_tpr - std_tpr,
@@ -72,11 +72,12 @@ def plot_roc_auc():
     plt.plot([0, 1], [0, 1], 'k--', lw=2, label='Random')
     plt.xlim([-0.05, 1.05])
     plt.ylim([-0.05, 1.05])
-    plt.tick_params(axis='both', direction='in', labelsize=14)
-    plt.xlabel('False Positive Rate', fontsize=16)
-    plt.ylabel('True Positive Rate', fontsize=16)
-    plt.title(f'Mean ROC curves by {model} model, {split} split', fontsize=14)
-    plt.legend(loc="lower right", fontsize=14)
+    plt.tick_params(axis='both', direction='in', labelsize=20)
+    plt.xlabel('False Positive Rate', fontsize=20)
+    plt.ylabel('True Positive Rate', fontsize=20)
+    plt.title(f'Mean ROC curves of {model} model, {split} split', fontsize=24)
+    plt.legend(loc="lower right", fontsize=20)
+    plt.tick_params(axis='both', direction='in', labelsize=16)
     plt.grid(True, alpha=0.3)
 
     # Save and show
