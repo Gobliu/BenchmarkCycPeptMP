@@ -1,0 +1,13 @@
+# Ignore macOS files
+.DS_Store
+
+# Ignore Python bytecode
+__pycache__/
+*.pyc
+
+# Ignore NSCC related files
+out-run.txt
+jobsub.sh
+
+#Ignore Zone.Identifier files from WSL
+*:Zone.Identifier

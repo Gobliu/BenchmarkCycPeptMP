@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4632c7d2-86ee-4ac8-8e89-c7779d9397ff" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/ResultAnalyzer/MoleculeDiversity_IntraSubset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ResultAnalyzer/MoleculeSimilarity_InterSubset.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ResultAnalyzer/Plot_FPR_TPR.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/ScatterPlot3.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/ScatterPlot3.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Plots/scatter_plot2.py" beforeDir="false" afterPath="$PROJECT_DIR$/Plots/scatter_plot2.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/CompareROCAUC.py" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/CompareROCAUC.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_0.png" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/CumulativePredictHistogram_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/MoleculeDiversity.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictHistogram.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictHistogram_0.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictHistogram_1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/PredictionHistogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/PredictionHistogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/ROC-AUC.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/ResultAnalyzer/ROC-AUC.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ResultAnalyzer/ROC-AUC.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
