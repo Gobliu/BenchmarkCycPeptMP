@@ -1,5 +1,5 @@
 # BenchmarkCycPeptMP
-PyTorch implementation for *__An extensive benchmark study on membrane permeability prediction of cyclic peptides__* <br />
+PyTorch implementation for *__Systematic benchmarking of 13 AI methods for predicting cyclic peptide membrane permeability__* <br />
 
 Wei Liu, Jianguo Li, Chandra S. Verma and Hwee Kuan Lee*
 
@@ -71,7 +71,7 @@ else:
 
 ## 📂 Dataset
 
-We use the **CycPeptMPDB** dataset consisting of over 7,000 curated cyclic peptides with experimentally measured membrane permeability under different assay conditions. For more details, see the [paper](#) and `CSV/` folder.
+We use the **CycPeptMPDB** dataset consisting of over 7,000 curated cyclic peptides with experimentally measured membrane permeability under different assay conditions. For more details, see the [paper](#https://doi.org/10.1186/s13321-025-01083-4) and `CSV/` folder.
 
 ---
 
