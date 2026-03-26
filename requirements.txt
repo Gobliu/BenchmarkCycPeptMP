@@ -1,0 +1,54 @@
+# Core ML frameworks
+torch==2.0.1+cu118
+deepchem==2.7.1
+rdkit==2022.9.4
+
+# PyTorch Geometric (for DMPNN, AttentiveFP, PAGTN)
+torch-geometric==2.7.0
+torch-scatter==2.1.2+pt20cu117
+torch-sparse==0.6.18+pt20cu117
+torch-cluster==1.6.3+pt20cu117
+torch-spline-conv==1.2.2+pt20cu117
+
+# DGL (for GAT, GCN, MPNN)
+dgl==2.1.0
+dgllife==0.3.2
+torchdata==0.6.1
+pydantic>=2.0
+
+# TensorFlow (for ChemCeption only)
+tensorflow==2.15.1
+
+# Scientific computing
+scikit-learn>=1.2
+scipy>=1.8
+pandas>=2.0
+numpy>=1.23,<2
+matplotlib>=3.7
+
+# Utilities
+pyyaml>=6.0
+tqdm>=4.60
+setuptools<70  # deepchem requires pkg_resources, removed in setuptools>=70
+
+# Known GPU compatibility issue:
+# DeepChem 2.7.1 requires PyTorch 2.0.1, which only ships CUDA 11.8 kernels.
+# GPUs with Blackwell (RTX 50xx) or Ada Lovelace (RTX 40xx) architecture need
+# CUDA 12.x+ and PyTorch >= 2.2 (Blackwell needs >= 2.6). Because DeepChem
+# pins the older PyTorch, these GPUs cannot run CUDA — models will fall back
+# to CPU-only mode. This affects all PyTorch and DeepChem models (DMPNN, GRU,
+# etc.) but not classical ML models (RF, SVM) which use scikit-learn on CPU.
+# For GPU acceleration, either use an older GPU (Ampere / RTX 30xx or earlier)
+# or wait for a DeepChem release compatible with PyTorch >= 2.6.
+
+# Install notes:
+# 1. Create conda env:  conda create -n BenchCycPept python=3.10 -y
+# 2. Install PyTorch first:
+#      pip install torch==2.0.1+cu118 --extra-index-url https://download.pytorch.org/whl/cu118
+# 3. Install PyG extensions:
+#      pip install torch-scatter torch-sparse torch-cluster torch-spline-conv \
+#        -f https://data.pyg.org/whl/torch-2.0.1+cu118.html
+# 4. Install DGL:
+#      pip install dgl -f https://data.dgl.ai/wheels/torch-2.0/cu118/repo.html
+# 5. Install the rest:
+#      pip install -r requirements.txt

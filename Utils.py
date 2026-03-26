@@ -91,7 +91,11 @@ def get_csv_list(args):
         ]
 
     elif args.split == 'random':
-        return [os.path.join(data_dir, "Random_Split.csv")]
+        csv_name = getattr(args, 'data_csv', 'Random_Split.csv')
+        csv_path = os.path.join(data_dir, csv_name)
+        if not os.path.exists(csv_path):
+            raise FileNotFoundError(f"Data CSV not found: {csv_path}")
+        return [csv_path]
 
     else:
         raise ValueError(f"Unsupported split type: {args.split}. Must be 'scaffold' or 'random'.")
