@@ -127,7 +127,7 @@ def main():
     is_classification = (args.mode == 'classification')
     print(f"Running model: {args.model} mode: {args.mode} split: {args.split}")
 
-    for split_seed in range(1, args.repeat+1):
+    for split_seed in range(args.repeat):
         set_seed(123 * split_seed ** 2)
 
         if args.split == 'random':

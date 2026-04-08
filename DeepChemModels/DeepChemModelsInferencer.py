@@ -33,7 +33,7 @@ def deepchem_models_inferencer(m_names):
             csv_name = csv.split('/')[-1]
             print(csv_name)
             test_cp = p2distribution(test_cp)
-            for split_seed in range(1, args.repeat+1):
+            for split_seed in range(args.repeat):
                 if model_name != 'ChemCeption':
                     wp = f"{args.model_dir}/{args.split}/{args.mode}/{model_name}/checkpoint_seed{split_seed}.pt"
                     print('Loading', wp)

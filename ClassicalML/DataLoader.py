@@ -43,7 +43,7 @@ def loader_random_split_scaled(split_seed):
     df_all = pd.read_csv(os.path.join(DATA_DIR, "CycPeptMPDB_Peptide_All.csv"), low_memory=False)
     df_random_split = pd.read_csv(os.path.join(DATA_DIR, "Random_Split.csv"))
 
-    grouped = df_random_split.groupby(f'split{split_seed}')
+    grouped = df_random_split.groupby(f'split_{split_seed}')
 
     # Save temporary train and test datasets
     for group_name, group_df in grouped:

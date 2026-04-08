@@ -36,7 +36,7 @@ def main():
     # print(rms, rms_score)
     # quit()
     tasks = task_dict[args.mode]
-    for split_seed in range(1, args.repeat+1):
+    for split_seed in range(args.repeat):
         set_seed(123 * split_seed ** 2)
         feat, model = generate_model_feature(args.model, len(tasks), args)
         print(model.loss, model.optimizer, model.optimizer.learning_rate)
@@ -48,29 +48,36 @@ def main():
         os.makedirs(weight_dir, exist_ok=True)
         csv_dir = f"{args.csv_dir}/{args.split}/{args.mode}"
         os.makedirs(csv_dir, exist_ok=True)
-        print('==== pre train ====')
-        if args.mode == 'regression':
-            _, datasets_pre_train, transformers_pre_train = dc.molnet.load_delaney(
-                featurizer=feat, splitter='random'
+        pretrain_epoch = getattr(args, 'pretrain_epoch', args.n_epoch)
+        pretrain_patience = getattr(args, 'pretrain_patience', args.patience)
+
+        if pretrain_epoch > 0:
+            print('==== pre train ====')
+            if args.mode == 'regression':
+                _, datasets_pre_train, transformers_pre_train = dc.molnet.load_delaney(
+                    featurizer=feat, splitter='random'
+                )
+            elif args.mode == 'classification' or args.mode == 'soft':
+                _, datasets_pre_train, transformers_pre_train = dc.molnet.load_bbbp(
+                    featurizer=feat, splitter='random'
+                )
+
+            train_pre_train, valid_pre_train, test_pre_train = datasets_pre_train
+
+            if len(tasks) > 1:
+                train_pre_train = convert_multitask(train_pre_train, len(tasks))
+                valid_pre_train = convert_multitask(valid_pre_train, len(tasks))
+                # test_pre_train = convert_multitask(test_pre_train, len(tasks))
+
+            model = model_trainer(
+                model, weight_dir,
+                train_pre_train, valid_pre_train,
+                metrics=[m_score], score_name=score_name, transformers=transformers_pre_train,
+                text=f'Pre-Training with seed {split_seed}', args=args,
+                n_epoch=pretrain_epoch, patience=pretrain_patience,
             )
-        elif args.mode == 'classification' or args.mode == 'soft':
-            _, datasets_pre_train, transformers_pre_train = dc.molnet.load_bbbp(
-                featurizer=feat, splitter='random'
-            )
-
-        train_pre_train, valid_pre_train, test_pre_train = datasets_pre_train
-
-        if len(tasks) > 1:
-            train_pre_train = convert_multitask(train_pre_train, len(tasks))
-            valid_pre_train = convert_multitask(valid_pre_train, len(tasks))
-            # test_pre_train = convert_multitask(test_pre_train, len(tasks))
-
-        model = model_trainer(
-            model, weight_dir,
-            train_pre_train, valid_pre_train,
-            metrics=[m_score], score_name=score_name, transformers=transformers_pre_train,
-            text=f'Pre-Training with seed {split_seed}', args=args
-        )
+        else:
+            print('==== skipping pre train (pretrain_epoch=0) ====')
 
         print('==== train cyclic peptide data ====')
         loader = dc.data.CSVLoader(

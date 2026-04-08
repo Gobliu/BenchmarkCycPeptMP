@@ -12,7 +12,9 @@ def model_trainer(
     score_name: str,
     transformers: List[Any],
     text: str,
-    args: argparse.Namespace
+    args: argparse.Namespace,
+    n_epoch: int = None,
+    patience: int = None,
 ) -> Any:
     """
     Trains a model and performs early stopping based on validation performance.
@@ -28,12 +30,17 @@ def model_trainer(
     text (str): Label or description for logging output.
     args (argparse.Namespace): Argument namespace. Must contain:
         - mode (str): One of ['regression', 'classification', 'soft'].
-        - n_epoch (int): Number of training epochs.
-        - patience (int): Number of epochs without improvement before stopping.
+        - n_epoch (int): Number of training epochs (used as fallback).
+        - patience (int): Epochs without improvement before stopping (used as fallback).
+    n_epoch (int, optional): Override for number of epochs. Defaults to args.n_epoch.
+    patience (int, optional): Override for patience. Defaults to args.patience.
 
     Returns:
     Any: The best model (with weights restored from checkpoint if applicable).
     """
+    n_epoch = n_epoch if n_epoch is not None else args.n_epoch
+    patience = patience if patience is not None else args.patience
+
     if args.mode == 'regression':
         current_loss = float('inf')
     elif args.mode == 'classification' or args.mode == 'soft':
@@ -44,7 +51,7 @@ def model_trainer(
     current_patient = 0
     # best_model = deepcopy(model)
 
-    for epoch in range(args.n_epoch):
+    for epoch in range(n_epoch):
         loss = model.fit(train_data, nb_epoch=1, checkpoint_interval=0)
         # print(model.predict(train_data)[:5, :])
         # print(train_data.y[:5, :])
@@ -62,7 +69,7 @@ def model_trainer(
         else:
             current_patient += 1
 
-        if current_patient > args.patience:
+        if current_patient > patience:
             print(f"Early stopping. Validation loss {current_loss} did not improve for {current_patient} epochs.")
             break
 

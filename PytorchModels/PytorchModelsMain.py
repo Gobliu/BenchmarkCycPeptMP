@@ -50,7 +50,7 @@ def prepare_data_loaders(csv_list, split_seed, args, dict_path, x_column, y_colu
         split_csv_list = csv_list
     elif args.split == 'random':
         ip_df = pd.concat([pd.read_csv(csv) for csv in csv_list], ignore_index=True)
-        grouped = ip_df.groupby(f'split{split_seed}')
+        grouped = ip_df.groupby(f'split_{split_seed}')
         for group_name, group_df in grouped:
             group_df.to_csv(f'temp_{group_name}.csv', index=False)
         split_csv_list = [['temp_train.csv'], ['temp_valid.csv'], ['temp_test.csv']]
@@ -83,11 +83,14 @@ def build_model(model_name, input_size, hidden_size, n_layers, y_dim, final_act_
         raise ValueError("Invalid model name...")
 
 
-def train_model(args, model_handler, net, train_loader, valid_loader, weight_path, log_path, valid_gap):
+def train_model(args, model_handler, net, train_loader, valid_loader, weight_path, log_path, valid_gap,
+                n_epoch=None, patience=None):
+    n_epoch = n_epoch if n_epoch is not None else args.n_epoch
+    patience = patience if patience is not None else args.patience
     current_loss = float('inf')
     patience_count = 0
 
-    for i in range(args.n_epoch):
+    for i in range(n_epoch):
         train_loss = model_handler.train(train_loader).item()
         if i % valid_gap == 0:
             valid_loss = model_handler.eval(valid_loader).item()
@@ -106,8 +109,8 @@ def train_model(args, model_handler, net, train_loader, valid_loader, weight_pat
                 patience_count += valid_gap
             with open(log_path, "a") as log:
                 log.write(f"epoch {i}, train {train_loss:.8f}, valid {valid_loss:.8f}, patience count {patience_count}\n")
-                if patience_count > args.patience:
-                    log.write(f"val_loss {current_loss} did not decrease for {args.patience}.\n")
+                if patience_count > patience:
+                    log.write(f"val_loss {current_loss} did not decrease for {patience}.\n")
                     break
 
     with open(log_path, "a") as log:
@@ -161,7 +164,7 @@ def main():
 
     csv_list = get_csv_list(args)
 
-    for split_seed in range(1, args.repeat+1):
+    for split_seed in range(args.repeat):
         set_seed(123 * split_seed ** 2)
 
         net, lr = build_model(args.model, input_size, hidden_size, n_layers, len(y_columns), final_act_fun)
@@ -171,9 +174,16 @@ def main():
 
         model_handler = ModelHandler(net, lr=lr, loss=loss_fun, sch_step=sch_step // valid_gap)
 
-        print("======== start pre-training ========")
-        train_loader_pre, valid_loader_pre = prepare_pretrain_data_loaders(args, dict_path, batch_size)
-        train_model(args, model_handler, net, train_loader_pre, valid_loader_pre, weight_path, log_path, valid_gap)
+        pretrain_epoch = getattr(args, 'pretrain_epoch', args.n_epoch)
+        pretrain_patience = getattr(args, 'pretrain_patience', args.patience)
+
+        if pretrain_epoch > 0:
+            print("======== start pre-training ========")
+            train_loader_pre, valid_loader_pre = prepare_pretrain_data_loaders(args, dict_path, batch_size)
+            train_model(args, model_handler, net, train_loader_pre, valid_loader_pre, weight_path, log_path, valid_gap,
+                        n_epoch=pretrain_epoch, patience=pretrain_patience)
+        else:
+            print("======== skipping pre-training (pretrain_epoch=0) ========")
 
         print("======== start training ========")
         train_loader, valid_loader, test_loader = prepare_data_loaders(

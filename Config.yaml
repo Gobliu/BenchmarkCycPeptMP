@@ -2,11 +2,13 @@
 n_epoch:          2000
 batch_size:       64
 patience:         200
+pretrain_epoch:   2000      # set to 0 to skip pretraining
+pretrain_patience: 200
 # === change together ===
 split:            'random'        # random/scaffold
 mode:             'regression'    # regression/classification/soft
-data_csv:         'Random_Split.csv'  # CSV filename in CSV/Data/ (e.g. Random_Split.csv, Random_Split_4D.csv)
+data_csv:         'Random_Split.csv'  # CSV filename in CSV/Data/ (e.g. Random_Split.csv, CycPeptMPDB_4D.csv)
 model_dir:        '../SavedModel/BenchmarkCycPeptMP/'
 csv_dir:          './CSV/Predictions/'
 model:            'DMPNN'
-repeat:           9
+repeat:           10

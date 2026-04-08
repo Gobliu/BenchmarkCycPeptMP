@@ -21,7 +21,7 @@ def data_loader_all_in_one(csv_list, split_seed, loader):
         print(f)
         df_list.append(pd.read_csv(f))
     ip_df = pd.concat(df_list, ignore_index=True)
-    grouped = ip_df.groupby(f'split{split_seed}')
+    grouped = ip_df.groupby(f'split_{split_seed}')
     for group_name, group_df in grouped:
         group_df.to_csv(f'temp_{group_name}.csv', index=False)
     train = loader.create_dataset('temp_train.csv')
